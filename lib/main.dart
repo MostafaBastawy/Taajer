@@ -6,12 +6,14 @@ import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/app_cubit/bloc_observer.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/register/onboarding.dart';
+import 'package:taajer/shared/components/tools/shared_preference.dart';
 import 'package:taajer/shared/styles/themes.dart';
 import 'package:taajer/translations/codegen_loader.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await CacheHelper.init();
   BlocOverrides.runZoned(
     () {
       runApp(

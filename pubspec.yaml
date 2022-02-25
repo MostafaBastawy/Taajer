@@ -41,11 +41,10 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   image_picker: ^0.8.4+9
   easy_localization: ^3.0.0
-  dio: ^4.0.4
   geolocator: ^8.2.0
   geocoding: ^2.0.2
-  flutter_svg: ^1.0.3
   shimmer: ^2.0.0
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

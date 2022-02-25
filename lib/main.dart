@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/app_cubit/bloc_observer.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
-import 'package:taajer/modules/home_layout.dart';
+import 'package:taajer/modules/authentication/register/language_country_selection.dart';
 import 'package:taajer/shared/styles/themes.dart';
 import 'package:taajer/translations/codegen_loader.g.dart';
 
@@ -60,11 +60,11 @@ class MyApp extends StatelessWidget {
               child: widget!,
             );
           },
-          home: const HomeLayout(),
-          theme: lightTheme,
+          theme: lightTheme(context),
           darkTheme: darkTheme,
           themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
+          home: const LanguageCountryScreen1(),
         ),
       ),
     );

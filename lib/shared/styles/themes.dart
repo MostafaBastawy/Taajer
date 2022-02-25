@@ -6,5 +6,9 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
       fontFamily: EasyLocalization.of(context)!.locale == const Locale('en')
           ? 'Gotham'
           : 'Cairo',
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+      ),
     );
 ThemeData darkTheme = ThemeData();

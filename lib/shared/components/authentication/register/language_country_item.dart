@@ -29,11 +29,6 @@ class LanguageCountryItemBuilder extends StatelessWidget {
             height: 17.16.h,
             image: AssetImage(image!),
           ),
-          // SvgPicture.asset(
-          //   image!,
-          //   width: 33.27.w,
-          //   height: 17.16.h,
-          // ),
           SizedBox(width: 24.37.w),
           Text(
             text!,

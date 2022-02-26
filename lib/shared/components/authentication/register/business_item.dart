@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
 class BusinessItemBuilder extends StatelessWidget {
   String? businessImage;
@@ -43,7 +44,7 @@ class BusinessItemBuilder extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 15.sp,
-                  color: const Color(0xAF1B1D28),
+                  color: primaryBlack,
                   letterSpacing: -0.165,
                 ),
               ),
@@ -53,7 +54,7 @@ class BusinessItemBuilder extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp,
-                  color: const Color(0xAF1B1D28),
+                  color: primaryBlack,
                   letterSpacing: -0.165,
                 ),
               ),

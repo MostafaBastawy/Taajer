@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/models/onboarding_model.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
 class OnBoardingItemBuilder extends StatelessWidget {
   OnBoardingModel? onBoardingModel;
@@ -29,7 +30,7 @@ class OnBoardingItemBuilder extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 35.sp,
-              color: Colors.black,
+              color: primaryBlack,
               letterSpacing: -0.165,
               height: 1),
         ),

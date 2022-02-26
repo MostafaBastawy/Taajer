@@ -7,6 +7,7 @@ import 'package:taajer/modules/authentication/authentication_cubit/authenticatio
 import 'package:taajer/shared/components/authentication/register/onboarding_button.dart';
 import 'package:taajer/shared/components/authentication/register/onboarding_item.dart';
 import 'package:taajer/shared/components/authentication/register/onboarding_list.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
 class OnBoarding extends StatelessWidget {
   var onBoardingController = PageController();
@@ -55,7 +56,7 @@ class OnBoarding extends StatelessWidget {
                     expansionFactor: 2,
                     dotWidth: 10.59,
                     spacing: 8.24,
-                    activeDotColor: Color(0xAF0761FD),
+                    activeDotColor: primaryBlue,
                   ),
                 ),
               ),
@@ -68,7 +69,7 @@ class OnBoarding extends StatelessWidget {
                       width: 162.w,
                       label: 'Skip',
                       onPressed: () {},
-                      labelColor: const Color(0xAF0761FD),
+                      labelColor: primaryBlue,
                       labelWeight: FontWeight.w700,
                       backGroundColor: Colors.white,
                     ),
@@ -80,7 +81,7 @@ class OnBoarding extends StatelessWidget {
                       onPressed: () {},
                       labelColor: Colors.white,
                       labelWeight: FontWeight.w700,
-                      backGroundColor: const Color(0xAF0761FD),
+                      backGroundColor: primaryBlue,
                     ),
                   ],
                 ),
@@ -90,7 +91,7 @@ class OnBoarding extends StatelessWidget {
                   width: 344.w,
                   height: 48.h,
                   decoration: BoxDecoration(
-                    color: const Color(0xAF0761FD),
+                    color: primaryBlue,
                     borderRadius: BorderRadius.circular(6.r),
                   ),
                   child: Center(

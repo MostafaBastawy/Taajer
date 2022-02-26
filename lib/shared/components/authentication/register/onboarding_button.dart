@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
 class OnBoardingButton extends StatelessWidget {
   double? height;
@@ -29,7 +30,7 @@ class OnBoardingButton extends StatelessWidget {
         color: backGroundColor,
         borderRadius: BorderRadius.circular(5.r),
         border: Border.all(
-          color: const Color(0xAF0761FD),
+          color: primaryBlue,
           width: 1.0,
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/shared/components/authentication/register/business_item.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen1 extends StatelessWidget {
   const RegisterScreen1({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class RegisterScreen1 extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 18.sp,
-                  color: const Color(0xAF1B1D28),
+                  color: primaryBlack,
                   letterSpacing: -0.165,
                 ),
               ),

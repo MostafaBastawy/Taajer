@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
 class LanguageCountryItemBuilder extends StatelessWidget {
   String? image;
@@ -33,7 +34,7 @@ class LanguageCountryItemBuilder extends StatelessWidget {
             style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.w500,
-              color: const Color(0xAF000000),
+              color: primaryBlack,
             ),
           ),
           const Spacer(),

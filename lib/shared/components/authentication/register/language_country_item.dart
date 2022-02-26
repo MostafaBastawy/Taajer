@@ -4,12 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class LanguageCountryItemBuilder extends StatelessWidget {
   String? image;
   String? text;
-  IconData? icon;
   LanguageCountryItemBuilder({
     Key? key,
     required this.image,
     required this.text,
-    required this.icon,
   }) : super(key: key);
 
   @override
@@ -39,10 +37,10 @@ class LanguageCountryItemBuilder extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Icon(
-            icon,
+          const Icon(
+            Icons.check_circle,
             size: 26,
-            color: const Color(0xAFDEE6EE),
+            color: Color(0xAFDEE6EE),
           ),
         ],
       ),

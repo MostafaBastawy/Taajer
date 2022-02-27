@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/app_cubit/bloc_observer.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
-import 'package:taajer/modules/authentication/register/registeration3.dart';
+import 'package:taajer/modules/authentication/login/login_screen2.dart';
 import 'package:taajer/shared/components/tools/shared_preference.dart';
 import 'package:taajer/shared/styles/themes.dart';
 import 'package:taajer/translations/codegen_loader.g.dart';
@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
           darkTheme: darkTheme,
           themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
-          home: RegisterScreen3(),
+          home: LoginScreen2(),
         ),
       ),
     );

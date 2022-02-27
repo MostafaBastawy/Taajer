@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
-import 'package:taajer/shared/components/authentication/register/onboarding_button.dart';
 import 'package:taajer/shared/components/authentication/register/onboarding_item.dart';
 import 'package:taajer/shared/components/authentication/register/onboarding_list.dart';
+import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class OnBoarding extends StatelessWidget {
@@ -64,7 +64,7 @@ class OnBoarding extends StatelessWidget {
               if (lastPage == false)
                 Row(
                   children: [
-                    OnBoardingButton(
+                    DefaultButton(
                       height: 46.h,
                       width: 162.w,
                       label: 'Skip',
@@ -74,7 +74,7 @@ class OnBoarding extends StatelessWidget {
                       backGroundColor: Colors.white,
                     ),
                     SizedBox(width: 18.w),
-                    OnBoardingButton(
+                    DefaultButton(
                       height: 46.h,
                       width: 162.w,
                       label: 'Sign In',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
-class OnBoardingButton extends StatelessWidget {
+class DefaultButton extends StatelessWidget {
   double? height;
   double? width;
   String? label;
@@ -10,7 +10,7 @@ class OnBoardingButton extends StatelessWidget {
   Color? backGroundColor;
   Color? labelColor;
   FontWeight? labelWeight;
-  OnBoardingButton({
+  DefaultButton({
     Key? key,
     required this.height,
     required this.width,

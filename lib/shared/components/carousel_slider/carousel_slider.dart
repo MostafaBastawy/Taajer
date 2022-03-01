@@ -11,34 +11,37 @@ class CarouselSliderBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CarouselSliderController sliderController = CarouselSliderController();
-    return Container(
-      width: 343.w,
-      height: 160.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6.r),
-        color: Colors.white,
-      ),
-      child: CarouselSlider.builder(
-        unlimitedMode: true,
-        controller: sliderController,
-        slideBuilder: (index) {
-          return Image(
-            image: AssetImage(carouselSliderItems[index]),
-            fit: BoxFit.cover,
-          );
-        },
-        slideTransform: const CubeTransform(),
-        slideIndicator: CircularSlideIndicator(
-          padding: const EdgeInsets.only(bottom: 5),
-          //indicatorBorderColor: Colors.white,
-          indicatorBackgroundColor: Colors.white.withOpacity(0.5),
-          indicatorRadius: 3.r,
-          currentIndicatorColor: Colors.white,
-          itemSpacing: 12,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(6.r),
+      child: Container(
+        width: 343.w,
+        height: 160.h,
+        // decoration: BoxDecoration(
+        //   borderRadius: BorderRadius.circular(6.r),
+        //   color: Colors.white,
+        // ),
+        child: CarouselSlider.builder(
+          unlimitedMode: true,
+          controller: sliderController,
+          slideBuilder: (index) {
+            return Image(
+              image: AssetImage(carouselSliderItems[index]),
+              fit: BoxFit.cover,
+            );
+          },
+          slideTransform: const CubeTransform(),
+          slideIndicator: CircularSlideIndicator(
+            padding: const EdgeInsets.only(bottom: 5),
+            //indicatorBorderColor: Colors.white,
+            indicatorBackgroundColor: Colors.white.withOpacity(0.5),
+            indicatorRadius: 3.r,
+            currentIndicatorColor: Colors.white,
+            itemSpacing: 12,
+          ),
+          itemCount: carouselSliderItems.length,
+          initialPage: 0,
+          enableAutoSlider: true,
         ),
-        itemCount: carouselSliderItems.length,
-        initialPage: 0,
-        enableAutoSlider: true,
       ),
     );
   }

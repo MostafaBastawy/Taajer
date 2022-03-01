@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
@@ -21,6 +22,11 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           fontWeight: FontWeight.w700,
           letterSpacing: -0.165,
           fontStyle: FontStyle.normal,
+        ),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.red,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark,
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(

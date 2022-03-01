@@ -8,13 +8,12 @@ class LanguageCountryItemBuilder extends StatelessWidget {
   String? text;
   String? fontFamily;
   double? fontHeight = 1.6;
-  FontStyle? fontStyle = FontStyle.italic;
+
   LanguageCountryItemBuilder({
     Key? key,
     required this.image,
     required this.text,
     this.fontHeight,
-    this.fontStyle,
     this.fontFamily,
   }) : super(key: key);
 
@@ -47,7 +46,7 @@ class LanguageCountryItemBuilder extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: figmaOurBlack,
               fontFamily: fontFamily,
-              fontStyle: fontStyle,
+              fontStyle: FontStyle.normal,
               height: fontHeight,
             ),
           ),

@@ -40,7 +40,6 @@ class LanguageCountryScreen extends StatelessWidget {
                 text: 'اللغة العربية',
                 fontFamily: 'Cairo',
                 fontHeight: 1.0,
-                fontStyle: FontStyle.normal,
               ),
               SizedBox(height: 35.h),
               Text(

@@ -29,7 +29,7 @@ class ForgetPassword1 extends StatelessWidget {
               Text(
                 'Forgot Password?',
                 style: TextStyle(
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   fontSize: 30.sp,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.165,
@@ -64,7 +64,7 @@ class ForgetPassword1 extends StatelessWidget {
                 onPressed: () {},
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w700,
-                backGroundColor: primaryBlue,
+                backGroundColor: figmaPrimaryBlue,
               ),
             ],
           ),

@@ -33,7 +33,7 @@ class ForgetPassword2 extends StatelessWidget {
               Text(
                 'Enter OTP',
                 style: TextStyle(
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   fontSize: 30.sp,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.165,
@@ -43,7 +43,7 @@ class ForgetPassword2 extends StatelessWidget {
               Text(
                 'Please enter the 4 digit code sent to',
                 style: TextStyle(
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   letterSpacing: -0.165,
@@ -53,7 +53,7 @@ class ForgetPassword2 extends StatelessWidget {
               Text(
                 '+973 5536 7654',
                 style: TextStyle(
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w600,
                   letterSpacing: -0.165,
@@ -214,7 +214,7 @@ class ForgetPassword2 extends StatelessWidget {
                     child: Text(
                       'Resend',
                       style: TextStyle(
-                        color: primaryBlue,
+                        color: figmaPrimaryBlue,
                         fontWeight: FontWeight.w700,
                         fontSize: 15.sp,
                         letterSpacing: -0.17,
@@ -231,7 +231,7 @@ class ForgetPassword2 extends StatelessWidget {
                 onPressed: () {},
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w700,
-                backGroundColor: primaryBlue,
+                backGroundColor: figmaPrimaryBlue,
               ),
             ],
           ),

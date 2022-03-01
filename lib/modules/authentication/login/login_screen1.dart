@@ -23,7 +23,7 @@ class LoginScreen1 extends StatelessWidget {
             Text(
               'Welcome Back!',
               style: TextStyle(
-                color: primaryBlack,
+                color: figmaOurBlack,
                 fontSize: 30.sp,
                 fontWeight: FontWeight.w700,
                 letterSpacing: -0.165,
@@ -78,7 +78,7 @@ class LoginScreen1 extends StatelessWidget {
                 Text(
                   'Forgot Email?',
                   style: TextStyle(
-                    color: primaryBlue,
+                    color: figmaPrimaryBlue,
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
                     letterSpacing: -0.165,
@@ -94,7 +94,7 @@ class LoginScreen1 extends StatelessWidget {
               onPressed: () {},
               labelColor: Colors.white,
               labelWeight: FontWeight.w700,
-              backGroundColor: primaryBlue,
+              backGroundColor: figmaPrimaryBlue,
             ),
           ],
         ),

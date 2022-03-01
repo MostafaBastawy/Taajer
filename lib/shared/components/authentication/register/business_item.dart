@@ -25,6 +25,7 @@ class BusinessItemBuilder extends StatelessWidget {
         border: Border.all(
           color: const Color(0xAFE2E4E8),
           width: 1.0,
+          style: BorderStyle.solid,
         ),
       ),
       child: Row(
@@ -44,8 +45,9 @@ class BusinessItemBuilder extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 15.sp,
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   letterSpacing: -0.165,
+                  fontStyle: FontStyle.normal,
                 ),
               ),
               SizedBox(height: 5.h),
@@ -54,17 +56,19 @@ class BusinessItemBuilder extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp,
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   letterSpacing: -0.165,
+                  fontStyle: FontStyle.normal,
                 ),
               ),
             ],
           ),
           const Spacer(),
-          const Icon(
-            Icons.check_circle,
-            size: 26,
-            color: Color(0xAFDEE6EE),
+          SvgPicture.asset(
+            'assets/images/check-circle.svg',
+            height: 26.h,
+            width: 26.w,
+            color: figmaGrey2,
           ),
         ],
       ),

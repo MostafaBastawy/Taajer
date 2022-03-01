@@ -29,7 +29,7 @@ class LoginScreen2 extends StatelessWidget {
               Text(
                 'Business Name',
                 style: TextStyle(
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   fontSize: 30.sp,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.165,
@@ -61,7 +61,7 @@ class LoginScreen2 extends StatelessWidget {
                   controller: passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   maxLines: 1,
-                  obscureText: cubit.isPasswordShown,
+                  obscureText: cubit.obscureText,
                   onChanged: (value) {},
                   onFieldSubmitted: (value) {},
                   validator: (value) {},
@@ -91,7 +91,7 @@ class LoginScreen2 extends StatelessWidget {
                   Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: primaryBlue,
+                      color: figmaPrimaryBlue,
                       fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                       letterSpacing: -0.165,
@@ -107,7 +107,7 @@ class LoginScreen2 extends StatelessWidget {
                 onPressed: () {},
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w700,
-                backGroundColor: primaryBlue,
+                backGroundColor: figmaPrimaryBlue,
               ),
             ],
           ),

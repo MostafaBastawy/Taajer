@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class LanguageCountryItemBuilder extends StatelessWidget {
   String? image;
   String? text;
+  String? fontFamily;
+  double? fontHeight = 1.6;
+  FontStyle? fontStyle = FontStyle.italic;
   LanguageCountryItemBuilder({
     Key? key,
     required this.image,
     required this.text,
+    this.fontHeight,
+    this.fontStyle,
+    this.fontFamily,
   }) : super(key: key);
 
   @override
@@ -18,7 +25,11 @@ class LanguageCountryItemBuilder extends StatelessWidget {
       height: 46.h,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border.all(width: 1.0, color: const Color(0xAFCDD5E1)),
+        border: Border.all(
+          width: 1.0,
+          color: figmaGrey1,
+          style: BorderStyle.solid,
+        ),
         borderRadius: BorderRadius.circular(6.r),
       ),
       child: Row(
@@ -34,14 +45,18 @@ class LanguageCountryItemBuilder extends StatelessWidget {
             style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.w500,
-              color: primaryBlack,
+              color: figmaOurBlack,
+              fontFamily: fontFamily,
+              fontStyle: fontStyle,
+              height: fontHeight,
             ),
           ),
           const Spacer(),
-          const Icon(
-            Icons.check_circle,
-            size: 26,
-            color: Color(0xAFDEE6EE),
+          SvgPicture.asset(
+            'assets/images/check-circle.svg',
+            height: 26.h,
+            width: 26.w,
+            color: figmaGrey2,
           ),
         ],
       ),

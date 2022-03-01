@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
-import 'package:taajer/shared/components/authentication/register/onboarding_item.dart';
-import 'package:taajer/shared/components/authentication/register/onboarding_list.dart';
+import 'package:taajer/shared/components/onboarding/onboarding_item.dart';
+import 'package:taajer/shared/components/onboarding/onboarding_list.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
@@ -22,7 +22,6 @@ class OnBoarding extends StatelessWidget {
         appBar: AppBar(
           leading: const Icon(
             Icons.arrow_back_sharp,
-            color: Color(0xAF1B1D28),
           ),
         ),
         body: Padding(
@@ -45,7 +44,7 @@ class OnBoarding extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 51.h),
+              SizedBox(height: 39.h),
               Center(
                 child: SmoothPageIndicator(
                   controller: onBoardingController,
@@ -56,7 +55,7 @@ class OnBoarding extends StatelessWidget {
                     expansionFactor: 2,
                     dotWidth: 10.59,
                     spacing: 8.24,
-                    activeDotColor: primaryBlue,
+                    activeDotColor: figmaPrimaryBlue,
                   ),
                 ),
               ),
@@ -69,7 +68,7 @@ class OnBoarding extends StatelessWidget {
                       width: 162.w,
                       label: 'Skip',
                       onPressed: () {},
-                      labelColor: primaryBlue,
+                      labelColor: figmaPrimaryBlue,
                       labelWeight: FontWeight.w700,
                       backGroundColor: Colors.white,
                     ),
@@ -81,7 +80,7 @@ class OnBoarding extends StatelessWidget {
                       onPressed: () {},
                       labelColor: Colors.white,
                       labelWeight: FontWeight.w700,
-                      backGroundColor: primaryBlue,
+                      backGroundColor: figmaPrimaryBlue,
                     ),
                   ],
                 ),
@@ -91,7 +90,7 @@ class OnBoarding extends StatelessWidget {
                   width: 344.w,
                   height: 48.h,
                   decoration: BoxDecoration(
-                    color: primaryBlue,
+                    color: figmaPrimaryBlue,
                     borderRadius: BorderRadius.circular(6.r),
                   ),
                   child: Center(

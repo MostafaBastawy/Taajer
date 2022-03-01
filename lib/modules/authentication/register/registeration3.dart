@@ -42,30 +42,33 @@ class RegisterScreen3 extends StatelessWidget {
                 Text(
                   'Verify Your Mobile',
                   style: TextStyle(
-                    color: primaryBlack,
+                    color: figmaOurBlack,
                     fontWeight: FontWeight.w700,
                     fontSize: 24.sp,
-                    letterSpacing: -0.65,
+                    letterSpacing: -0.165,
+                    fontStyle: FontStyle.normal,
                   ),
                 ),
                 SizedBox(height: 18.h),
                 Text(
                   'Please enter the 4 digit code sent to',
                   style: TextStyle(
-                    color: primaryBlack,
+                    color: figmaOurBlack,
                     fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
-                    letterSpacing: -0.17,
+                    letterSpacing: -0.165,
+                    fontStyle: FontStyle.normal,
                   ),
                 ),
                 SizedBox(height: 10.h),
                 Text(
                   '+973 5536 7654',
                   style: TextStyle(
-                    color: primaryBlack,
+                    color: figmaOurBlack,
                     fontWeight: FontWeight.w600,
                     fontSize: 15.sp,
                     letterSpacing: -0.17,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
                 SizedBox(height: 20.h),
@@ -79,7 +82,8 @@ class RegisterScreen3 extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.0,
-                          color: const Color(0xAFE2E4E8),
+                          color: const Color(0xFFE2E4E8),
+                          style: BorderStyle.solid,
                         ),
                         borderRadius: BorderRadius.circular(6.r),
                       ),
@@ -101,7 +105,7 @@ class RegisterScreen3 extends StatelessWidget {
                           hintStyle: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
-                            color: const Color(0xAFB2B7C2),
+                            color: const Color(0xFFB2B7C2),
                           ),
                         ),
                       ),
@@ -114,7 +118,8 @@ class RegisterScreen3 extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.0,
-                          color: const Color(0xAFE2E4E8),
+                          color: const Color(0xFFE2E4E8),
+                          style: BorderStyle.solid,
                         ),
                         borderRadius: BorderRadius.circular(6.r),
                       ),
@@ -136,7 +141,7 @@ class RegisterScreen3 extends StatelessWidget {
                           hintStyle: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
-                            color: const Color(0xAFB2B7C2),
+                            color: const Color(0xFFB2B7C2),
                           ),
                         ),
                       ),
@@ -149,7 +154,8 @@ class RegisterScreen3 extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.0,
-                          color: const Color(0xAFE2E4E8),
+                          color: const Color(0xFFE2E4E8),
+                          style: BorderStyle.solid,
                         ),
                         borderRadius: BorderRadius.circular(6.r),
                       ),
@@ -171,7 +177,7 @@ class RegisterScreen3 extends StatelessWidget {
                           hintStyle: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
-                            color: const Color(0xAFB2B7C2),
+                            color: const Color(0xFFB2B7C2),
                           ),
                         ),
                       ),
@@ -184,7 +190,8 @@ class RegisterScreen3 extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1.0,
-                          color: const Color(0xAFE2E4E8),
+                          color: const Color(0xFFE2E4E8),
+                          style: BorderStyle.solid,
                         ),
                         borderRadius: BorderRadius.circular(6.r),
                       ),
@@ -206,7 +213,7 @@ class RegisterScreen3 extends StatelessWidget {
                           hintStyle: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
-                            color: const Color(0xAFB2B7C2),
+                            color: const Color(0xFFB2B7C2),
                           ),
                         ),
                       ),
@@ -223,7 +230,8 @@ class RegisterScreen3 extends StatelessWidget {
                         color: const Color(0xFFA4A5A9),
                         fontWeight: FontWeight.w400,
                         fontSize: 15.sp,
-                        letterSpacing: -0.17,
+                        letterSpacing: -0.165,
+                        fontStyle: FontStyle.normal,
                       ),
                     ),
                     TextButton(
@@ -231,10 +239,11 @@ class RegisterScreen3 extends StatelessWidget {
                       child: Text(
                         'Resend',
                         style: TextStyle(
-                          color: primaryBlue,
+                          color: figmaPrimaryBlue,
                           fontWeight: FontWeight.w700,
                           fontSize: 15.sp,
-                          letterSpacing: -0.17,
+                          letterSpacing: -0.165,
+                          fontStyle: FontStyle.italic,
                         ),
                       ),
                     ),
@@ -248,7 +257,7 @@ class RegisterScreen3 extends StatelessWidget {
                   onPressed: () {},
                   labelColor: Colors.white,
                   labelWeight: FontWeight.w700,
-                  backGroundColor: primaryBlue,
+                  backGroundColor: figmaPrimaryBlue,
                 ),
               ],
             ),

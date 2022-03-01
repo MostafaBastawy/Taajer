@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
-const Color primaryBlue = Color(0xFF0761FD);
-const Color primaryRed = Color(0xFFED1C24);
-const Color primaryYellow = Color(0xFFF1C400);
-const Color primaryBlack = Color(0xFF1B1D28);
+const Color figmaPrimaryBlue = Color(0xFF0761FD);
+const Color figmaPrimaryRed = Color(0xFFED1C24);
+const Color figmaPrimaryYellow = Color(0xFFF1C400);
+const Color figmaOurBlack = Color(0xFF1B1D28);
 
-const Color secondaryGreen = Color(0xFF0BD3C4);
-const Color secondaryRed = Color(0xFFF15A24);
+const Color figmaSecondaryGreen = Color(0xFF0BD3C4);
+const Color figmaSecondaryRed = Color(0xFFF15A24);
 
-const Color errorRed = Color(0xFFFF3236);
+const Color figmaErrorRed = Color(0xFFFF3236);
+
+const Color figmaShade1 = Color(0xFF494A53);
+const Color figmaShade2 = Color(0xFF49536E);
+const Color figmaShade3 = Color(0xFFA4A5A9);
+
+const Color figmaGrey1 = Color(0xFFCDD5E1);
+const Color figmaGrey2 = Color(0xFFDEE6EE);
+const Color figmaGrey3 = Color(0xFFF4F7FA);

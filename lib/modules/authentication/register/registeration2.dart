@@ -36,7 +36,7 @@ class RegisterScreen2 extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xAFE2E4E8),
+                      color: const Color(0xFFE2E4E8),
                     ),
                     borderRadius: BorderRadius.circular(6.r),
                   ),
@@ -55,7 +55,9 @@ class RegisterScreen2 extends StatelessWidget {
                       hintStyle: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xAFB2B7C2),
+                        color: const Color(0xFFB2B7C2),
+                        fontStyle: FontStyle.italic,
+                        height: 1.6,
                       ),
                     ),
                   ),
@@ -68,7 +70,7 @@ class RegisterScreen2 extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xAFE2E4E8),
+                      color: const Color(0xFFE2E4E8),
                     ),
                     borderRadius: BorderRadius.circular(6.r),
                   ),
@@ -87,7 +89,9 @@ class RegisterScreen2 extends StatelessWidget {
                       hintStyle: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xAFB2B7C2),
+                        color: const Color(0xFFB2B7C2),
+                        fontStyle: FontStyle.italic,
+                        height: 1.6,
                       ),
                     ),
                   ),
@@ -98,80 +102,98 @@ class RegisterScreen2 extends StatelessWidget {
                 ),
                 SizedBox(height: 14.h),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  padding: EdgeInsetsDirectional.only(start: 16.w),
                   width: 343.w,
                   height: 48.h,
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xAFE2E4E8),
+                      color: const Color(0xFFE2E4E8),
                     ),
                     borderRadius: BorderRadius.circular(6.r),
                   ),
-                  child: TextFormField(
-                    controller: passwordController,
-                    keyboardType: TextInputType.visiblePassword,
-                    maxLines: 1,
-                    obscureText: cubit.isPasswordShown,
-                    onChanged: (value) {},
-                    onFieldSubmitted: (value) {},
-                    validator: (value) {},
-                    onTap: () {},
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xAFB2B7C2),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: passwordController,
+                          keyboardType: TextInputType.visiblePassword,
+                          maxLines: 1,
+                          obscureText: cubit.obscureText,
+                          onChanged: (value) {},
+                          onFieldSubmitted: (value) {},
+                          validator: (value) {},
+                          onTap: () {},
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                            hintStyle: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xFFB2B7C2),
+                              fontStyle: FontStyle.italic,
+                              height: 1.6,
+                            ),
+                          ),
+                        ),
                       ),
-                      suffixIcon: IconButton(
+                      const Spacer(),
+                      IconButton(
                         onPressed: () {
                           cubit.changePasswordVisibility();
                         },
                         icon: Icon(cubit.passwordSuffixIcon),
-                        color: const Color(0xAFE2E4E8),
+                        color: figmaGrey1,
                       ),
-                    ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 14.h),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  padding: EdgeInsetsDirectional.only(start: 16.w),
                   width: 343.w,
                   height: 48.h,
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xAFE2E4E8),
+                      color: const Color(0xFFE2E4E8),
                     ),
                     borderRadius: BorderRadius.circular(6.r),
                   ),
-                  child: TextFormField(
-                    controller: confirmPasswordController,
-                    keyboardType: TextInputType.visiblePassword,
-                    maxLines: 1,
-                    obscureText: cubit.isPasswordShown,
-                    onChanged: (value) {},
-                    onFieldSubmitted: (value) {},
-                    validator: (value) {},
-                    onTap: () {},
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Confirm Password',
-                      hintStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xAFB2B7C2),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: confirmPasswordController,
+                          keyboardType: TextInputType.visiblePassword,
+                          maxLines: 1,
+                          obscureText: cubit.obscureText,
+                          onChanged: (value) {},
+                          onFieldSubmitted: (value) {},
+                          validator: (value) {},
+                          onTap: () {},
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Confirm Password',
+                            hintStyle: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xFFB2B7C2),
+                              fontStyle: FontStyle.italic,
+                              height: 1.6,
+                            ),
+                          ),
+                        ),
                       ),
-                      suffixIcon: IconButton(
+                      const Spacer(),
+                      IconButton(
                         onPressed: () {
                           cubit.changePasswordVisibility();
                         },
                         icon: Icon(cubit.passwordSuffixIcon),
-                        color: const Color(0xAFE2E4E8),
+                        color: figmaGrey1,
                       ),
-                    ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 200.h),
@@ -182,7 +204,7 @@ class RegisterScreen2 extends StatelessWidget {
                   onPressed: () {},
                   labelColor: Colors.white,
                   labelWeight: FontWeight.w700,
-                  backGroundColor: primaryBlue,
+                  backGroundColor: figmaPrimaryBlue,
                 ),
               ],
             ),

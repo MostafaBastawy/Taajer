@@ -13,13 +13,14 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
         elevation: 0.0,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: primaryBlack,
+          color: figmaOurBlack,
         ),
         titleTextStyle: TextStyle(
-          color: primaryBlack,
+          color: figmaOurBlack,
           fontSize: 16.sp,
           fontWeight: FontWeight.w700,
           letterSpacing: -0.165,
+          fontStyle: FontStyle.normal,
         ),
       ),
     );

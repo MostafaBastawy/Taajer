@@ -6,15 +6,14 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   AuthenticationCubit() : super(AuthenticationStatesInitialState());
 
   static AuthenticationCubit get(context) => BlocProvider.of(context);
-  IconData passwordSuffixIcon = Icons.visibility_outlined;
-  bool isPasswordShown = true;
+  IconData passwordSuffixIcon = Icons.visibility_off_outlined;
+  bool obscureText = true;
 
   void changePasswordVisibility() {
-    isPasswordShown = !isPasswordShown;
+    obscureText = !obscureText;
 
-    passwordSuffixIcon = isPasswordShown
-        ? Icons.visibility_off_outlined
-        : Icons.visibility_outlined;
+    passwordSuffixIcon =
+        obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined;
     emit(AuthenticationChangePasswordVisibilityState());
   }
 }

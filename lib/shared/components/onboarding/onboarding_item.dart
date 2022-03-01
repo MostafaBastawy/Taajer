@@ -28,11 +28,13 @@ class OnBoardingItemBuilder extends StatelessWidget {
         Text(
           onBoardingModel!.onBoardingBoldText!,
           style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 35.sp,
-              color: primaryBlack,
-              letterSpacing: -0.165,
-              height: 1),
+            fontWeight: FontWeight.w700,
+            fontSize: 35.sp,
+            color: figmaOurBlack,
+            letterSpacing: -0.165,
+            height: 1.11,
+            fontStyle: FontStyle.normal,
+          ),
         ),
         SizedBox(height: 22.h),
         Text(
@@ -40,8 +42,10 @@ class OnBoardingItemBuilder extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 15.sp,
-            color: const Color(0xAF49536E),
+            color: figmaShade2,
             letterSpacing: -0.165,
+            height: 1.33,
+            fontStyle: FontStyle.normal,
           ),
         ),
       ],

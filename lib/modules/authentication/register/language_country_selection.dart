@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/shared/components/authentication/register/language_country_item.dart';
+import 'package:taajer/shared/styles/colors.dart';
 
-class LanguageCountryScreen1 extends StatelessWidget {
-  const LanguageCountryScreen1({Key? key}) : super(key: key);
+class LanguageCountryScreen extends StatelessWidget {
+  const LanguageCountryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class LanguageCountryScreen1 extends StatelessWidget {
               Text(
                 'Choose Your Language',
                 style: TextStyle(
-                  color: const Color(0xAF1B1D28),
+                  color: figmaOurBlack,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.165,
@@ -37,12 +38,15 @@ class LanguageCountryScreen1 extends StatelessWidget {
               LanguageCountryItemBuilder(
                 image: 'assets/images/ksa-arabic.png',
                 text: 'اللغة العربية',
+                fontFamily: 'Cairo',
+                fontHeight: 1.0,
+                fontStyle: FontStyle.normal,
               ),
               SizedBox(height: 35.h),
               Text(
                 'Choose Your Country',
                 style: TextStyle(
-                  color: const Color(0xAF1B1D28),
+                  color: figmaOurBlack,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.165,

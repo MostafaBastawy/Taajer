@@ -30,7 +30,7 @@ class DefaultButton extends StatelessWidget {
         color: backGroundColor,
         borderRadius: BorderRadius.circular(5.r),
         border: Border.all(
-          color: primaryBlue,
+          color: figmaPrimaryBlue,
           width: 1.0,
         ),
       ),
@@ -44,6 +44,8 @@ class DefaultButton extends StatelessWidget {
             fontWeight: labelWeight,
             fontSize: 15.sp,
             color: labelColor,
+            height: 1.33,
+            fontStyle: FontStyle.normal,
           ),
         ),
       ),

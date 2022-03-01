@@ -31,8 +31,9 @@ class RegisterScreen1 extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 18.sp,
-                  color: primaryBlack,
+                  color: figmaOurBlack,
                   letterSpacing: -0.165,
+                  fontStyle: FontStyle.normal,
                 ),
               ),
               SizedBox(height: 22.h),

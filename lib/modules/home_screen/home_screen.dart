@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/shared/components/carousel_slider/carousel_slider.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,11 +13,11 @@ class HomeScreen extends StatelessWidget {
       appBar: null,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-                child: Container(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+            child: Column(
+              children: [
+                Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   width: 343.w,
                   height: 48.h,
@@ -50,43 +50,46 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-              SizedBox(height: 12.h),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                width: 343.w,
-                height: 46.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFF5CE),
-                  border: Border.all(
-                    width: 1.0,
-                    color: const Color(0xFFFFAD0D),
-                    style: BorderStyle.solid,
+                SizedBox(height: 12.h),
+                Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                  width: 343.w,
+                  height: 46.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFF5CE),
+                    border: Border.all(
+                      width: 1.0,
+                      color: const Color(0xFFFFAD0D),
+                      style: BorderStyle.solid,
+                    ),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/images/warning-icon.svg',
-                      height: 17.h,
-                      width: 17.w,
-                    ),
-                    SizedBox(width: 12.w),
-                    Text(
-                      'Complete Registration',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: const Color(0xFFFFAD0D),
-                        fontStyle: FontStyle.normal,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/images/warning-icon.svg',
+                        height: 17.h,
+                        width: 17.w,
                       ),
-                    ),
-                  ],
+                      SizedBox(width: 12.w),
+                      Text(
+                        'Complete Registration',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: const Color(0xFFFFAD0D),
+                          fontStyle: FontStyle.normal,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(height: 12.h),
+                CarouselSliderBuilder(),
+              ],
+            ),
           ),
         ),
       ),

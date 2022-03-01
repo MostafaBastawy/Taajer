@@ -23,5 +23,14 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           fontStyle: FontStyle.normal,
         ),
       ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        unselectedItemColor: Color(0xFFB2B7C2),
+        selectedItemColor: figmaPrimaryBlue,
+        type: BottomNavigationBarType.fixed,
+      ),
     );
 ThemeData darkTheme = ThemeData();

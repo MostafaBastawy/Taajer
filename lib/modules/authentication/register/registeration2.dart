@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/register/registeration3.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen2 extends StatelessWidget {
@@ -201,7 +203,12 @@ class RegisterScreen2 extends StatelessWidget {
                   height: 46.h,
                   width: 344.w,
                   label: 'Confirm & Next',
-                  onPressed: () {},
+                  onPressed: () {
+                    navigateTo(
+                      widget: RegisterScreen3(),
+                      context: context,
+                    );
+                  },
                   labelColor: Colors.white,
                   labelWeight: FontWeight.w700,
                   backGroundColor: figmaPrimaryBlue,

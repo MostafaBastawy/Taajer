@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/home_layout.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen3 extends StatelessWidget {
@@ -254,7 +256,12 @@ class RegisterScreen3 extends StatelessWidget {
                   height: 46.h,
                   width: 344.w,
                   label: 'Confirm & Next',
-                  onPressed: () {},
+                  onPressed: () {
+                    navigateTo(
+                      widget: HomeLayout(),
+                      context: context,
+                    );
+                  },
                   labelColor: Colors.white,
                   labelWeight: FontWeight.w700,
                   backGroundColor: figmaPrimaryBlue,

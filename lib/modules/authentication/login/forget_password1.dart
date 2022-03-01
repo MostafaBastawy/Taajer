@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/login/forget_password2.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class ForgetPassword1 extends StatelessWidget {
@@ -64,7 +66,12 @@ class ForgetPassword1 extends StatelessWidget {
                 height: 46.h,
                 width: 344.w,
                 label: 'Send Code',
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(
+                    widget: ForgetPassword2(),
+                    context: context,
+                  );
+                },
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w700,
                 backGroundColor: figmaPrimaryBlue,

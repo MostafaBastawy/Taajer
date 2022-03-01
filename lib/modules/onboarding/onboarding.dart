@@ -4,9 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/login/login_screen1.dart';
+import 'package:taajer/modules/authentication/register/registeration1.dart';
 import 'package:taajer/shared/components/onboarding/onboarding_item.dart';
 import 'package:taajer/shared/components/onboarding/onboarding_list.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class OnBoarding extends StatelessWidget {
@@ -67,7 +70,12 @@ class OnBoarding extends StatelessWidget {
                       height: 46.h,
                       width: 162.w,
                       label: 'Skip',
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateTo(
+                          widget: RegisterScreen1(),
+                          context: context,
+                        );
+                      },
                       labelColor: figmaPrimaryBlue,
                       labelWeight: FontWeight.w700,
                       backGroundColor: Colors.white,
@@ -77,7 +85,12 @@ class OnBoarding extends StatelessWidget {
                       height: 46.h,
                       width: 162.w,
                       label: 'Sign In',
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateTo(
+                          widget: LoginScreen1(),
+                          context: context,
+                        );
+                      },
                       labelColor: Colors.white,
                       labelWeight: FontWeight.w700,
                       backGroundColor: figmaPrimaryBlue,
@@ -97,13 +110,21 @@ class OnBoarding extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          'Get Started',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.25,
+                        TextButton(
+                          onPressed: () {
+                            navigateTo(
+                              widget: RegisterScreen1(),
+                              context: context,
+                            );
+                          },
+                          child: Text(
+                            'Get Started',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 0.25,
+                            ),
                           ),
                         ),
                         SizedBox(width: 85.w),

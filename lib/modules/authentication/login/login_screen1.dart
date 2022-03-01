@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taajer/modules/authentication/login/login_screen2.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class LoginScreen1 extends StatelessWidget {
@@ -94,7 +96,12 @@ class LoginScreen1 extends StatelessWidget {
               height: 46.h,
               width: 344.w,
               label: 'Next',
-              onPressed: () {},
+              onPressed: () {
+                navigateTo(
+                  widget: LoginScreen2(),
+                  context: context,
+                );
+              },
               labelColor: Colors.white,
               labelWeight: FontWeight.w700,
               backGroundColor: figmaPrimaryBlue,

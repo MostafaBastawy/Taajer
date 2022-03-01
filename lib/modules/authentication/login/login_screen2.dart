@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/login/forget_password1.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class LoginScreen2 extends StatelessWidget {
@@ -99,13 +101,21 @@ class LoginScreen2 extends StatelessWidget {
               Row(
                 children: [
                   const Spacer(),
-                  Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      color: figmaPrimaryBlue,
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: -0.165,
+                  GestureDetector(
+                    onTap: () {
+                      navigateTo(
+                        widget: ForgetPassword1(),
+                        context: context,
+                      );
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        color: figmaPrimaryBlue,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.165,
+                      ),
                     ),
                   ),
                 ],

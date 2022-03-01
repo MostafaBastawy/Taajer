@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taajer/shared/components/carousel_slider/carousel_slider.dart';
+import 'package:taajer/shared/components/carousel_slider/carousel_slider_builder.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -64,6 +64,14 @@ class HomeScreen extends StatelessWidget {
                       style: BorderStyle.solid,
                     ),
                     borderRadius: BorderRadius.circular(8.r),
+                    boxShadow: const [
+                      BoxShadow(
+                        offset: Offset(0, 4),
+                        color: Color.fromRGBO(0, 0, 0, 0.1),
+                        blurRadius: 5,
+                        spreadRadius: -1,
+                      ),
+                    ],
                   ),
                   child: Row(
                     children: [

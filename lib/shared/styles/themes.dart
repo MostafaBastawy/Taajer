@@ -24,7 +24,7 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           fontStyle: FontStyle.normal,
         ),
         systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.red,
+          statusBarColor: Colors.white,
           statusBarBrightness: Brightness.dark,
           statusBarIconBrightness: Brightness.dark,
         ),
@@ -36,6 +36,8 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
         showSelectedLabels: false,
         unselectedItemColor: Color(0xFFB2B7C2),
         selectedItemColor: figmaPrimaryBlue,
+        selectedIconTheme: IconThemeData(color: figmaPrimaryBlue),
+        unselectedIconTheme: IconThemeData(color: Color(0xFFB2B7C2)),
         type: BottomNavigationBarType.fixed,
       ),
     );

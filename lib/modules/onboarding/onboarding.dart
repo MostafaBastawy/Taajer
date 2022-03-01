@@ -44,7 +44,7 @@ class OnBoarding extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 39.h),
+              SizedBox(height: 20.h),
               Center(
                 child: SmoothPageIndicator(
                   controller: onBoardingController,
@@ -59,7 +59,7 @@ class OnBoarding extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 57.h),
+              SizedBox(height: 51.h),
               if (lastPage == false)
                 Row(
                   children: [

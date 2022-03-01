@@ -206,7 +206,8 @@ class ForgetPassword2 extends StatelessWidget {
                       color: const Color(0xFFA4A5A9),
                       fontWeight: FontWeight.w400,
                       fontSize: 15.sp,
-                      letterSpacing: -0.17,
+                      letterSpacing: -0.165,
+                      fontStyle: FontStyle.normal,
                     ),
                   ),
                   TextButton(
@@ -217,7 +218,8 @@ class ForgetPassword2 extends StatelessWidget {
                         color: figmaPrimaryBlue,
                         fontWeight: FontWeight.w700,
                         fontSize: 15.sp,
-                        letterSpacing: -0.17,
+                        letterSpacing: -0.165,
+                        fontStyle: FontStyle.normal,
                       ),
                     ),
                   ),
@@ -227,7 +229,7 @@ class ForgetPassword2 extends StatelessWidget {
               DefaultButton(
                 height: 46.h,
                 width: 344.w,
-                label: 'SVerify',
+                label: 'Verify',
                 onPressed: () {},
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w700,

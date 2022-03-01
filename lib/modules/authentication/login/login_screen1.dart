@@ -27,13 +27,14 @@ class LoginScreen1 extends StatelessWidget {
                 fontSize: 30.sp,
                 fontWeight: FontWeight.w700,
                 letterSpacing: -0.165,
+                fontStyle: FontStyle.normal,
               ),
             ),
             SizedBox(height: 8.h),
             Text(
               'Please sign in to your account',
               style: TextStyle(
-                color: const Color(0xAF76777E),
+                color: const Color(0xFF76777E),
                 fontSize: 15.sp,
                 fontWeight: FontWeight.w400,
                 letterSpacing: -0.165,
@@ -47,7 +48,7 @@ class LoginScreen1 extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 1.0,
-                  color: const Color(0xAFE2E4E8),
+                  color: const Color(0xFFE2E4E8),
                 ),
                 borderRadius: BorderRadius.circular(6.r),
               ),
@@ -67,6 +68,7 @@ class LoginScreen1 extends StatelessWidget {
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
                     color: const Color(0xFFB2B7C2),
+                    fontStyle: FontStyle.normal,
                   ),
                 ),
               ),
@@ -82,6 +84,7 @@ class LoginScreen1 extends StatelessWidget {
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
                     letterSpacing: -0.165,
+                    fontStyle: FontStyle.normal,
                   ),
                 ),
               ],

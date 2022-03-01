@@ -33,55 +33,66 @@ class LoginScreen2 extends StatelessWidget {
                   fontSize: 30.sp,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -0.165,
+                  fontStyle: FontStyle.normal,
                 ),
               ),
               SizedBox(height: 8.h),
               Text(
                 'Please sign in to your account',
                 style: TextStyle(
-                  color: const Color(0xAF76777E),
+                  color: const Color(0xFF76777E),
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   letterSpacing: -0.165,
+                  fontStyle: FontStyle.normal,
                 ),
               ),
               SizedBox(height: 25.h),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                padding: EdgeInsetsDirectional.only(start: 16.w),
                 width: 343.w,
                 height: 48.h,
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1.0,
-                    color: const Color(0xAFE2E4E8),
+                    color: const Color(0xFFE2E4E8),
+                    style: BorderStyle.solid,
                   ),
                   borderRadius: BorderRadius.circular(6.r),
                 ),
-                child: TextFormField(
-                  controller: passwordController,
-                  keyboardType: TextInputType.visiblePassword,
-                  maxLines: 1,
-                  obscureText: cubit.obscureText,
-                  onChanged: (value) {},
-                  onFieldSubmitted: (value) {},
-                  validator: (value) {},
-                  onTap: () {},
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Password',
-                    hintStyle: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500,
-                      color: const Color(0xFFB2B7C2),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: passwordController,
+                        keyboardType: TextInputType.visiblePassword,
+                        maxLines: 1,
+                        obscureText: cubit.obscureText,
+                        onChanged: (value) {},
+                        onFieldSubmitted: (value) {},
+                        validator: (value) {},
+                        onTap: () {},
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                          hintStyle: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xFFB2B7C2),
+                            fontStyle: FontStyle.normal,
+                          ),
+                        ),
+                      ),
                     ),
-                    suffixIcon: IconButton(
+                    const Spacer(),
+                    IconButton(
                       onPressed: () {
                         cubit.changePasswordVisibility();
                       },
                       icon: Icon(cubit.passwordSuffixIcon),
-                      color: const Color(0xAFE2E4E8),
+                      color: figmaGrey1,
                     ),
-                  ),
+                  ],
                 ),
               ),
               SizedBox(height: 14.h),

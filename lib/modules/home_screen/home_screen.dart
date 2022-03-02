@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/shared/components/carousel_slider/carousel_slider_builder.dart';
+import 'package:taajer/shared/components/tools/brand_builder.dart';
+import 'package:taajer/shared/components/tools/category_builder.dart';
+import 'package:taajer/shared/components/tools/product_builder.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,91 +16,260 @@ class HomeScreen extends StatelessWidget {
       appBar: null,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  width: 343.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 1.0,
-                      color: const Color(0xFFE2E4E8),
-                      style: BorderStyle.solid,
-                    ),
-                    borderRadius: BorderRadius.circular(6.r),
+          child: Column(
+            children: [
+              SizedBox(height: 4.h),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                width: 343.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 1.0,
+                    color: const Color(0xFFE2E4E8),
+                    style: BorderStyle.solid,
                   ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'What are you looking for?',
-                        style: TextStyle(
-                          color: const Color(0xFFB2B7C2),
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
+                  borderRadius: BorderRadius.circular(6.r),
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      'What are you looking for?',
+                      style: TextStyle(
+                        color: const Color(0xFFB2B7C2),
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
                       ),
-                      const Spacer(),
-                      SvgPicture.asset(
-                        'assets/images/search-icon.svg',
-                        height: 15.h,
-                        width: 15.w,
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(
+                      'assets/images/search-icon.svg',
+                      height: 15.h,
+                      width: 15.w,
+                      color: figmaOurBlack,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 12.h),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                width: 343.w,
+                height: 46.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFF5CE),
+                  border: Border.all(
+                    width: 1.0,
+                    color: const Color(0xFFFFAD0D),
+                    style: BorderStyle.solid,
+                  ),
+                  borderRadius: BorderRadius.circular(8.r),
+                  boxShadow: const [
+                    BoxShadow(
+                      offset: Offset(0, 4),
+                      color: Color.fromRGBO(0, 0, 0, 0.1),
+                      blurRadius: 5,
+                      spreadRadius: -1,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/warning-icon.svg',
+                      height: 17.h,
+                      width: 17.w,
+                    ),
+                    SizedBox(width: 12.w),
+                    Text(
+                      'Complete Registration',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: const Color(0xFFFFAD0D),
+                        fontStyle: FontStyle.normal,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 12.h),
+              CarouselSliderBuilder(),
+              SizedBox(height: 21.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  children: [
+                    Text(
+                      'Top Categories',
+                      style: TextStyle(
                         color: figmaOurBlack,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: -0.165,
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 12.h),
-                Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                  width: 343.w,
-                  height: 46.h,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFF5CE),
-                    border: Border.all(
-                      width: 1.0,
-                      color: const Color(0xFFFFAD0D),
-                      style: BorderStyle.solid,
                     ),
-                    borderRadius: BorderRadius.circular(8.r),
-                    boxShadow: const [
-                      BoxShadow(
-                        offset: Offset(0, 4),
-                        color: Color.fromRGBO(0, 0, 0, 0.1),
-                        blurRadius: 5,
-                        spreadRadius: -1,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/images/warning-icon.svg',
-                        height: 17.h,
-                        width: 17.w,
-                      ),
-                      SizedBox(width: 12.w),
-                      Text(
-                        'Complete Registration',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: const Color(0xFFFFAD0D),
-                          fontStyle: FontStyle.normal,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                    const Spacer(),
+                    SvgPicture.asset(
+                      'assets/images/arrow-left-icon.svg',
+                      width: 24.w,
+                      height: 24.h,
+                      color: figmaPrimaryBlue,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 17.h),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(start: 16.0),
+                child: SizedBox(
+                  height: 110.h,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) =>
+                        CategoryBuilder(),
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      width: 10.w,
+                    ),
+                    itemCount: 10,
                   ),
                 ),
-                SizedBox(height: 12.h),
-                CarouselSliderBuilder(),
-              ],
-            ),
+              ),
+              SizedBox(height: 29.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  children: [
+                    Text(
+                      'Best Selling Product',
+                      style: TextStyle(
+                        color: figmaOurBlack,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: -0.165,
+                      ),
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(
+                      'assets/images/arrow-left-icon.svg',
+                      width: 24.w,
+                      height: 24.h,
+                      color: figmaPrimaryBlue,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 12.h),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(start: 16.0),
+                child: SizedBox(
+                  height: 110.h,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) =>
+                        ProductBuilder(),
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      width: 10.w,
+                    ),
+                    itemCount: 10,
+                  ),
+                ),
+              ),
+              SizedBox(height: 23.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  children: [
+                    Text(
+                      'Feature Product',
+                      style: TextStyle(
+                        color: figmaOurBlack,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: -0.165,
+                      ),
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(
+                      'assets/images/arrow-left-icon.svg',
+                      width: 24.w,
+                      height: 24.h,
+                      color: figmaPrimaryBlue,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15.h),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(start: 16.0),
+                child: SizedBox(
+                  height: 110.h,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) =>
+                        ProductBuilder(),
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      width: 10.w,
+                    ),
+                    itemCount: 10,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  children: [
+                    Text(
+                      'Top Brands',
+                      style: TextStyle(
+                        color: figmaOurBlack,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16.sp,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: -0.165,
+                      ),
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(
+                      'assets/images/arrow-left-icon.svg',
+                      width: 24.w,
+                      height: 24.h,
+                      color: figmaPrimaryBlue,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 14.h),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(start: 16.0),
+                child: SizedBox(
+                  height: 110.h,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) =>
+                        BrandBuilder(),
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      width: 10.w,
+                    ),
+                    itemCount: 10,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

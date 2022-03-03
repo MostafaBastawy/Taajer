@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
@@ -6,17 +7,32 @@ import 'package:taajer/modules/authentication/authentication_cubit/authenticatio
 import 'package:taajer/modules/authentication/register/registeration3.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
+import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
+import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen2 extends StatelessWidget {
   var businessNameController = TextEditingController();
   var emailAddressController = TextEditingController();
+  var phoneNumberController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  String? countryFlag;
+  String? countryCode;
   RegisterScreen2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    if (CacheHelper.getData(key: countryKey) == 'Bahrain') {
+      countryFlag = 'Bahrain.png';
+      countryCode = '+973';
+    } else if (CacheHelper.getData(key: countryKey) == 'Saudi Arabia') {
+      countryFlag = 'ksa-arabic.png';
+      countryCode = '+966';
+    } else {
+      countryFlag = 'uae.png';
+      countryCode = '+971';
+    }
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
     return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
       builder: (BuildContext context, state) => Scaffold(
@@ -63,7 +79,7 @@ class RegisterScreen2 extends StatelessWidget {
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                         color: const Color(0xFFB2B7C2),
-                        fontStyle: FontStyle.italic,
+                        fontStyle: FontStyle.normal,
                         height: 1.6,
                       ),
                     ),
@@ -97,7 +113,7 @@ class RegisterScreen2 extends StatelessWidget {
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                         color: const Color(0xFFB2B7C2),
-                        fontStyle: FontStyle.italic,
+                        fontStyle: FontStyle.normal,
                         height: 1.6,
                       ),
                     ),
@@ -105,7 +121,83 @@ class RegisterScreen2 extends StatelessWidget {
                 ),
                 SizedBox(height: 14.h),
                 Row(
-                  children: [],
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      width: 104.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1.0,
+                          color: const Color(0xFFE2E4E8),
+                        ),
+                        borderRadius: BorderRadius.circular(6.r),
+                      ),
+                      child: Row(
+                        children: [
+                          Image(
+                            image: AssetImage(
+                              'assets/images/$countryFlag',
+                            ),
+                            width: 20.w,
+                            height: 14.h,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(width: 10.w),
+                          SizedBox(
+                            height: 30.h,
+                            child: Text(
+                              countryCode!,
+                              style: TextStyle(
+                                color: const Color(0xFFCACDD5),
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.normal,
+                                height: 1.6,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 12.w),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      width: 227.w,
+                      height: 48.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1.0,
+                          color: const Color(0xFFE2E4E8),
+                        ),
+                        borderRadius: BorderRadius.circular(6.r),
+                      ),
+                      child: TextFormField(
+                        controller: phoneNumberController,
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        maxLines: 1,
+                        obscureText: false,
+                        onChanged: (value) {},
+                        onFieldSubmitted: (value) {},
+                        validator: (value) {},
+                        onTap: () {},
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Phone Number',
+                          hintStyle: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xFFB2B7C2),
+                            fontStyle: FontStyle.normal,
+                            height: 1.6,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 14.h),
                 Container(
@@ -138,7 +230,7 @@ class RegisterScreen2 extends StatelessWidget {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
                               color: const Color(0xFFB2B7C2),
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.normal,
                               height: 1.6,
                             ),
                           ),
@@ -186,7 +278,7 @@ class RegisterScreen2 extends StatelessWidget {
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
                               color: const Color(0xFFB2B7C2),
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.normal,
                               height: 1.6,
                             ),
                           ),

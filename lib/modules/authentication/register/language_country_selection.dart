@@ -13,13 +13,15 @@ import 'package:taajer/shared/styles/colors.dart';
 import 'package:taajer/translations/locale_keys.g.dart';
 
 class LanguageCountryScreen extends StatelessWidget {
-  String? language = LocaleKeys.languageCountryScreenEnglish.tr();
-  String? country = LocaleKeys.languageCountryScreenBahrain.tr();
+  String? language;
+  String? country;
   LanguageCountryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
+    language = LocaleKeys.languageCountryScreenEnglish.tr();
+    country = LocaleKeys.languageCountryScreenBahrain.tr();
     return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
       builder: (BuildContext context, state) => Scaffold(
         appBar: null,

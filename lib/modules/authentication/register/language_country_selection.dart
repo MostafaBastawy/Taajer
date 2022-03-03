@@ -1,13 +1,19 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/onboarding/onboarding.dart';
 import 'package:taajer/shared/components/authentication/register/language_country_item.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
+import 'package:taajer/translations/locale_keys.g.dart';
 
 class LanguageCountryScreen extends StatelessWidget {
-  const LanguageCountryScreen({Key? key}) : super(key: key);
+  String? language = LocaleKeys.languageCountryScreenEnglish.tr();
+  String? country = LocaleKeys.languageCountryScreenBahrain.tr();
+  LanguageCountryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +27,7 @@ class LanguageCountryScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Choose Your Language',
+                LocaleKeys.languageCountryScreenChooseYourLanguage.tr(),
                 style: TextStyle(
                   color: figmaOurBlack,
                   fontSize: 24.sp,
@@ -30,20 +36,42 @@ class LanguageCountryScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 22.h),
-              LanguageCountryItemBuilder(
-                image: 'assets/images/us-english.png',
-                text: 'English',
+              GestureDetector(
+                onTap: () {
+                  language = LocaleKeys.languageCountryScreenEnglish.tr();
+                  EasyLocalization.of(context)!.setLocale(const Locale('en'));
+                  cubit.emit(AuthenticationStatesRefreshState());
+                },
+                child: LanguageCountryItemBuilder(
+                  image: 'assets/images/us-english.png',
+                  text: LocaleKeys.languageCountryScreenEnglish.tr(),
+                  borderColor:
+                      language == LocaleKeys.languageCountryScreenEnglish.tr()
+                          ? figmaPrimaryBlue
+                          : figmaGrey1,
+                ),
               ),
               SizedBox(height: 10.h),
-              LanguageCountryItemBuilder(
-                image: 'assets/images/ksa-arabic.png',
-                text: 'اللغة العربية',
-                fontFamily: 'Cairo',
-                fontHeight: 1.0,
+              GestureDetector(
+                onTap: () {
+                  language = LocaleKeys.languageCountryScreenArabic.tr();
+                  //EasyLocalization.of(context)!.setLocale(const Locale('ar'));
+                  cubit.emit(AuthenticationStatesRefreshState());
+                },
+                child: LanguageCountryItemBuilder(
+                  image: 'assets/images/ksa-arabic.png',
+                  text: LocaleKeys.languageCountryScreenArabic.tr(),
+                  fontFamily: 'Cairo',
+                  fontHeight: 1.0,
+                  borderColor:
+                      language == LocaleKeys.languageCountryScreenArabic.tr()
+                          ? figmaPrimaryBlue
+                          : figmaGrey1,
+                ),
               ),
               SizedBox(height: 35.h),
               Text(
-                'Choose Your Country',
+                LocaleKeys.languageCountryScreenChooseYourCountry.tr(),
                 style: TextStyle(
                   color: figmaOurBlack,
                   fontSize: 24.sp,
@@ -52,19 +80,54 @@ class LanguageCountryScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 22.h),
-              LanguageCountryItemBuilder(
-                image: 'assets/images/bahrain.png',
-                text: 'Bahrain',
+              GestureDetector(
+                onTap: () {
+                  country = LocaleKeys.languageCountryScreenBahrain.tr();
+                  cubit.emit(AuthenticationStatesRefreshState());
+                  navigateTo(widget: OnBoarding(), context: context);
+                },
+                child: LanguageCountryItemBuilder(
+                  image: 'assets/images/bahrain.png',
+                  text: LocaleKeys.languageCountryScreenBahrain.tr(),
+                  borderColor:
+                      country == LocaleKeys.languageCountryScreenBahrain.tr()
+                          ? figmaPrimaryBlue
+                          : figmaGrey1,
+                ),
               ),
               SizedBox(height: 10.h),
-              LanguageCountryItemBuilder(
-                image: 'assets/images/ksa-arabic.png',
-                text: 'Saudi Arabia',
+              GestureDetector(
+                onTap: () {
+                  country = LocaleKeys.languageCountryScreenSaudiArabia.tr();
+                  cubit.emit(AuthenticationStatesRefreshState());
+                  navigateTo(widget: OnBoarding(), context: context);
+                },
+                child: LanguageCountryItemBuilder(
+                  image: 'assets/images/ksa-arabic.png',
+                  text: LocaleKeys.languageCountryScreenSaudiArabia.tr(),
+                  borderColor: country ==
+                          LocaleKeys.languageCountryScreenSaudiArabia.tr()
+                      ? figmaPrimaryBlue
+                      : figmaGrey1,
+                ),
               ),
               SizedBox(height: 10.h),
-              LanguageCountryItemBuilder(
-                image: 'assets/images/uae.png',
-                text: 'United Arab Emirates',
+              GestureDetector(
+                onTap: () {
+                  country =
+                      LocaleKeys.languageCountryScreenUnitedArabEmirates.tr();
+                  cubit.emit(AuthenticationStatesRefreshState());
+                  navigateTo(widget: OnBoarding(), context: context);
+                },
+                child: LanguageCountryItemBuilder(
+                  image: 'assets/images/uae.png',
+                  text: LocaleKeys.languageCountryScreenUnitedArabEmirates.tr(),
+                  borderColor: country ==
+                          LocaleKeys.languageCountryScreenUnitedArabEmirates
+                              .tr()
+                      ? figmaPrimaryBlue
+                      : figmaGrey1,
+                ),
               ),
             ],
           ),

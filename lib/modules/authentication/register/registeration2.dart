@@ -21,8 +21,13 @@ class RegisterScreen2 extends StatelessWidget {
     return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
-          leading: const Icon(
-            Icons.arrow_back_sharp,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_sharp,
+            ),
           ),
           title: const Text('Registration'),
         ),

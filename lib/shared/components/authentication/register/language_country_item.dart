@@ -8,11 +8,13 @@ class LanguageCountryItemBuilder extends StatelessWidget {
   String? text;
   String? fontFamily;
   double? fontHeight = 1.6;
+  Color borderColor = figmaGrey1;
 
   LanguageCountryItemBuilder({
     Key? key,
     required this.image,
     required this.text,
+    required this.borderColor,
     this.fontHeight,
     this.fontFamily,
   }) : super(key: key);
@@ -26,7 +28,7 @@ class LanguageCountryItemBuilder extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           width: 1.0,
-          color: figmaGrey1,
+          color: borderColor,
           style: BorderStyle.solid,
         ),
         borderRadius: BorderRadius.circular(6.r),
@@ -55,7 +57,7 @@ class LanguageCountryItemBuilder extends StatelessWidget {
             'assets/images/check-circle.svg',
             height: 26.h,
             width: 26.w,
-            color: figmaGrey2,
+            color: borderColor,
           ),
         ],
       ),

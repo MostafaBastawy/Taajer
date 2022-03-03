@@ -7,11 +7,13 @@ class BusinessItemBuilder extends StatelessWidget {
   String? businessImage;
   String? businessType;
   String? businessDescription;
+  Color borderColor = figmaGrey1;
   BusinessItemBuilder({
     Key? key,
     required this.businessImage,
     required this.businessType,
     required this.businessDescription,
+    required this.borderColor,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class BusinessItemBuilder extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6.r),
         border: Border.all(
-          color: const Color(0xAFE2E4E8),
+          color: borderColor,
           width: 1.0,
           style: BorderStyle.solid,
         ),
@@ -68,7 +70,7 @@ class BusinessItemBuilder extends StatelessWidget {
             'assets/images/check-circle.svg',
             height: 26.h,
             width: 26.w,
-            color: figmaGrey2,
+            color: borderColor,
           ),
         ],
       ),

@@ -47,8 +47,7 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => AppCubit(),
         ),
         BlocProvider(
-          create: (BuildContext context) =>
-              AuthenticationCubit()..registerStep1(),
+          create: (BuildContext context) => AuthenticationCubit(),
         ),
       ],
       child: ScreenUtilInit(

@@ -8,7 +8,9 @@ const Color figmaOurBlack = Color(0xFF1B1D28);
 const Color figmaSecondaryGreen = Color(0xFF0BD3C4);
 const Color figmaSecondaryRed = Color(0xFFF15A24);
 
-const Color figmaErrorRed = Color(0xFFFF3236);
+const Color figmaActiveColor = Color(0xFF0761FD);
+const Color figmaSuccessColor = Color(0xFF0BD3C4);
+const Color figmaErrorColor = Color(0xFFFF3236);
 
 const Color figmaShade1 = Color(0xFF494A53);
 const Color figmaShade2 = Color(0xFF49536E);

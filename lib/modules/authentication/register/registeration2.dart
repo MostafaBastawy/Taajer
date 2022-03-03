@@ -9,6 +9,7 @@ import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
 import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
+import 'package:taajer/shared/components/tools/show_toaster.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen2 extends StatelessWidget {
@@ -17,14 +18,22 @@ class RegisterScreen2 extends StatelessWidget {
   var phoneNumberController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
   String? countryFlag;
   String? countryCode;
+  String? activeTextFormField;
+  List<BoxShadow> businessNameShadowBorder = [];
+  List<BoxShadow> emailAddressShadowBorder = [];
+  List<BoxShadow> phoneNumberShadowBorder = [];
+  List<BoxShadow> passwordShadowBorder = [];
+  List<BoxShadow> confirmPasswordShadowBorder = [];
+
   RegisterScreen2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     if (CacheHelper.getData(key: countryKey) == 'Bahrain') {
-      countryFlag = 'Bahrain.png';
+      countryFlag = 'bahrain.png';
       countryCode = '+973';
     } else if (CacheHelper.getData(key: countryKey) == 'Saudi Arabia') {
       countryFlag = 'ksa-arabic.png';
@@ -34,7 +43,30 @@ class RegisterScreen2 extends StatelessWidget {
       countryCode = '+971';
     }
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
-    return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
+    return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
+      listener: (BuildContext context, state) {
+        if (state is AuthenticationRegisterStep1SuccessState) {
+          if (cubit.registerStep1Model!.registerResult!) {
+            navigateTo(
+              widget: RegisterScreen3(),
+              context: context,
+            );
+          } else {
+            defaultToast(
+              message: cubit.registerStep1Model!.registerMessage!,
+              color: figmaErrorColor,
+              context: context,
+            );
+          }
+        }
+        if (state is AuthenticationRegisterStep1ErrorState) {
+          defaultToast(
+            message: state.error.toString(),
+            color: figmaErrorColor,
+            context: context,
+          );
+        }
+      },
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -47,9 +79,10 @@ class RegisterScreen2 extends StatelessWidget {
           ),
           title: const Text('Registration'),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 26.h),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 26.h),
+          child: Form(
+            key: formKey,
             child: Column(
               children: [
                 Container(
@@ -57,11 +90,17 @@ class RegisterScreen2 extends StatelessWidget {
                   width: 343.w,
                   height: 48.h,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xFFE2E4E8),
+                      color: activeTextFormField == 'Business Name'
+                          ? figmaActiveColor
+                          : const Color(0xFFE2E4E8),
                     ),
                     borderRadius: BorderRadius.circular(6.r),
+                    boxShadow: activeTextFormField == 'Business Name'
+                        ? borderActiveBoxShadow
+                        : null,
                   ),
                   child: TextFormField(
                     controller: businessNameController,
@@ -70,8 +109,16 @@ class RegisterScreen2 extends StatelessWidget {
                     obscureText: false,
                     onChanged: (value) {},
                     onFieldSubmitted: (value) {},
-                    validator: (value) {},
-                    onTap: () {},
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        businessNameShadowBorder = borderErrorBoxShadow;
+                        businessNameBorder = figmaErrorColor;
+                      }
+                    },
+                    onTap: () {
+                      activeTextFormField = 'Business Name';
+                      cubit.emit(AuthenticationStatesRefreshState());
+                    },
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Business Name',
@@ -91,11 +138,13 @@ class RegisterScreen2 extends StatelessWidget {
                   width: 343.w,
                   height: 48.h,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xFFE2E4E8),
+                      color: emailAddressBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
+                    boxShadow: emailAddressShadowBorder,
                   ),
                   child: TextFormField(
                     controller: emailAddressController,
@@ -104,7 +153,12 @@ class RegisterScreen2 extends StatelessWidget {
                     obscureText: false,
                     onChanged: (value) {},
                     onFieldSubmitted: (value) {},
-                    validator: (value) {},
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        emailAddressBorder = figmaErrorColor;
+                        emailAddressShadowBorder = borderErrorBoxShadow;
+                      }
+                    },
                     onTap: () {},
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -127,6 +181,7 @@ class RegisterScreen2 extends StatelessWidget {
                       width: 104.w,
                       height: 48.h,
                       decoration: BoxDecoration(
+                        color: Colors.white,
                         border: Border.all(
                           width: 1.0,
                           color: const Color(0xFFE2E4E8),
@@ -166,11 +221,13 @@ class RegisterScreen2 extends StatelessWidget {
                       width: 227.w,
                       height: 48.h,
                       decoration: BoxDecoration(
+                        color: Colors.white,
                         border: Border.all(
                           width: 1.0,
-                          color: const Color(0xFFE2E4E8),
+                          color: phoneNumberBorder,
                         ),
                         borderRadius: BorderRadius.circular(6.r),
+                        boxShadow: phoneNumberShadowBorder,
                       ),
                       child: TextFormField(
                         controller: phoneNumberController,
@@ -182,7 +239,12 @@ class RegisterScreen2 extends StatelessWidget {
                         obscureText: false,
                         onChanged: (value) {},
                         onFieldSubmitted: (value) {},
-                        validator: (value) {},
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            phoneNumberBorder = figmaErrorColor;
+                            phoneNumberShadowBorder = borderErrorBoxShadow;
+                          }
+                        },
                         onTap: () {},
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -205,11 +267,13 @@ class RegisterScreen2 extends StatelessWidget {
                   width: 343.w,
                   height: 48.h,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xFFE2E4E8),
+                      color: passwordBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
+                    boxShadow: passwordShadowBorder,
                   ),
                   child: Row(
                     children: [
@@ -221,7 +285,12 @@ class RegisterScreen2 extends StatelessWidget {
                           obscureText: cubit.obscureText,
                           onChanged: (value) {},
                           onFieldSubmitted: (value) {},
-                          validator: (value) {},
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              passwordBorder = figmaErrorColor;
+                              passwordShadowBorder = borderErrorBoxShadow;
+                            }
+                          },
                           onTap: () {},
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -253,11 +322,13 @@ class RegisterScreen2 extends StatelessWidget {
                   width: 343.w,
                   height: 48.h,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: const Color(0xFFE2E4E8),
+                      color: confirmPasswordBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
+                    boxShadow: confirmPasswordShadowBorder,
                   ),
                   child: Row(
                     children: [
@@ -269,7 +340,13 @@ class RegisterScreen2 extends StatelessWidget {
                           obscureText: cubit.obscureText,
                           onChanged: (value) {},
                           onFieldSubmitted: (value) {},
-                          validator: (value) {},
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              confirmPasswordBorder = figmaErrorColor;
+                              confirmPasswordShadowBorder =
+                                  borderErrorBoxShadow;
+                            }
+                          },
                           onTap: () {},
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -295,16 +372,27 @@ class RegisterScreen2 extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 200.h),
+                const Spacer(),
                 DefaultButton(
                   height: 46.h,
                   width: 344.w,
                   label: 'Confirm & Next',
                   onPressed: () {
-                    navigateTo(
-                      widget: RegisterScreen3(),
-                      context: context,
-                    );
+                    if (formKey.currentState!.validate()) {
+                      if (businessNameController.text.isNotEmpty &&
+                          emailAddressController.text.isNotEmpty &
+                              phoneNumberController.text.isNotEmpty &
+                              passwordController.text.isNotEmpty &
+                              confirmPasswordController.text.isNotEmpty) {
+                        cubit.registerStep1(
+                          email: emailAddressController.text,
+                          password: confirmPasswordController.text,
+                          phone: phoneNumberController.text,
+                          name: businessNameController.text,
+                          phoneCode: countryCode!,
+                        );
+                      }
+                    }
                   },
                   labelColor: Colors.white,
                   labelWeight: FontWeight.w700,

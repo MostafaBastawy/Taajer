@@ -23,7 +23,13 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   }
 
   RegisterStep1Model? registerStep1Model;
-  void registerStep1() async {
+  void registerStep1({
+    required String email,
+    required String password,
+    required String phone,
+    required String name,
+    required String phoneCode,
+  }) async {
     emit(AuthenticationRegisterStep1LoadingState());
 
     http.post(
@@ -31,14 +37,14 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         '$baseUrl$signUp',
       ),
       body: {
-        'email': 'seller203@taajer.net',
-        'password': '123456',
+        'email': email,
+        'password': password,
         'user_type': 'seller',
-        'phone': '01145746599122',
-        'name': 'pop',
+        'phone': phone,
+        'name': name,
         'first_name': 'pop',
         'last_name': 'pop',
-        'phone_code': '+20',
+        'phone_code': phoneCode,
       },
     ).then((value) {
       registerStep1Model = RegisterStep1Model.fromJson(jsonDecode(value.body));

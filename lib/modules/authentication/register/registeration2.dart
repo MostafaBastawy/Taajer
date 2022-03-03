@@ -118,6 +118,9 @@ class RegisterScreen2 extends StatelessWidget {
                       if (value!.isEmpty) {
                         businessNameShadowBorder = borderErrorBoxShadow;
                         businessNameBorder = figmaErrorColor;
+                      } else {
+                        businessNameBorder = figmaSuccessColor;
+                        businessNameShadowBorder = borderSuccessBoxShadow;
                       }
                     },
                     onTap: () {
@@ -166,6 +169,9 @@ class RegisterScreen2 extends StatelessWidget {
                       if (value!.isEmpty) {
                         emailAddressBorder = figmaErrorColor;
                         emailAddressShadowBorder = borderErrorBoxShadow;
+                      } else {
+                        emailAddressBorder = figmaSuccessColor;
+                        emailAddressShadowBorder = borderSuccessBoxShadow;
                       }
                     },
                     onTap: () {
@@ -259,6 +265,9 @@ class RegisterScreen2 extends StatelessWidget {
                           if (value!.isEmpty) {
                             phoneNumberBorder = figmaErrorColor;
                             phoneNumberShadowBorder = borderErrorBoxShadow;
+                          } else {
+                            phoneNumberBorder = figmaSuccessColor;
+                            phoneNumberShadowBorder = borderSuccessBoxShadow;
                           }
                         },
                         onTap: () {
@@ -312,6 +321,9 @@ class RegisterScreen2 extends StatelessWidget {
                             if (value!.isEmpty) {
                               passwordBorder = figmaErrorColor;
                               passwordShadowBorder = borderErrorBoxShadow;
+                            } else {
+                              passwordBorder = figmaSuccessColor;
+                              passwordShadowBorder = borderSuccessBoxShadow;
                             }
                           },
                           onTap: () {
@@ -375,6 +387,15 @@ class RegisterScreen2 extends StatelessWidget {
                               confirmPasswordBorder = figmaErrorColor;
                               confirmPasswordShadowBorder =
                                   borderErrorBoxShadow;
+                            } else if (confirmPasswordController.text !=
+                                passwordController.text) {
+                              confirmPasswordBorder = figmaErrorColor;
+                              confirmPasswordShadowBorder =
+                                  borderErrorBoxShadow;
+                            } else {
+                              confirmPasswordBorder = figmaSuccessColor;
+                              confirmPasswordShadowBorder =
+                                  borderSuccessBoxShadow;
                             }
                           },
                           onTap: () {

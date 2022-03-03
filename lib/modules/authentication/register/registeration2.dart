@@ -22,6 +22,11 @@ class RegisterScreen2 extends StatelessWidget {
   String? countryFlag;
   String? countryCode;
   String? activeTextFormField;
+  Color businessNameBorder = const Color(0xFFE2E4E8);
+  Color emailAddressBorder = const Color(0xFFE2E4E8);
+  Color phoneNumberBorder = const Color(0xFFE2E4E8);
+  Color passwordBorder = const Color(0xFFE2E4E8);
+  Color confirmPasswordBorder = const Color(0xFFE2E4E8);
   List<BoxShadow> businessNameShadowBorder = [];
   List<BoxShadow> emailAddressShadowBorder = [];
   List<BoxShadow> phoneNumberShadowBorder = [];
@@ -95,12 +100,12 @@ class RegisterScreen2 extends StatelessWidget {
                       width: 1.0,
                       color: activeTextFormField == 'Business Name'
                           ? figmaActiveColor
-                          : const Color(0xFFE2E4E8),
+                          : businessNameBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
                     boxShadow: activeTextFormField == 'Business Name'
                         ? borderActiveBoxShadow
-                        : null,
+                        : businessNameShadowBorder,
                   ),
                   child: TextFormField(
                     controller: businessNameController,
@@ -141,10 +146,14 @@ class RegisterScreen2 extends StatelessWidget {
                     color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: emailAddressBorder,
+                      color: activeTextFormField == 'Email Address'
+                          ? figmaActiveColor
+                          : emailAddressBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: emailAddressShadowBorder,
+                    boxShadow: activeTextFormField == 'Email Address'
+                        ? borderActiveBoxShadow
+                        : emailAddressShadowBorder,
                   ),
                   child: TextFormField(
                     controller: emailAddressController,
@@ -159,7 +168,10 @@ class RegisterScreen2 extends StatelessWidget {
                         emailAddressShadowBorder = borderErrorBoxShadow;
                       }
                     },
-                    onTap: () {},
+                    onTap: () {
+                      activeTextFormField = 'Email Address';
+                      cubit.emit(AuthenticationStatesRefreshState());
+                    },
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Email Address',
@@ -224,10 +236,14 @@ class RegisterScreen2 extends StatelessWidget {
                         color: Colors.white,
                         border: Border.all(
                           width: 1.0,
-                          color: phoneNumberBorder,
+                          color: activeTextFormField == 'Phone Number'
+                              ? figmaActiveColor
+                              : phoneNumberBorder,
                         ),
                         borderRadius: BorderRadius.circular(6.r),
-                        boxShadow: phoneNumberShadowBorder,
+                        boxShadow: activeTextFormField == 'Phone Number'
+                            ? borderActiveBoxShadow
+                            : phoneNumberShadowBorder,
                       ),
                       child: TextFormField(
                         controller: phoneNumberController,
@@ -245,7 +261,10 @@ class RegisterScreen2 extends StatelessWidget {
                             phoneNumberShadowBorder = borderErrorBoxShadow;
                           }
                         },
-                        onTap: () {},
+                        onTap: () {
+                          activeTextFormField = 'Phone Number';
+                          cubit.emit(AuthenticationStatesRefreshState());
+                        },
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Phone Number',
@@ -270,10 +289,14 @@ class RegisterScreen2 extends StatelessWidget {
                     color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: passwordBorder,
+                      color: activeTextFormField == 'Password'
+                          ? figmaActiveColor
+                          : passwordBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: passwordShadowBorder,
+                    boxShadow: activeTextFormField == 'Password'
+                        ? borderActiveBoxShadow
+                        : passwordShadowBorder,
                   ),
                   child: Row(
                     children: [
@@ -291,7 +314,10 @@ class RegisterScreen2 extends StatelessWidget {
                               passwordShadowBorder = borderErrorBoxShadow;
                             }
                           },
-                          onTap: () {},
+                          onTap: () {
+                            activeTextFormField = 'Password';
+                            cubit.emit(AuthenticationStatesRefreshState());
+                          },
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Password',
@@ -325,10 +351,14 @@ class RegisterScreen2 extends StatelessWidget {
                     color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: confirmPasswordBorder,
+                      color: activeTextFormField == 'Confirm Password'
+                          ? figmaActiveColor
+                          : confirmPasswordBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: confirmPasswordShadowBorder,
+                    boxShadow: activeTextFormField == 'Confirm Password'
+                        ? borderActiveBoxShadow
+                        : confirmPasswordShadowBorder,
                   ),
                   child: Row(
                     children: [
@@ -347,7 +377,10 @@ class RegisterScreen2 extends StatelessWidget {
                                   borderErrorBoxShadow;
                             }
                           },
-                          onTap: () {},
+                          onTap: () {
+                            activeTextFormField = 'Confirm Password';
+                            cubit.emit(AuthenticationStatesRefreshState());
+                          },
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Confirm Password',
@@ -379,6 +412,7 @@ class RegisterScreen2 extends StatelessWidget {
                   label: 'Confirm & Next',
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
+                      cubit.emit(AuthenticationStatesRefreshState());
                       if (businessNameController.text.isNotEmpty &&
                           emailAddressController.text.isNotEmpty &
                               phoneNumberController.text.isNotEmpty &

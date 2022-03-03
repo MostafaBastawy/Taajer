@@ -6,6 +6,8 @@ import 'package:taajer/modules/authentication/authentication_cubit/authenticatio
 import 'package:taajer/modules/authentication/register/registeration2.dart';
 import 'package:taajer/shared/components/authentication/register/business_item.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
+import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
+import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen1 extends StatelessWidget {
@@ -48,6 +50,8 @@ class RegisterScreen1 extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   businessDetails = 'Food Truck';
+                  CacheHelper.setData(
+                      key: businessDetailsKey, value: 'Food Truck');
                   cubit.emit(AuthenticationStatesRefreshState());
                   navigateTo(widget: RegisterScreen2(), context: context);
                 },
@@ -58,12 +62,17 @@ class RegisterScreen1 extends StatelessWidget {
                   borderColor: businessDetails == 'Food Truck'
                       ? figmaPrimaryBlue
                       : figmaGrey1,
+                  borderBoxShadow: businessDetails == 'Food Truck'
+                      ? borderActiveBoxShadow
+                      : [],
                 ),
               ),
               SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () {
                   businessDetails = 'Restaurant / Cafe';
+                  CacheHelper.setData(
+                      key: businessDetailsKey, value: 'Restaurant / Cafe');
                   cubit.emit(AuthenticationStatesRefreshState());
                   navigateTo(widget: RegisterScreen2(), context: context);
                 },
@@ -74,12 +83,17 @@ class RegisterScreen1 extends StatelessWidget {
                   borderColor: businessDetails == 'Restaurant / Cafe'
                       ? figmaPrimaryBlue
                       : figmaGrey1,
+                  borderBoxShadow: businessDetails == 'Restaurant / Cafe'
+                      ? borderActiveBoxShadow
+                      : [],
                 ),
               ),
               SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () {
                   businessDetails = 'Grocery Shop';
+                  CacheHelper.setData(
+                      key: businessDetailsKey, value: 'Grocery Shop');
                   cubit.emit(AuthenticationStatesRefreshState());
                   navigateTo(widget: RegisterScreen2(), context: context);
                 },
@@ -90,6 +104,9 @@ class RegisterScreen1 extends StatelessWidget {
                   borderColor: businessDetails == 'Grocery Shop'
                       ? figmaPrimaryBlue
                       : figmaGrey1,
+                  borderBoxShadow: businessDetails == 'Grocery Shop'
+                      ? borderActiveBoxShadow
+                      : [],
                 ),
               ),
             ],

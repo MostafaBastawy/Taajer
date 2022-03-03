@@ -8,12 +8,14 @@ class BusinessItemBuilder extends StatelessWidget {
   String? businessType;
   String? businessDescription;
   Color borderColor = figmaGrey1;
+  List<BoxShadow> borderBoxShadow = [];
   BusinessItemBuilder({
     Key? key,
     required this.businessImage,
     required this.businessType,
     required this.businessDescription,
     required this.borderColor,
+    required this.borderBoxShadow,
   }) : super(key: key);
 
   @override
@@ -24,11 +26,13 @@ class BusinessItemBuilder extends StatelessWidget {
       height: 107.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6.r),
+        color: Colors.white,
         border: Border.all(
           color: borderColor,
           width: 1.0,
           style: BorderStyle.solid,
         ),
+        boxShadow: borderBoxShadow,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,

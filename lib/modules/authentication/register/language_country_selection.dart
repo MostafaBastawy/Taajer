@@ -7,6 +7,8 @@ import 'package:taajer/modules/authentication/authentication_cubit/authenticatio
 import 'package:taajer/modules/onboarding/onboarding.dart';
 import 'package:taajer/shared/components/authentication/register/language_country_item.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
+import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
+import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
 import 'package:taajer/shared/styles/colors.dart';
 import 'package:taajer/translations/locale_keys.g.dart';
 
@@ -83,6 +85,7 @@ class LanguageCountryScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   country = LocaleKeys.languageCountryScreenBahrain.tr();
+                  CacheHelper.setData(key: countryKey, value: 'Bahrain');
                   cubit.emit(AuthenticationStatesRefreshState());
                   navigateTo(widget: OnBoarding(), context: context);
                 },
@@ -99,6 +102,7 @@ class LanguageCountryScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   country = LocaleKeys.languageCountryScreenSaudiArabia.tr();
+                  CacheHelper.setData(key: countryKey, value: 'Saudi Arabia');
                   cubit.emit(AuthenticationStatesRefreshState());
                   navigateTo(widget: OnBoarding(), context: context);
                 },
@@ -116,6 +120,8 @@ class LanguageCountryScreen extends StatelessWidget {
                 onTap: () {
                   country =
                       LocaleKeys.languageCountryScreenUnitedArabEmirates.tr();
+                  CacheHelper.setData(
+                      key: countryKey, value: 'United Arab Emirates');
                   cubit.emit(AuthenticationStatesRefreshState());
                   navigateTo(widget: OnBoarding(), context: context);
                 },

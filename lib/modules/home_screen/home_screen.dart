@@ -169,7 +169,7 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsetsDirectional.only(start: 16.0),
                 child: SizedBox(
-                  height: 186.h,
+                  height: 188.h,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
@@ -212,7 +212,7 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsetsDirectional.only(start: 16.0),
                 child: SizedBox(
-                  height: 186.h,
+                  height: 188.h,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,

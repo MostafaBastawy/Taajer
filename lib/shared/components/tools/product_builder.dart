@@ -10,7 +10,7 @@ class ProductBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 150.w,
-      height: 186.h,
+      height: 188.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6.r),
         border: Border.all(width: 1.0, color: figmaGrey1),
@@ -65,12 +65,18 @@ class ProductBuilder extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                SvgPicture.asset(
-                  'assets/images/star-icon.svg',
-                  width: 12.w,
-                  height: 12.h,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/star-icon.svg',
+                      width: 12.w,
+                      height: 12.h,
+                    ),
+                    SizedBox(height: 2.w),
+                  ],
                 ),
-                SizedBox(width: 2.w),
+                SizedBox(width: 2.h),
                 Text(
                   '4.5',
                   style: TextStyle(

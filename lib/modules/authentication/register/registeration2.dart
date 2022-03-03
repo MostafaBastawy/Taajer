@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/modules/authentication/register/registeration3.dart';
@@ -107,37 +108,54 @@ class RegisterScreen2 extends StatelessWidget {
                         ? borderActiveBoxShadow
                         : businessNameShadowBorder,
                   ),
-                  child: TextFormField(
-                    controller: businessNameController,
-                    keyboardType: TextInputType.text,
-                    maxLines: 1,
-                    obscureText: false,
-                    onChanged: (value) {},
-                    onFieldSubmitted: (value) {},
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        businessNameShadowBorder = borderErrorBoxShadow;
-                        businessNameBorder = figmaErrorColor;
-                      } else {
-                        businessNameBorder = figmaSuccessColor;
-                        businessNameShadowBorder = borderSuccessBoxShadow;
-                      }
-                    },
-                    onTap: () {
-                      activeTextFormField = 'Business Name';
-                      cubit.emit(AuthenticationStatesRefreshState());
-                    },
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Business Name',
-                      hintStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFFB2B7C2),
-                        fontStyle: FontStyle.normal,
-                        height: 1.6,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: businessNameController,
+                          keyboardType: TextInputType.text,
+                          maxLines: 1,
+                          obscureText: false,
+                          onChanged: (value) {},
+                          onFieldSubmitted: (value) {},
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              businessNameShadowBorder = borderErrorBoxShadow;
+                              businessNameBorder = figmaErrorColor;
+                            } else {
+                              businessNameBorder = figmaSuccessColor;
+                              businessNameShadowBorder = borderSuccessBoxShadow;
+                            }
+                          },
+                          onTap: () {
+                            activeTextFormField = 'Business Name';
+                            cubit.emit(AuthenticationStatesRefreshState());
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Business Name',
+                            hintStyle: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xFFB2B7C2),
+                              fontStyle: FontStyle.normal,
+                              height: 1.6,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                      if (activeTextFormField == 'Business Name')
+                        GestureDetector(
+                          onTap: () {
+                            businessNameController.text = '';
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/delete-icon.svg',
+                            width: 16.67.w,
+                            height: 16.67.h,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 14.h),
@@ -158,37 +176,54 @@ class RegisterScreen2 extends StatelessWidget {
                         ? borderActiveBoxShadow
                         : emailAddressShadowBorder,
                   ),
-                  child: TextFormField(
-                    controller: emailAddressController,
-                    keyboardType: TextInputType.emailAddress,
-                    maxLines: 1,
-                    obscureText: false,
-                    onChanged: (value) {},
-                    onFieldSubmitted: (value) {},
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        emailAddressBorder = figmaErrorColor;
-                        emailAddressShadowBorder = borderErrorBoxShadow;
-                      } else {
-                        emailAddressBorder = figmaSuccessColor;
-                        emailAddressShadowBorder = borderSuccessBoxShadow;
-                      }
-                    },
-                    onTap: () {
-                      activeTextFormField = 'Email Address';
-                      cubit.emit(AuthenticationStatesRefreshState());
-                    },
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Email Address',
-                      hintStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFFB2B7C2),
-                        fontStyle: FontStyle.normal,
-                        height: 1.6,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: emailAddressController,
+                          keyboardType: TextInputType.emailAddress,
+                          maxLines: 1,
+                          obscureText: false,
+                          onChanged: (value) {},
+                          onFieldSubmitted: (value) {},
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              emailAddressBorder = figmaErrorColor;
+                              emailAddressShadowBorder = borderErrorBoxShadow;
+                            } else {
+                              emailAddressBorder = figmaSuccessColor;
+                              emailAddressShadowBorder = borderSuccessBoxShadow;
+                            }
+                          },
+                          onTap: () {
+                            activeTextFormField = 'Email Address';
+                            cubit.emit(AuthenticationStatesRefreshState());
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Email Address',
+                            hintStyle: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xFFB2B7C2),
+                              fontStyle: FontStyle.normal,
+                              height: 1.6,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                      if (activeTextFormField == 'Email Address')
+                        GestureDetector(
+                          onTap: () {
+                            emailAddressController.text = '';
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/delete-icon.svg',
+                            width: 16.67.w,
+                            height: 16.67.h,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 14.h),
@@ -251,40 +286,59 @@ class RegisterScreen2 extends StatelessWidget {
                             ? borderActiveBoxShadow
                             : phoneNumberShadowBorder,
                       ),
-                      child: TextFormField(
-                        controller: phoneNumberController,
-                        keyboardType: TextInputType.phone,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly
-                        ],
-                        maxLines: 1,
-                        obscureText: false,
-                        onChanged: (value) {},
-                        onFieldSubmitted: (value) {},
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            phoneNumberBorder = figmaErrorColor;
-                            phoneNumberShadowBorder = borderErrorBoxShadow;
-                          } else {
-                            phoneNumberBorder = figmaSuccessColor;
-                            phoneNumberShadowBorder = borderSuccessBoxShadow;
-                          }
-                        },
-                        onTap: () {
-                          activeTextFormField = 'Phone Number';
-                          cubit.emit(AuthenticationStatesRefreshState());
-                        },
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Phone Number',
-                          hintStyle: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFFB2B7C2),
-                            fontStyle: FontStyle.normal,
-                            height: 1.6,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: phoneNumberController,
+                              keyboardType: TextInputType.phone,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLines: 1,
+                              obscureText: false,
+                              onChanged: (value) {},
+                              onFieldSubmitted: (value) {},
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  phoneNumberBorder = figmaErrorColor;
+                                  phoneNumberShadowBorder =
+                                      borderErrorBoxShadow;
+                                } else {
+                                  phoneNumberBorder = figmaSuccessColor;
+                                  phoneNumberShadowBorder =
+                                      borderSuccessBoxShadow;
+                                }
+                              },
+                              onTap: () {
+                                activeTextFormField = 'Phone Number';
+                                cubit.emit(AuthenticationStatesRefreshState());
+                              },
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Phone Number',
+                                hintStyle: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: const Color(0xFFB2B7C2),
+                                  fontStyle: FontStyle.normal,
+                                  height: 1.6,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                          if (activeTextFormField == 'Phone Number')
+                            GestureDetector(
+                              onTap: () {
+                                phoneNumberController.text = '';
+                              },
+                              child: SvgPicture.asset(
+                                'assets/images/delete-icon.svg',
+                                width: 16.67.w,
+                                height: 16.67.h,
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                   ],
@@ -343,14 +397,31 @@ class RegisterScreen2 extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Spacer(),
-                      IconButton(
-                        onPressed: () {
+                      if (activeTextFormField == 'Password')
+                        SizedBox(width: 10.w),
+                      if (activeTextFormField == 'Password')
+                        GestureDetector(
+                          onTap: () {
+                            passwordController.text = '';
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/delete-icon.svg',
+                            width: 16.67.w,
+                            height: 16.67.h,
+                          ),
+                        ),
+                      if (activeTextFormField == 'Password')
+                        SizedBox(width: 9.25.w),
+                      GestureDetector(
+                        onTap: () {
                           cubit.changePasswordVisibility();
                         },
-                        icon: Icon(cubit.passwordSuffixIcon),
-                        color: figmaGrey1,
+                        child: Icon(
+                          cubit.passwordSuffixIcon,
+                          color: figmaGrey1,
+                        ),
                       ),
+                      SizedBox(width: 17.12.w),
                     ],
                   ),
                 ),
@@ -415,14 +486,31 @@ class RegisterScreen2 extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Spacer(),
-                      IconButton(
-                        onPressed: () {
+                      if (activeTextFormField == 'Confirm Password')
+                        SizedBox(width: 10.w),
+                      if (activeTextFormField == 'Confirm Password')
+                        GestureDetector(
+                          onTap: () {
+                            confirmPasswordController.text = '';
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/delete-icon.svg',
+                            width: 16.67.w,
+                            height: 16.67.h,
+                          ),
+                        ),
+                      if (activeTextFormField == 'Confirm Password')
+                        SizedBox(width: 9.25.w),
+                      GestureDetector(
+                        onTap: () {
                           cubit.changePasswordVisibility();
                         },
-                        icon: Icon(cubit.passwordSuffixIcon),
-                        color: figmaGrey1,
+                        child: Icon(
+                          cubit.passwordSuffixIcon,
+                          color: figmaGrey1,
+                        ),
                       ),
+                      SizedBox(width: 17.12.w),
                     ],
                   ),
                 ),

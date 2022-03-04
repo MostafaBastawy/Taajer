@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/modules/authentication/register/registeration3.dart';
-import 'package:taajer/shared/components/authentication/text_form_filed.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
@@ -92,39 +91,6 @@ class RegisterScreen2 extends StatelessWidget {
             key: formKey,
             child: Column(
               children: [
-                DefaultTextFormField(
-                  width: 343.w,
-                  height: 48.h,
-                  borderColor: activeTextFormField == 'Business Name'
-                      ? figmaActiveColor
-                      : businessNameBorder,
-                  borderBoxShadow: activeTextFormField == 'Business Name'
-                      ? borderActiveBoxShadow
-                      : businessNameShadowBorder,
-                  obscureText: false,
-                  textEditingController: businessNameController,
-                  textInputType: TextInputType.text,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      businessNameShadowBorder = borderErrorBoxShadow;
-                      businessNameBorder = figmaErrorColor;
-                    } else {
-                      businessNameBorder = figmaSuccessColor;
-                      businessNameShadowBorder = borderSuccessBoxShadow;
-                    }
-                  },
-                  onTap: () {
-                    activeTextFormField = 'Business Name';
-                    cubit.emit(AuthenticationStatesRefreshState());
-                  },
-                  hintText: 'Business Name',
-                  activeTextFormField: activeTextFormField,
-                  activeTextFormFieldName: 'Business Name',
-                  clearController: () {
-                    businessNameController.text = '';
-                  },
-                ),
-                SizedBox(height: 14.h),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   width: 343.w,

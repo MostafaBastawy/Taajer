@@ -55,7 +55,7 @@ class DefaultTextFormField extends StatelessWidget {
               onChanged: (value) {},
               onFieldSubmitted: (value) {},
               validator: (value) {
-                validator!;
+                validator;
               },
               onTap: () {
                 onTap!();

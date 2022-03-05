@@ -251,7 +251,7 @@ class RegisterScreen3 extends StatelessWidget {
               DefaultButton(
                 height: 46.h,
                 width: 344.w,
-                label: 'Confirm & Next',
+                label: 'Verify',
                 onPressed: () {
                   navigateTo(
                     widget: const HomeLayout(),

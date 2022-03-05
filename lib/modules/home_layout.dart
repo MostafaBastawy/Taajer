@@ -15,7 +15,7 @@ class HomeLayout extends StatelessWidget {
       builder: (BuildContext context, state) => Scaffold(
         appBar: null,
         bottomNavigationBar: BottomNavigationBar(
-          items: bottomNavBarItem,
+          items: bottomNavBarItem(context),
           currentIndex: cubit.currentIndex,
           onTap: (int index) {
             cubit.changeBottomNavBar(index);

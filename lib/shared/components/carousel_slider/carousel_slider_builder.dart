@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
-import 'package:flutter_carousel_slider/carousel_slider_transforms.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taajer/shared/components/carousel_slider/carousel_slider_list.dart';
 
@@ -29,7 +28,6 @@ class CarouselSliderBuilder extends StatelessWidget {
               fit: BoxFit.cover,
             );
           },
-          slideTransform: const CubeTransform(),
           slideIndicator: CircularSlideIndicator(
             padding: const EdgeInsets.only(bottom: 5),
             //indicatorBorderColor: Colors.white,

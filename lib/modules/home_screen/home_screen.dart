@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12.h),
-              CarouselSliderBuilder(),
+              const CarouselSliderBuilder(),
               SizedBox(height: 21.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -123,21 +123,23 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 17.h),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(start: 16.0),
-                child: SizedBox(
-                  height: 110.h,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) =>
-                        CategoryBuilder(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(
-                      width: 10.w,
-                    ),
-                    itemCount: 10,
+              SizedBox(
+                height: 110.h,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) => Row(
+                    children: [
+                      if (index == 0) SizedBox(width: 16.w),
+                      CategoryBuilder(),
+                      if (index == 9) SizedBox(width: 16.w),
+                    ],
                   ),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(
+                    width: 10.w,
+                  ),
+                  itemCount: 10,
                 ),
               ),
               SizedBox(height: 29.h),
@@ -166,21 +168,23 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12.h),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(start: 16.0),
-                child: SizedBox(
-                  height: 188.h,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) =>
-                        ProductBuilder(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(
-                      width: 10.w,
-                    ),
-                    itemCount: 10,
+              SizedBox(
+                height: 188.h,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) => Row(
+                    children: [
+                      if (index == 0) SizedBox(width: 16.w),
+                      const ProductBuilder(),
+                      if (index == 9) SizedBox(width: 16.w),
+                    ],
                   ),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(
+                    width: 10.w,
+                  ),
+                  itemCount: 10,
                 ),
               ),
               SizedBox(height: 23.h),
@@ -209,21 +213,23 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.h),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(start: 16.0),
-                child: SizedBox(
-                  height: 188.h,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) =>
-                        ProductBuilder(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(
-                      width: 10.w,
-                    ),
-                    itemCount: 10,
+              SizedBox(
+                height: 188.h,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) => Row(
+                    children: [
+                      if (index == 0) SizedBox(width: 16.w),
+                      const ProductBuilder(),
+                      if (index == 9) SizedBox(width: 16.w),
+                    ],
                   ),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(
+                    width: 10.w,
+                  ),
+                  itemCount: 10,
                 ),
               ),
               SizedBox(height: 20.h),
@@ -252,21 +258,23 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 14.h),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(start: 16.0),
-                child: SizedBox(
-                  height: 107.h,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) =>
-                        BrandBuilder(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(
-                      width: 10.w,
-                    ),
-                    itemCount: 10,
+              SizedBox(
+                height: 107.h,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) => Row(
+                    children: [
+                      if (index == 0) SizedBox(width: 16.w),
+                      const BrandBuilder(),
+                      if (index == 9) SizedBox(width: 16.w),
+                    ],
                   ),
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(
+                    width: 10.w,
+                  ),
+                  itemCount: 10,
                 ),
               ),
             ],

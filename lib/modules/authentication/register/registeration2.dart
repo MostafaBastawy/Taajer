@@ -231,7 +231,6 @@ class RegisterScreen2 extends StatelessWidget {
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      width: 104.w,
                       height: 48.h,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -269,76 +268,78 @@ class RegisterScreen2 extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 12.w),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      width: 227.w,
-                      height: 48.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          width: 1.0,
-                          color: activeTextFormField == 'Phone Number'
-                              ? figmaActiveColor
-                              : phoneNumberBorder,
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        height: 48.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            width: 1.0,
+                            color: activeTextFormField == 'Phone Number'
+                                ? figmaActiveColor
+                                : phoneNumberBorder,
+                          ),
+                          borderRadius: BorderRadius.circular(6.r),
+                          boxShadow: activeTextFormField == 'Phone Number'
+                              ? borderActiveBoxShadow
+                              : phoneNumberShadowBorder,
                         ),
-                        borderRadius: BorderRadius.circular(6.r),
-                        boxShadow: activeTextFormField == 'Phone Number'
-                            ? borderActiveBoxShadow
-                            : phoneNumberShadowBorder,
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              controller: phoneNumberController,
-                              keyboardType: TextInputType.phone,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly
-                              ],
-                              maxLines: 1,
-                              obscureText: false,
-                              onChanged: (value) {},
-                              onFieldSubmitted: (value) {},
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  phoneNumberBorder = figmaErrorColor;
-                                  phoneNumberShadowBorder =
-                                      borderErrorBoxShadow;
-                                } else {
-                                  phoneNumberBorder = figmaSuccessColor;
-                                  phoneNumberShadowBorder =
-                                      borderSuccessBoxShadow;
-                                }
-                              },
-                              onTap: () {
-                                activeTextFormField = 'Phone Number';
-                                cubit.emit(AuthenticationStatesRefreshState());
-                              },
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'Phone Number',
-                                hintStyle: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w500,
-                                  color: const Color(0xFFB2B7C2),
-                                  fontStyle: FontStyle.normal,
-                                  height: 1.6,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                controller: phoneNumberController,
+                                keyboardType: TextInputType.phone,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                maxLines: 1,
+                                obscureText: false,
+                                onChanged: (value) {},
+                                onFieldSubmitted: (value) {},
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    phoneNumberBorder = figmaErrorColor;
+                                    phoneNumberShadowBorder =
+                                        borderErrorBoxShadow;
+                                  } else {
+                                    phoneNumberBorder = figmaSuccessColor;
+                                    phoneNumberShadowBorder =
+                                        borderSuccessBoxShadow;
+                                  }
+                                },
+                                onTap: () {
+                                  activeTextFormField = 'Phone Number';
+                                  cubit
+                                      .emit(AuthenticationStatesRefreshState());
+                                },
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Phone Number',
+                                  hintStyle: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w500,
+                                    color: const Color(0xFFB2B7C2),
+                                    fontStyle: FontStyle.normal,
+                                    height: 1.6,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          if (activeTextFormField == 'Phone Number')
-                            GestureDetector(
-                              onTap: () {
-                                phoneNumberController.text = '';
-                              },
-                              child: SvgPicture.asset(
-                                'assets/images/delete-icon.svg',
-                                width: 16.67.w,
-                                height: 16.67.h,
+                            if (activeTextFormField == 'Phone Number')
+                              GestureDetector(
+                                onTap: () {
+                                  phoneNumberController.text = '';
+                                },
+                                child: SvgPicture.asset(
+                                  'assets/images/delete-icon.svg',
+                                  width: 16.67.w,
+                                  height: 16.67.h,
+                                ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],

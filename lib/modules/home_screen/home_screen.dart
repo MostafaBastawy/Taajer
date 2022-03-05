@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taajer/shared/components/authentication/register/complete_registration_bottom_sheet.dart';
 import 'package:taajer/shared/components/carousel_slider/carousel_slider_builder.dart';
+import 'package:taajer/shared/components/home_screen/complete_registration_bottom_sheet.dart';
 import 'package:taajer/shared/components/tools/brand_builder.dart';
 import 'package:taajer/shared/components/tools/category_builder.dart';
 import 'package:taajer/shared/components/tools/product_builder.dart';

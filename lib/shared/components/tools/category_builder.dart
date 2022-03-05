@@ -15,7 +15,7 @@ class CategoryBuilder extends StatelessWidget {
         color: const Color(0xFFFFE3D6),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Meat',
@@ -29,7 +29,7 @@ class CategoryBuilder extends StatelessWidget {
           ),
           Image(
             image: const AssetImage('assets/images/category-item.png'),
-            height: 74.w,
+            height: 74.h,
             width: 94.w,
           ),
         ],

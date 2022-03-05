@@ -76,17 +76,13 @@ class CompleteRegistrationBottomSheet extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: SizedBox(
-                height: 15.h,
-                width: 143.w,
-                child: Text(
-                  'Continue Browsing',
-                  style: TextStyle(
-                    color: const Color(0xFFA4A5A9),
-                    fontStyle: FontStyle.normal,
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w400,
-                  ),
+              child: Text(
+                'Continue Browsing',
+                style: TextStyle(
+                  color: const Color(0xFFA4A5A9),
+                  fontStyle: FontStyle.normal,
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),

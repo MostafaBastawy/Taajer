@@ -111,34 +111,34 @@ class OnBoarding extends StatelessWidget {
                     color: figmaPrimaryBlue,
                     borderRadius: BorderRadius.circular(6.r),
                   ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            navigateTo(
-                              widget: RegisterScreen1(),
-                              context: context,
-                            );
-                          },
-                          child: Text(
-                            'Get Started',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15.sp,
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: 0.25,
-                            ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          navigateTo(
+                            widget: RegisterScreen1(),
+                            context: context,
+                          );
+                        },
+                        child: Text(
+                          'Get Started',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.25,
                           ),
                         ),
-                        SizedBox(width: 85.w),
-                        const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        width: 95.12.w,
+                      ),
+                      const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      ),
+                    ],
                   ),
                 ),
               SizedBox(height: 37.h),

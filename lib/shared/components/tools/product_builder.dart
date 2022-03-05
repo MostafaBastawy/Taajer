@@ -24,7 +24,7 @@ class ProductBuilder extends StatelessWidget {
             Center(
               child: Image(
                 image: const AssetImage('assets/images/product-item.png'),
-                height: 101.w,
+                height: 101.h,
                 width: 101.w,
               ),
             ),

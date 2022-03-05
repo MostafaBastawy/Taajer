@@ -97,8 +97,8 @@ flutter:
 
      - family: Gotham
        fonts:
-         - asset: assets/fonts/GothamMedium.ttf
-           style: normal
+         - asset: assets/fonts/GothamMedium.eot
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

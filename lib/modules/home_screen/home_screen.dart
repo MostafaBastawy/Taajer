@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/shared/components/authentication/register/complete_registration_bottom_sheet.dart';
 import 'package:taajer/shared/components/carousel_slider/carousel_slider_builder.dart';
 import 'package:taajer/shared/components/tools/brand_builder.dart';
 import 'package:taajer/shared/components/tools/category_builder.dart';
@@ -176,7 +177,17 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) => Row(
                     children: [
                       if (index == 0) SizedBox(width: 16.w),
-                      const ProductBuilder(),
+                      GestureDetector(
+                        onTap: () {
+                          showBottomSheet(
+                            backgroundColor: Colors.white.withOpacity(0.0),
+                            context: context,
+                            builder: (BuildContext context) =>
+                                const CompleteRegistrationBottomSheet(),
+                          );
+                        },
+                        child: const ProductBuilder(),
+                      ),
                       if (index == 9) SizedBox(width: 16.w),
                     ],
                   ),
@@ -221,7 +232,17 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) => Row(
                     children: [
                       if (index == 0) SizedBox(width: 16.w),
-                      const ProductBuilder(),
+                      GestureDetector(
+                        onTap: () {
+                          showBottomSheet(
+                            backgroundColor: Colors.white.withOpacity(0.0),
+                            context: context,
+                            builder: (BuildContext context) =>
+                                const CompleteRegistrationBottomSheet(),
+                          );
+                        },
+                        child: const ProductBuilder(),
+                      ),
                       if (index == 9) SizedBox(width: 16.w),
                     ],
                   ),

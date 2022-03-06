@@ -28,6 +28,10 @@ class RegisterScreen2 extends StatelessWidget {
   String phoneValidationMessage = '';
   String passwordValidationMessage = '';
   String confirmPasswordValidationMessage = '';
+  String emailPattern = r'\w+@\w+\.\w+';
+  String saudiPhonePattern = r'^((?!(0))[0-9]{9})$';
+  String bahrainPhonePattern = r'^((?!(0))[0-9]{8})$';
+  String emiratesPhonePattern = r'^((?!(0))[0-9]{9})$';
 
   Color businessNameBorder = const Color(0xFFE2E4E8);
   Color emailAddressBorder = const Color(0xFFE2E4E8);
@@ -97,519 +101,650 @@ class RegisterScreen2 extends StatelessWidget {
             key: formKey,
             child: Column(
               children: [
-                Column(
-                  children: [],
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  width: 343.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 1.0,
-                      color: activeTextFormField == 'Business Name'
-                          ? figmaActiveColor
-                          : businessNameBorder,
-                    ),
-                    borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: activeTextFormField == 'Business Name'
-                        ? borderActiveBoxShadow
-                        : businessNameShadowBorder,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: businessNameController,
-                          keyboardType: TextInputType.text,
-                          maxLines: 1,
-                          obscureText: false,
-                          onChanged: (value) {},
-                          onFieldSubmitted: (value) {},
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              businessNameShadowBorder = borderErrorBoxShadow;
-                              businessNameBorder = figmaErrorColor;
-                              businessNameValidationMessage = 'error';
-                            } else {
-                              businessNameBorder = figmaSuccessColor;
-                              businessNameShadowBorder = borderSuccessBoxShadow;
-                            }
-                          },
-                          onTap: () {
-                            activeTextFormField = 'Business Name';
-                            cubit.emit(AuthenticationStatesRefreshState());
-                          },
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Business Name',
-                            hintStyle: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFFB2B7C2),
-                              fontStyle: FontStyle.normal,
-                              height: 1.6,
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
+                          width: 343.w,
+                          height: 48.h,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              width: 1.0,
+                              color: activeTextFormField == 'Business Name'
+                                  ? figmaActiveColor
+                                  : businessNameBorder,
                             ),
+                            borderRadius: BorderRadius.circular(6.r),
+                            boxShadow: activeTextFormField == 'Business Name'
+                                ? borderActiveBoxShadow
+                                : businessNameShadowBorder,
                           ),
-                        ),
-                      ),
-                      if (activeTextFormField == 'Business Name')
-                        GestureDetector(
-                          onTap: () {
-                            businessNameController.text = '';
-                          },
-                          child: SvgPicture.asset(
-                            'assets/images/delete-icon.svg',
-                            width: 16.67.w,
-                            height: 16.67.h,
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 5.5.h),
-                if (businessNameValidationMessage.isNotEmpty)
-                  Row(
-                    children: [
-                      SvgPicture.asset('assets/images/error-icon.svg'),
-                      SizedBox(width: 10.w),
-                      Text(
-                        businessNameValidationMessage,
-                        style: TextStyle(
-                          color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                SizedBox(height: 14.h),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  width: 343.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 1.0,
-                      color: activeTextFormField == 'Email Address'
-                          ? figmaActiveColor
-                          : emailAddressBorder,
-                    ),
-                    borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: activeTextFormField == 'Email Address'
-                        ? borderActiveBoxShadow
-                        : emailAddressShadowBorder,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: emailAddressController,
-                          keyboardType: TextInputType.emailAddress,
-                          maxLines: 1,
-                          obscureText: false,
-                          onChanged: (value) {},
-                          onFieldSubmitted: (value) {},
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              emailAddressBorder = figmaErrorColor;
-                              emailAddressShadowBorder = borderErrorBoxShadow;
-                            } else {
-                              emailAddressBorder = figmaSuccessColor;
-                              emailAddressShadowBorder = borderSuccessBoxShadow;
-                            }
-                          },
-                          onTap: () {
-                            activeTextFormField = 'Email Address';
-                            cubit.emit(AuthenticationStatesRefreshState());
-                          },
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Email Address',
-                            hintStyle: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFFB2B7C2),
-                              fontStyle: FontStyle.normal,
-                              height: 1.6,
-                            ),
-                          ),
-                        ),
-                      ),
-                      if (activeTextFormField == 'Email Address')
-                        GestureDetector(
-                          onTap: () {
-                            emailAddressController.text = '';
-                          },
-                          child: SvgPicture.asset(
-                            'assets/images/delete-icon.svg',
-                            width: 16.67.w,
-                            height: 16.67.h,
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 5.5.h),
-                if (emailValidationMessage.isNotEmpty)
-                  Row(
-                    children: [
-                      SvgPicture.asset('assets/images/error-icon.svg'),
-                      SizedBox(width: 10.w),
-                      Text(
-                        emailValidationMessage,
-                        style: TextStyle(
-                          color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                SizedBox(height: 14.h),
-                Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      height: 48.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          width: 1.0,
-                          color: const Color(0xFFE2E4E8),
-                        ),
-                        borderRadius: BorderRadius.circular(6.r),
-                      ),
-                      child: Row(
-                        children: [
-                          Image(
-                            image: AssetImage(
-                              'assets/images/$countryFlag',
-                            ),
-                            width: 20.w,
-                            height: 14.h,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(width: 10.w),
-                          SizedBox(
-                            height: 30.h,
-                            child: Text(
-                              countryCode!,
-                              style: TextStyle(
-                                color: const Color(0xFFCACDD5),
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal,
-                                height: 1.6,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 12.w),
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        height: 48.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            width: 1.0,
-                            color: activeTextFormField == 'Phone Number'
-                                ? figmaActiveColor
-                                : phoneNumberBorder,
-                          ),
-                          borderRadius: BorderRadius.circular(6.r),
-                          boxShadow: activeTextFormField == 'Phone Number'
-                              ? borderActiveBoxShadow
-                              : phoneNumberShadowBorder,
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: TextFormField(
-                                controller: phoneNumberController,
-                                keyboardType: TextInputType.phone,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly
-                                ],
-                                maxLines: 1,
-                                obscureText: false,
-                                onChanged: (value) {},
-                                onFieldSubmitted: (value) {},
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    phoneNumberBorder = figmaErrorColor;
-                                    phoneNumberShadowBorder =
-                                        borderErrorBoxShadow;
-                                  } else {
-                                    phoneNumberBorder = figmaSuccessColor;
-                                    phoneNumberShadowBorder =
-                                        borderSuccessBoxShadow;
-                                  }
-                                },
-                                onTap: () {
-                                  activeTextFormField = 'Phone Number';
-                                  cubit
-                                      .emit(AuthenticationStatesRefreshState());
-                                },
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Phone Number',
-                                  hintStyle: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: const Color(0xFFB2B7C2),
-                                    fontStyle: FontStyle.normal,
-                                    height: 1.6,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  controller: businessNameController,
+                                  keyboardType: TextInputType.text,
+                                  maxLines: 1,
+                                  obscureText: false,
+                                  onChanged: (value) {},
+                                  onFieldSubmitted: (value) {},
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      businessNameShadowBorder =
+                                          borderErrorBoxShadow;
+                                      businessNameBorder = figmaErrorColor;
+                                      businessNameValidationMessage =
+                                          'Business Name cant be empty';
+                                    } else {
+                                      businessNameBorder = figmaSuccessColor;
+                                      businessNameShadowBorder =
+                                          borderSuccessBoxShadow;
+                                      businessNameValidationMessage = '';
+                                    }
+                                  },
+                                  onTap: () {
+                                    activeTextFormField = 'Business Name';
+                                    cubit.emit(
+                                        AuthenticationStatesRefreshState());
+                                  },
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Business Name',
+                                    hintStyle: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFFB2B7C2),
+                                      fontStyle: FontStyle.normal,
+                                      height: 1.6,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            if (activeTextFormField == 'Phone Number')
-                              GestureDetector(
-                                onTap: () {
-                                  phoneNumberController.text = '';
-                                },
-                                child: SvgPicture.asset(
-                                  'assets/images/delete-icon.svg',
-                                  width: 16.67.w,
-                                  height: 16.67.h,
+                              if (activeTextFormField == 'Business Name')
+                                GestureDetector(
+                                  onTap: () {
+                                    businessNameController.text = '';
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/images/delete-icon.svg',
+                                    width: 16.67.w,
+                                    height: 16.67.h,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 5.5.h),
+                        if (businessNameValidationMessage.isNotEmpty)
+                          Row(
+                            children: [
+                              SvgPicture.asset('assets/images/error-icon.svg'),
+                              SizedBox(width: 10.w),
+                              Text(
+                                businessNameValidationMessage,
+                                style: TextStyle(
+                                  color: const Color(0xFFFF3236),
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 12.sp,
                                 ),
                               ),
+                            ],
+                          ),
+                        SizedBox(height: 14.h),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
+                          width: 343.w,
+                          height: 48.h,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              width: 1.0,
+                              color: activeTextFormField == 'Email Address'
+                                  ? figmaActiveColor
+                                  : emailAddressBorder,
+                            ),
+                            borderRadius: BorderRadius.circular(6.r),
+                            boxShadow: activeTextFormField == 'Email Address'
+                                ? borderActiveBoxShadow
+                                : emailAddressShadowBorder,
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  controller: emailAddressController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  maxLines: 1,
+                                  obscureText: false,
+                                  onChanged: (value) {},
+                                  onFieldSubmitted: (value) {},
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      emailAddressBorder = figmaErrorColor;
+                                      emailAddressShadowBorder =
+                                          borderErrorBoxShadow;
+                                      emailValidationMessage =
+                                          'Email Address cant be empty';
+                                    } else if (!RegExp(emailPattern)
+                                        .hasMatch(value)) {
+                                      emailAddressBorder = figmaErrorColor;
+                                      emailAddressShadowBorder =
+                                          borderErrorBoxShadow;
+                                      emailValidationMessage =
+                                          'Invalid email address format';
+                                    } else {
+                                      emailAddressBorder = figmaSuccessColor;
+                                      emailAddressShadowBorder =
+                                          borderSuccessBoxShadow;
+                                      emailValidationMessage = '';
+                                    }
+                                  },
+                                  onTap: () {
+                                    activeTextFormField = 'Email Address';
+                                    cubit.emit(
+                                        AuthenticationStatesRefreshState());
+                                  },
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Email Address',
+                                    hintStyle: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFFB2B7C2),
+                                      fontStyle: FontStyle.normal,
+                                      height: 1.6,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (activeTextFormField == 'Email Address')
+                                GestureDetector(
+                                  onTap: () {
+                                    emailAddressController.text = '';
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/images/delete-icon.svg',
+                                    width: 16.67.w,
+                                    height: 16.67.h,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 5.5.h),
+                        if (emailValidationMessage.isNotEmpty)
+                          Row(
+                            children: [
+                              SvgPicture.asset('assets/images/error-icon.svg'),
+                              SizedBox(width: 10.w),
+                              Text(
+                                emailValidationMessage,
+                                style: TextStyle(
+                                  color: const Color(0xFFFF3236),
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                        SizedBox(height: 14.h),
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                              height: 48.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  width: 1.0,
+                                  color: const Color(0xFFE2E4E8),
+                                ),
+                                borderRadius: BorderRadius.circular(6.r),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image(
+                                    image: AssetImage(
+                                      'assets/images/$countryFlag',
+                                    ),
+                                    width: 20.w,
+                                    height: 14.h,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  SizedBox(width: 10.w),
+                                  SizedBox(
+                                    height: 30.h,
+                                    child: Text(
+                                      countryCode!,
+                                      style: TextStyle(
+                                        color: const Color(0xFFCACDD5),
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FontStyle.normal,
+                                        height: 1.6,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 12.w),
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                                height: 48.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    width: 1.0,
+                                    color: activeTextFormField == 'Phone Number'
+                                        ? figmaActiveColor
+                                        : phoneNumberBorder,
+                                  ),
+                                  borderRadius: BorderRadius.circular(6.r),
+                                  boxShadow:
+                                      activeTextFormField == 'Phone Number'
+                                          ? borderActiveBoxShadow
+                                          : phoneNumberShadowBorder,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        controller: phoneNumberController,
+                                        keyboardType: TextInputType.phone,
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter.digitsOnly
+                                        ],
+                                        maxLines: 1,
+                                        obscureText: false,
+                                        onChanged: (value) {},
+                                        onFieldSubmitted: (value) {},
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            phoneNumberBorder = figmaErrorColor;
+                                            phoneNumberShadowBorder =
+                                                borderErrorBoxShadow;
+                                            phoneValidationMessage =
+                                                'Phone Number cant be empty';
+                                          }
+                                          if (value.isNotEmpty &&
+                                              CacheHelper.getData(
+                                                      key: 'countryKey') ==
+                                                  'Bahrain') {
+                                            if (!RegExp(bahrainPhonePattern)
+                                                .hasMatch(value)) {
+                                              phoneNumberBorder =
+                                                  figmaErrorColor;
+                                              phoneNumberShadowBorder =
+                                                  borderErrorBoxShadow;
+                                              phoneValidationMessage =
+                                                  'Phone Number should be 8 digits without 0';
+                                            } else {
+                                              phoneNumberBorder =
+                                                  figmaSuccessColor;
+                                              phoneNumberShadowBorder =
+                                                  borderSuccessBoxShadow;
+                                              phoneValidationMessage = '';
+                                            }
+                                          } else if (value.isNotEmpty &&
+                                              CacheHelper.getData(
+                                                      key: 'countryKey') ==
+                                                  'Saudi Arabia') {
+                                            if (!RegExp(saudiPhonePattern)
+                                                .hasMatch(value)) {
+                                              phoneNumberBorder =
+                                                  figmaErrorColor;
+                                              phoneNumberShadowBorder =
+                                                  borderErrorBoxShadow;
+                                              phoneValidationMessage =
+                                                  'Phone Number should be 9 digits without 0';
+                                            } else {
+                                              phoneNumberBorder =
+                                                  figmaSuccessColor;
+                                              phoneNumberShadowBorder =
+                                                  borderSuccessBoxShadow;
+                                              phoneValidationMessage = '';
+                                            }
+                                          } else if (value.isNotEmpty &&
+                                              CacheHelper.getData(
+                                                      key: 'countryKey') ==
+                                                  'United Arab Emirates') {
+                                            if (!RegExp(emiratesPhonePattern)
+                                                .hasMatch(value)) {
+                                              phoneNumberBorder =
+                                                  figmaErrorColor;
+                                              phoneNumberShadowBorder =
+                                                  borderErrorBoxShadow;
+                                              phoneValidationMessage =
+                                                  'Phone Number should be 9 digits without 0';
+                                            } else {
+                                              phoneNumberBorder =
+                                                  figmaSuccessColor;
+                                              phoneNumberShadowBorder =
+                                                  borderSuccessBoxShadow;
+                                              phoneValidationMessage = '';
+                                            }
+                                          } else if (value.isEmpty) {
+                                            phoneNumberBorder = figmaErrorColor;
+                                            phoneNumberShadowBorder =
+                                                borderErrorBoxShadow;
+                                            phoneValidationMessage =
+                                                'Phone Number cant be empty';
+                                          }
+                                          // if (value!.isNotEmpty) {
+                                          //   if (CacheHelper.getData(
+                                          //           key: 'countryKey') ==
+                                          //       'Bahrain') {
+                                          //     if (!RegExp(bahrainPhonePattern)
+                                          //         .hasMatch(value)) {
+                                          //       phoneNumberBorder =
+                                          //           figmaErrorColor;
+                                          //       phoneNumberShadowBorder =
+                                          //           borderErrorBoxShadow;
+                                          //       phoneValidationMessage =
+                                          //           'Phone Number should be 8 digits without 0';
+                                          //     } else {
+                                          //       phoneNumberBorder =
+                                          //           figmaSuccessColor;
+                                          //       phoneNumberShadowBorder =
+                                          //           borderSuccessBoxShadow;
+                                          //       phoneValidationMessage = '';
+                                          //     }
+                                          //   } else if (CacheHelper.getData(
+                                          //           key: 'countryKey') ==
+                                          //       'Saudi Arabia') {
+                                          //   } else if (CacheHelper.getData(
+                                          //           key: 'countryKey') ==
+                                          //       'United Arab Emirates') {}
+                                          // } else if (value.isEmpty) {
+                                          //   phoneNumberBorder = figmaErrorColor;
+                                          //   phoneNumberShadowBorder =
+                                          //       borderErrorBoxShadow;
+                                          //   confirmPasswordValidationMessage =
+                                          //       'Phone Number cant be empty';
+                                          // }
+                                        },
+                                        onTap: () {
+                                          activeTextFormField = 'Phone Number';
+                                          cubit.emit(
+                                              AuthenticationStatesRefreshState());
+                                        },
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: 'Phone Number',
+                                          hintStyle: TextStyle(
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.w500,
+                                            color: const Color(0xFFB2B7C2),
+                                            fontStyle: FontStyle.normal,
+                                            height: 1.6,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    if (activeTextFormField == 'Phone Number')
+                                      GestureDetector(
+                                        onTap: () {
+                                          phoneNumberController.text = '';
+                                        },
+                                        child: SvgPicture.asset(
+                                          'assets/images/delete-icon.svg',
+                                          width: 16.67.w,
+                                          height: 16.67.h,
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 5.5.h),
-                if (phoneValidationMessage.isNotEmpty)
-                  Row(
-                    children: [
-                      SvgPicture.asset('assets/images/error-icon.svg'),
-                      SizedBox(width: 10.w),
-                      Text(
-                        phoneValidationMessage,
-                        style: TextStyle(
-                          color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                SizedBox(height: 14.h),
-                Container(
-                  padding: EdgeInsetsDirectional.only(start: 16.w),
-                  width: 343.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 1.0,
-                      color: activeTextFormField == 'Password'
-                          ? figmaActiveColor
-                          : passwordBorder,
-                    ),
-                    borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: activeTextFormField == 'Password'
-                        ? borderActiveBoxShadow
-                        : passwordShadowBorder,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: passwordController,
-                          keyboardType: TextInputType.visiblePassword,
-                          maxLines: 1,
-                          obscureText: cubit.obscureText,
-                          onChanged: (value) {},
-                          onFieldSubmitted: (value) {},
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              passwordBorder = figmaErrorColor;
-                              passwordShadowBorder = borderErrorBoxShadow;
-                            } else {
-                              passwordBorder = figmaSuccessColor;
-                              passwordShadowBorder = borderSuccessBoxShadow;
-                            }
-                          },
-                          onTap: () {
-                            activeTextFormField = 'Password';
-                            cubit.emit(AuthenticationStatesRefreshState());
-                          },
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Password',
-                            hintStyle: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFFB2B7C2),
-                              fontStyle: FontStyle.normal,
-                              height: 1.6,
+                        SizedBox(height: 5.5.h),
+                        if (phoneValidationMessage.isNotEmpty)
+                          Row(
+                            children: [
+                              SvgPicture.asset('assets/images/error-icon.svg'),
+                              SizedBox(width: 10.w),
+                              Text(
+                                phoneValidationMessage,
+                                style: TextStyle(
+                                  color: const Color(0xFFFF3236),
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                        SizedBox(height: 14.h),
+                        Container(
+                          padding: EdgeInsetsDirectional.only(start: 16.w),
+                          width: 343.w,
+                          height: 48.h,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              width: 1.0,
+                              color: activeTextFormField == 'Password'
+                                  ? figmaActiveColor
+                                  : passwordBorder,
                             ),
+                            borderRadius: BorderRadius.circular(6.r),
+                            boxShadow: activeTextFormField == 'Password'
+                                ? borderActiveBoxShadow
+                                : passwordShadowBorder,
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  controller: passwordController,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  maxLines: 1,
+                                  obscureText: cubit.obscureText,
+                                  onChanged: (value) {},
+                                  onFieldSubmitted: (value) {},
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      passwordBorder = figmaErrorColor;
+                                      passwordShadowBorder =
+                                          borderErrorBoxShadow;
+                                      passwordValidationMessage =
+                                          'Password cant be empty';
+                                    } else {
+                                      passwordBorder = figmaSuccessColor;
+                                      passwordShadowBorder =
+                                          borderSuccessBoxShadow;
+                                      passwordValidationMessage = '';
+                                    }
+                                  },
+                                  onTap: () {
+                                    activeTextFormField = 'Password';
+                                    cubit.emit(
+                                        AuthenticationStatesRefreshState());
+                                  },
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Password',
+                                    hintStyle: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFFB2B7C2),
+                                      fontStyle: FontStyle.normal,
+                                      height: 1.6,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (activeTextFormField == 'Password')
+                                SizedBox(width: 10.w),
+                              if (activeTextFormField == 'Password')
+                                GestureDetector(
+                                  onTap: () {
+                                    passwordController.text = '';
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/images/delete-icon.svg',
+                                    width: 16.67.w,
+                                    height: 16.67.h,
+                                  ),
+                                ),
+                              if (activeTextFormField == 'Password')
+                                SizedBox(width: 9.25.w),
+                              GestureDetector(
+                                onTap: () {
+                                  cubit.changePasswordVisibility();
+                                },
+                                child: Icon(
+                                  cubit.passwordSuffixIcon,
+                                  color: figmaGrey1,
+                                ),
+                              ),
+                              SizedBox(width: 17.12.w),
+                            ],
                           ),
                         ),
-                      ),
-                      if (activeTextFormField == 'Password')
-                        SizedBox(width: 10.w),
-                      if (activeTextFormField == 'Password')
-                        GestureDetector(
-                          onTap: () {
-                            passwordController.text = '';
-                          },
-                          child: SvgPicture.asset(
-                            'assets/images/delete-icon.svg',
-                            width: 16.67.w,
-                            height: 16.67.h,
+                        SizedBox(height: 5.5.h),
+                        if (passwordValidationMessage.isNotEmpty)
+                          Row(
+                            children: [
+                              SvgPicture.asset('assets/images/error-icon.svg'),
+                              SizedBox(width: 10.w),
+                              Text(
+                                passwordValidationMessage,
+                                style: TextStyle(
+                                  color: const Color(0xFFFF3236),
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      if (activeTextFormField == 'Password')
-                        SizedBox(width: 9.25.w),
-                      GestureDetector(
-                        onTap: () {
-                          cubit.changePasswordVisibility();
-                        },
-                        child: Icon(
-                          cubit.passwordSuffixIcon,
-                          color: figmaGrey1,
-                        ),
-                      ),
-                      SizedBox(width: 17.12.w),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 5.5.h),
-                if (passwordValidationMessage.isNotEmpty)
-                  Row(
-                    children: [
-                      SvgPicture.asset('assets/images/error-icon.svg'),
-                      SizedBox(width: 10.w),
-                      Text(
-                        passwordValidationMessage,
-                        style: TextStyle(
-                          color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                SizedBox(height: 14.h),
-                Container(
-                  padding: EdgeInsetsDirectional.only(start: 16.w),
-                  width: 343.w,
-                  height: 48.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 1.0,
-                      color: activeTextFormField == 'Confirm Password'
-                          ? figmaActiveColor
-                          : confirmPasswordBorder,
-                    ),
-                    borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: activeTextFormField == 'Confirm Password'
-                        ? borderActiveBoxShadow
-                        : confirmPasswordShadowBorder,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: confirmPasswordController,
-                          keyboardType: TextInputType.visiblePassword,
-                          maxLines: 1,
-                          obscureText: cubit.obscureText,
-                          onChanged: (value) {},
-                          onFieldSubmitted: (value) {},
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              confirmPasswordBorder = figmaErrorColor;
-                              confirmPasswordShadowBorder =
-                                  borderErrorBoxShadow;
-                            } else if (confirmPasswordController.text !=
-                                passwordController.text) {
-                              confirmPasswordBorder = figmaErrorColor;
-                              confirmPasswordShadowBorder =
-                                  borderErrorBoxShadow;
-                            } else {
-                              confirmPasswordBorder = figmaSuccessColor;
-                              confirmPasswordShadowBorder =
-                                  borderSuccessBoxShadow;
-                            }
-                          },
-                          onTap: () {
-                            activeTextFormField = 'Confirm Password';
-                            cubit.emit(AuthenticationStatesRefreshState());
-                          },
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Confirm Password',
-                            hintStyle: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xFFB2B7C2),
-                              fontStyle: FontStyle.normal,
-                              height: 1.6,
+                        SizedBox(height: 14.h),
+                        Container(
+                          padding: EdgeInsetsDirectional.only(start: 16.w),
+                          width: 343.w,
+                          height: 48.h,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              width: 1.0,
+                              color: activeTextFormField == 'Confirm Password'
+                                  ? figmaActiveColor
+                                  : confirmPasswordBorder,
                             ),
+                            borderRadius: BorderRadius.circular(6.r),
+                            boxShadow: activeTextFormField == 'Confirm Password'
+                                ? borderActiveBoxShadow
+                                : confirmPasswordShadowBorder,
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  controller: confirmPasswordController,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  maxLines: 1,
+                                  obscureText: cubit.obscureText,
+                                  onChanged: (value) {},
+                                  onFieldSubmitted: (value) {},
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      confirmPasswordBorder = figmaErrorColor;
+                                      confirmPasswordShadowBorder =
+                                          borderErrorBoxShadow;
+                                      confirmPasswordValidationMessage =
+                                          'Confirm Password cant be empty';
+                                    } else if (confirmPasswordController.text !=
+                                        passwordController.text) {
+                                      confirmPasswordBorder = figmaErrorColor;
+                                      confirmPasswordShadowBorder =
+                                          borderErrorBoxShadow;
+                                      confirmPasswordValidationMessage =
+                                          'Confirm Password is not match';
+                                    } else {
+                                      confirmPasswordBorder = figmaSuccessColor;
+                                      confirmPasswordShadowBorder =
+                                          borderSuccessBoxShadow;
+                                      confirmPasswordValidationMessage = '';
+                                    }
+                                  },
+                                  onTap: () {
+                                    activeTextFormField = 'Confirm Password';
+                                    cubit.emit(
+                                        AuthenticationStatesRefreshState());
+                                  },
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Confirm Password',
+                                    hintStyle: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFFB2B7C2),
+                                      fontStyle: FontStyle.normal,
+                                      height: 1.6,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (activeTextFormField == 'Confirm Password')
+                                SizedBox(width: 10.w),
+                              if (activeTextFormField == 'Confirm Password')
+                                GestureDetector(
+                                  onTap: () {
+                                    confirmPasswordController.text = '';
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/images/delete-icon.svg',
+                                    width: 16.67.w,
+                                    height: 16.67.h,
+                                  ),
+                                ),
+                              if (activeTextFormField == 'Confirm Password')
+                                SizedBox(width: 9.25.w),
+                              GestureDetector(
+                                onTap: () {
+                                  cubit.changePasswordVisibility();
+                                },
+                                child: Icon(
+                                  cubit.passwordSuffixIcon,
+                                  color: figmaGrey1,
+                                ),
+                              ),
+                              SizedBox(width: 17.12.w),
+                            ],
                           ),
                         ),
-                      ),
-                      if (activeTextFormField == 'Confirm Password')
-                        SizedBox(width: 10.w),
-                      if (activeTextFormField == 'Confirm Password')
-                        GestureDetector(
-                          onTap: () {
-                            confirmPasswordController.text = '';
-                          },
-                          child: SvgPicture.asset(
-                            'assets/images/delete-icon.svg',
-                            width: 16.67.w,
-                            height: 16.67.h,
+                        SizedBox(height: 5.5.h),
+                        if (confirmPasswordValidationMessage.isNotEmpty)
+                          Row(
+                            children: [
+                              SvgPicture.asset('assets/images/error-icon.svg'),
+                              SizedBox(width: 10.w),
+                              Text(
+                                confirmPasswordValidationMessage,
+                                style: TextStyle(
+                                  color: const Color(0xFFFF3236),
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      if (activeTextFormField == 'Confirm Password')
-                        SizedBox(width: 9.25.w),
-                      GestureDetector(
-                        onTap: () {
-                          cubit.changePasswordVisibility();
-                        },
-                        child: Icon(
-                          cubit.passwordSuffixIcon,
-                          color: figmaGrey1,
-                        ),
-                      ),
-                      SizedBox(width: 17.12.w),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(height: 5.5.h),
-                if (confirmPasswordValidationMessage.isNotEmpty)
-                  Row(
-                    children: [
-                      SvgPicture.asset('assets/images/error-icon.svg'),
-                      SizedBox(width: 10.w),
-                      Text(
-                        confirmPasswordValidationMessage,
-                        style: TextStyle(
-                          color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    ],
-                  ),
                 DefaultButton(
                   height: 46.h,
                   width: 344.w,
@@ -618,10 +753,11 @@ class RegisterScreen2 extends StatelessWidget {
                     if (formKey.currentState!.validate()) {
                       cubit.emit(AuthenticationStatesRefreshState());
                       if (businessNameController.text.isNotEmpty &&
-                          emailAddressController.text.isNotEmpty &
-                              phoneNumberController.text.isNotEmpty &
-                              passwordController.text.isNotEmpty &
-                              confirmPasswordController.text.isNotEmpty) {
+                          emailAddressController.text.isNotEmpty &&
+                          phoneNumberController.text.isNotEmpty &&
+                          passwordController.text.isNotEmpty &&
+                          confirmPasswordController.text
+                              .contains(passwordController.text)) {
                         cubit.registerStep1(
                           email: emailAddressController.text,
                           password: confirmPasswordController.text,

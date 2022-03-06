@@ -18,6 +18,15 @@ class RegisterScreen3 extends StatelessWidget {
   var otpVerificationNumber3Controller = TextEditingController();
   var otpVerificationNumber4Controller = TextEditingController();
   var formKey = GlobalKey<FormState>();
+  String? activeTextFormField;
+  Color otpVerificationNumber1Border = const Color(0xFFE2E4E8);
+  Color otpVerificationNumber2Border = const Color(0xFFE2E4E8);
+  Color otpVerificationNumber3Border = const Color(0xFFE2E4E8);
+  Color otpVerificationNumber4Border = const Color(0xFFE2E4E8);
+  List<BoxShadow> otpVerificationNumber1ShadowBorder = [];
+  List<BoxShadow> otpVerificationNumber2ShadowBorder = [];
+  List<BoxShadow> otpVerificationNumber3ShadowBorder = [];
+  List<BoxShadow> otpVerificationNumber4ShadowBorder = [];
   String? phoneNumber;
   RegisterScreen3({
     Key? key,
@@ -45,6 +54,22 @@ class RegisterScreen3 extends StatelessWidget {
           }
         }
         if (state is AuthenticationUserRegisterOtpVerificationErrorState) {
+          defaultToast(
+            message: state.error.toString(),
+            color: figmaErrorColor,
+            context: context,
+          );
+        }
+        if (state is AuthenticationUserResendOtpVerificationSuccessState) {
+          if (cubit.otpVerificationModel!.verificationResult!) {
+            defaultToast(
+              message: cubit.otpVerificationModel!.verificationMessage!,
+              color: figmaSuccessColor,
+              context: context,
+            );
+          }
+        }
+        if (state is AuthenticationUserResendOtpVerificationErrorState) {
           defaultToast(
             message: state.error.toString(),
             color: figmaErrorColor,
@@ -123,12 +148,20 @@ class RegisterScreen3 extends StatelessWidget {
                               width: 50.w,
                               height: 50.h,
                               decoration: BoxDecoration(
+                                color: Colors.white,
                                 border: Border.all(
                                   width: 1.0,
-                                  color: const Color(0xFFE2E4E8),
+                                  color: otpVerificationNumber1Controller
+                                          .text.isNotEmpty
+                                      ? figmaActiveColor
+                                      : otpVerificationNumber1Border,
                                   style: BorderStyle.solid,
                                 ),
                                 borderRadius: BorderRadius.circular(6.r),
+                                boxShadow: otpVerificationNumber1Controller
+                                        .text.isNotEmpty
+                                    ? borderActiveBoxShadow
+                                    : otpVerificationNumber1ShadowBorder,
                               ),
                               child: TextFormField(
                                 controller: otpVerificationNumber1Controller,
@@ -140,8 +173,18 @@ class RegisterScreen3 extends StatelessWidget {
                                 obscureText: false,
                                 onChanged: (value) {},
                                 onFieldSubmitted: (value) {},
-                                validator: (value) {},
-                                onTap: () {},
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    otpVerificationNumber1Border =
+                                        figmaErrorColor;
+                                    otpVerificationNumber1ShadowBorder =
+                                        borderErrorBoxShadow;
+                                  }
+                                },
+                                onTap: () {
+                                  cubit
+                                      .emit(AuthenticationStatesRefreshState());
+                                },
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: '',
@@ -159,12 +202,20 @@ class RegisterScreen3 extends StatelessWidget {
                               width: 50.w,
                               height: 50.h,
                               decoration: BoxDecoration(
+                                color: Colors.white,
                                 border: Border.all(
                                   width: 1.0,
-                                  color: const Color(0xFFE2E4E8),
+                                  color: otpVerificationNumber2Controller
+                                          .text.isNotEmpty
+                                      ? figmaActiveColor
+                                      : otpVerificationNumber2Border,
                                   style: BorderStyle.solid,
                                 ),
                                 borderRadius: BorderRadius.circular(6.r),
+                                boxShadow: otpVerificationNumber2Controller
+                                        .text.isNotEmpty
+                                    ? borderActiveBoxShadow
+                                    : otpVerificationNumber2ShadowBorder,
                               ),
                               child: TextFormField(
                                 controller: otpVerificationNumber2Controller,
@@ -176,8 +227,18 @@ class RegisterScreen3 extends StatelessWidget {
                                 obscureText: false,
                                 onChanged: (value) {},
                                 onFieldSubmitted: (value) {},
-                                validator: (value) {},
-                                onTap: () {},
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    otpVerificationNumber2Border =
+                                        figmaErrorColor;
+                                    otpVerificationNumber2ShadowBorder =
+                                        borderErrorBoxShadow;
+                                  }
+                                },
+                                onTap: () {
+                                  cubit
+                                      .emit(AuthenticationStatesRefreshState());
+                                },
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: '',
@@ -195,12 +256,20 @@ class RegisterScreen3 extends StatelessWidget {
                               width: 50.w,
                               height: 50.h,
                               decoration: BoxDecoration(
+                                color: Colors.white,
                                 border: Border.all(
                                   width: 1.0,
-                                  color: const Color(0xFFE2E4E8),
+                                  color: otpVerificationNumber3Controller
+                                          .text.isNotEmpty
+                                      ? figmaActiveColor
+                                      : otpVerificationNumber3Border,
                                   style: BorderStyle.solid,
                                 ),
                                 borderRadius: BorderRadius.circular(6.r),
+                                boxShadow: otpVerificationNumber3Controller
+                                        .text.isNotEmpty
+                                    ? borderActiveBoxShadow
+                                    : otpVerificationNumber3ShadowBorder,
                               ),
                               child: TextFormField(
                                 controller: otpVerificationNumber3Controller,
@@ -212,8 +281,18 @@ class RegisterScreen3 extends StatelessWidget {
                                 obscureText: false,
                                 onChanged: (value) {},
                                 onFieldSubmitted: (value) {},
-                                validator: (value) {},
-                                onTap: () {},
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    otpVerificationNumber3Border =
+                                        figmaErrorColor;
+                                    otpVerificationNumber3ShadowBorder =
+                                        borderErrorBoxShadow;
+                                  }
+                                },
+                                onTap: () {
+                                  cubit
+                                      .emit(AuthenticationStatesRefreshState());
+                                },
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: '',
@@ -231,12 +310,20 @@ class RegisterScreen3 extends StatelessWidget {
                               width: 50.w,
                               height: 50.h,
                               decoration: BoxDecoration(
+                                color: Colors.white,
                                 border: Border.all(
                                   width: 1.0,
-                                  color: const Color(0xFFE2E4E8),
+                                  color: otpVerificationNumber4Controller
+                                          .text.isNotEmpty
+                                      ? figmaActiveColor
+                                      : otpVerificationNumber4Border,
                                   style: BorderStyle.solid,
                                 ),
                                 borderRadius: BorderRadius.circular(6.r),
+                                boxShadow: otpVerificationNumber4Controller
+                                        .text.isNotEmpty
+                                    ? borderActiveBoxShadow
+                                    : otpVerificationNumber4ShadowBorder,
                               ),
                               child: TextFormField(
                                 controller: otpVerificationNumber4Controller,
@@ -248,8 +335,18 @@ class RegisterScreen3 extends StatelessWidget {
                                 obscureText: false,
                                 onChanged: (value) {},
                                 onFieldSubmitted: (value) {},
-                                validator: (value) {},
-                                onTap: () {},
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    otpVerificationNumber4Border =
+                                        figmaErrorColor;
+                                    otpVerificationNumber4ShadowBorder =
+                                        borderErrorBoxShadow;
+                                  }
+                                },
+                                onTap: () {
+                                  cubit
+                                      .emit(AuthenticationStatesRefreshState());
+                                },
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: '',
@@ -278,7 +375,9 @@ class RegisterScreen3 extends StatelessWidget {
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                cubit.userResendOtpVerification();
+                              },
                               child: Text(
                                 'Resend',
                                 style: TextStyle(

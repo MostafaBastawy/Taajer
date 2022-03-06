@@ -27,3 +27,15 @@ class AuthenticationUserRegisterOtpVerificationErrorState
   String error;
   AuthenticationUserRegisterOtpVerificationErrorState(this.error);
 }
+
+class AuthenticationUserResendOtpVerificationLoadingState
+    extends AuthenticationStates {}
+
+class AuthenticationUserResendOtpVerificationSuccessState
+    extends AuthenticationStates {}
+
+class AuthenticationUserResendOtpVerificationErrorState
+    extends AuthenticationStates {
+  String error;
+  AuthenticationUserResendOtpVerificationErrorState(this.error);
+}

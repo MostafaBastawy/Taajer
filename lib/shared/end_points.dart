@@ -1,3 +1,4 @@
 const String baseUrl = 'https://beta.taajer.net/api/v2/';
 const String signUp = 'auth/signup';
-const String confirmCode = 'auth/confirm_code';
+const String confirmOtpCode = 'auth/confirm_code';
+const String resendOtpCode = 'auth/resend_code';

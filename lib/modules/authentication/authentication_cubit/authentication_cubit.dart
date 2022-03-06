@@ -24,6 +24,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   }
 
   UserRegistrationModel? userRegistrationModel;
+
   void userRegister({
     required String email,
     required String password,
@@ -57,6 +58,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   }
 
   OtpVerificationModel? otpVerificationModel;
+
   void userRegisterOtpVerification({
     required String verificationCode1,
     required String verificationCode2,
@@ -67,7 +69,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
 
     http.post(
       Uri.parse(
-        '$baseUrl$confirmCode',
+        '$baseUrl$confirmOtpCode',
       ),
       body: {
         'user_id': userRegistrationModel!.registerUserId.toString(),
@@ -81,6 +83,27 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
     }).catchError((error) {
       emit(AuthenticationUserRegisterOtpVerificationErrorState(
           error.toString()));
+    });
+  }
+
+  void userResendOtpVerification() async {
+    emit(AuthenticationUserResendOtpVerificationLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$resendOtpCode',
+      ),
+      body: {
+        //'user_id': userRegistrationModel!.registerUserId.toString(),
+        'user_id': '109',
+      },
+    ).then((value) {
+      otpVerificationModel =
+          OtpVerificationModel.fromJson(jsonDecode(value.body));
+      emit(AuthenticationUserResendOtpVerificationSuccessState());
+    }).catchError((error) {
+      emit(AuthenticationUserResendOtpVerificationErrorState(error.toString()));
+      print(error);
     });
   }
 }

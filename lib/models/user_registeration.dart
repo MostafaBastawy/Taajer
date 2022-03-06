@@ -1,15 +1,15 @@
-class RegisterStep1Model {
+class UserRegistrationModel {
   bool? registerResult;
   String? registerMessage;
   int? registerUserId;
 
-  RegisterStep1Model({
+  UserRegistrationModel({
     this.registerResult,
     this.registerMessage,
     this.registerUserId,
   });
 
-  RegisterStep1Model.fromJson(Map<String, dynamic> json) {
+  UserRegistrationModel.fromJson(Map<String, dynamic> json) {
     registerResult = json['result'];
     registerMessage = json['message'];
     registerUserId = json['user_id'];

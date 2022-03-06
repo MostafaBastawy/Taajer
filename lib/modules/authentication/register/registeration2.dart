@@ -61,21 +61,22 @@ class RegisterScreen2 extends StatelessWidget {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
     return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
       listener: (BuildContext context, state) {
-        if (state is AuthenticationRegisterStep1SuccessState) {
-          if (cubit.registerStep1Model!.registerResult!) {
+        if (state is AuthenticationUserRegisterSuccessState) {
+          if (cubit.userRegistrationModel!.registerResult!) {
             navigateTo(
-              widget: RegisterScreen3(),
+              widget: RegisterScreen3(
+                  phoneNumber: '$countryCode ${phoneNumberController.text}'),
               context: context,
             );
           } else {
             defaultToast(
-              message: cubit.registerStep1Model!.registerMessage!,
+              message: cubit.userRegistrationModel!.registerMessage!,
               color: figmaErrorColor,
               context: context,
             );
           }
         }
-        if (state is AuthenticationRegisterStep1ErrorState) {
+        if (state is AuthenticationUserRegisterErrorState) {
           defaultToast(
             message: state.error.toString(),
             color: figmaErrorColor,
@@ -439,38 +440,6 @@ class RegisterScreen2 extends StatelessWidget {
                                             phoneValidationMessage =
                                                 'Phone Number cant be empty';
                                           }
-                                          // if (value!.isNotEmpty) {
-                                          //   if (CacheHelper.getData(
-                                          //           key: 'countryKey') ==
-                                          //       'Bahrain') {
-                                          //     if (!RegExp(bahrainPhonePattern)
-                                          //         .hasMatch(value)) {
-                                          //       phoneNumberBorder =
-                                          //           figmaErrorColor;
-                                          //       phoneNumberShadowBorder =
-                                          //           borderErrorBoxShadow;
-                                          //       phoneValidationMessage =
-                                          //           'Phone Number should be 8 digits without 0';
-                                          //     } else {
-                                          //       phoneNumberBorder =
-                                          //           figmaSuccessColor;
-                                          //       phoneNumberShadowBorder =
-                                          //           borderSuccessBoxShadow;
-                                          //       phoneValidationMessage = '';
-                                          //     }
-                                          //   } else if (CacheHelper.getData(
-                                          //           key: 'countryKey') ==
-                                          //       'Saudi Arabia') {
-                                          //   } else if (CacheHelper.getData(
-                                          //           key: 'countryKey') ==
-                                          //       'United Arab Emirates') {}
-                                          // } else if (value.isEmpty) {
-                                          //   phoneNumberBorder = figmaErrorColor;
-                                          //   phoneNumberShadowBorder =
-                                          //       borderErrorBoxShadow;
-                                          //   confirmPasswordValidationMessage =
-                                          //       'Phone Number cant be empty';
-                                          // }
                                         },
                                         onTap: () {
                                           activeTextFormField = 'Phone Number';
@@ -758,7 +727,7 @@ class RegisterScreen2 extends StatelessWidget {
                           passwordController.text.isNotEmpty &&
                           confirmPasswordController.text
                               .contains(passwordController.text)) {
-                        cubit.registerStep1(
+                        cubit.userRegister(
                           email: emailAddressController.text,
                           password: confirmPasswordController.text,
                           phone: phoneNumberController.text,

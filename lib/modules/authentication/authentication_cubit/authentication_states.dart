@@ -7,11 +7,23 @@ class AuthenticationStatesRefreshState extends AuthenticationStates {}
 class AuthenticationChangePasswordVisibilityState extends AuthenticationStates {
 }
 
-class AuthenticationRegisterStep1LoadingState extends AuthenticationStates {}
+class AuthenticationUserRegisterLoadingState extends AuthenticationStates {}
 
-class AuthenticationRegisterStep1SuccessState extends AuthenticationStates {}
+class AuthenticationUserRegisterSuccessState extends AuthenticationStates {}
 
-class AuthenticationRegisterStep1ErrorState extends AuthenticationStates {
+class AuthenticationUserRegisterErrorState extends AuthenticationStates {
   String error;
-  AuthenticationRegisterStep1ErrorState(this.error);
+  AuthenticationUserRegisterErrorState(this.error);
+}
+
+class AuthenticationUserRegisterOtpVerificationLoadingState
+    extends AuthenticationStates {}
+
+class AuthenticationUserRegisterOtpVerificationSuccessState
+    extends AuthenticationStates {}
+
+class AuthenticationUserRegisterOtpVerificationErrorState
+    extends AuthenticationStates {
+  String error;
+  AuthenticationUserRegisterOtpVerificationErrorState(this.error);
 }

@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:taajer/models/register_step1_model.dart';
+import 'package:taajer/models/otp_verification.dart';
+import 'package:taajer/models/user_registeration.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/shared/end_points.dart';
 
@@ -22,15 +23,15 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
     emit(AuthenticationChangePasswordVisibilityState());
   }
 
-  RegisterStep1Model? registerStep1Model;
-  void registerStep1({
+  UserRegistrationModel? userRegistrationModel;
+  void userRegister({
     required String email,
     required String password,
     required String phone,
     required String name,
     required String phoneCode,
   }) async {
-    emit(AuthenticationRegisterStep1LoadingState());
+    emit(AuthenticationUserRegisterLoadingState());
 
     http.post(
       Uri.parse(
@@ -47,10 +48,39 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'phone_code': phoneCode,
       },
     ).then((value) {
-      registerStep1Model = RegisterStep1Model.fromJson(jsonDecode(value.body));
-      emit(AuthenticationRegisterStep1SuccessState());
+      userRegistrationModel =
+          UserRegistrationModel.fromJson(jsonDecode(value.body));
+      emit(AuthenticationUserRegisterSuccessState());
     }).catchError((error) {
-      emit(AuthenticationRegisterStep1ErrorState(error.toString()));
+      emit(AuthenticationUserRegisterErrorState(error.toString()));
+    });
+  }
+
+  OtpVerificationModel? otpVerificationModel;
+  void userRegisterOtpVerification({
+    required String verificationCode1,
+    required String verificationCode2,
+    required String verificationCode3,
+    required String verificationCode4,
+  }) async {
+    emit(AuthenticationUserRegisterOtpVerificationLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$confirmCode',
+      ),
+      body: {
+        'user_id': userRegistrationModel!.registerUserId.toString(),
+        'verification_code':
+            '$verificationCode1$verificationCode2$verificationCode3$verificationCode4'
+      },
+    ).then((value) {
+      otpVerificationModel =
+          OtpVerificationModel.fromJson(jsonDecode(value.body));
+      emit(AuthenticationUserRegisterOtpVerificationSuccessState());
+    }).catchError((error) {
+      emit(AuthenticationUserRegisterOtpVerificationErrorState(
+          error.toString()));
     });
   }
 }

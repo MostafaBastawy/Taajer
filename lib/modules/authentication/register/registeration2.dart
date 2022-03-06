@@ -23,6 +23,12 @@ class RegisterScreen2 extends StatelessWidget {
   String? countryFlag;
   String? countryCode;
   String? activeTextFormField;
+  String businessNameValidationMessage = '';
+  String emailValidationMessage = '';
+  String phoneValidationMessage = '';
+  String passwordValidationMessage = '';
+  String confirmPasswordValidationMessage = '';
+
   Color businessNameBorder = const Color(0xFFE2E4E8);
   Color emailAddressBorder = const Color(0xFFE2E4E8);
   Color phoneNumberBorder = const Color(0xFFE2E4E8);
@@ -91,6 +97,9 @@ class RegisterScreen2 extends StatelessWidget {
             key: formKey,
             child: Column(
               children: [
+                Column(
+                  children: [],
+                ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   width: 343.w,
@@ -122,6 +131,7 @@ class RegisterScreen2 extends StatelessWidget {
                             if (value!.isEmpty) {
                               businessNameShadowBorder = borderErrorBoxShadow;
                               businessNameBorder = figmaErrorColor;
+                              businessNameValidationMessage = 'error';
                             } else {
                               businessNameBorder = figmaSuccessColor;
                               businessNameShadowBorder = borderSuccessBoxShadow;
@@ -158,6 +168,23 @@ class RegisterScreen2 extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 5.5.h),
+                if (businessNameValidationMessage.isNotEmpty)
+                  Row(
+                    children: [
+                      SvgPicture.asset('assets/images/error-icon.svg'),
+                      SizedBox(width: 10.w),
+                      Text(
+                        businessNameValidationMessage,
+                        style: TextStyle(
+                          color: const Color(0xFFFF3236),
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 12.sp,
+                        ),
+                      ),
+                    ],
+                  ),
                 SizedBox(height: 14.h),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -226,6 +253,23 @@ class RegisterScreen2 extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 5.5.h),
+                if (emailValidationMessage.isNotEmpty)
+                  Row(
+                    children: [
+                      SvgPicture.asset('assets/images/error-icon.svg'),
+                      SizedBox(width: 10.w),
+                      Text(
+                        emailValidationMessage,
+                        style: TextStyle(
+                          color: const Color(0xFFFF3236),
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 12.sp,
+                        ),
+                      ),
+                    ],
+                  ),
                 SizedBox(height: 14.h),
                 Row(
                   children: [
@@ -344,6 +388,23 @@ class RegisterScreen2 extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 5.5.h),
+                if (phoneValidationMessage.isNotEmpty)
+                  Row(
+                    children: [
+                      SvgPicture.asset('assets/images/error-icon.svg'),
+                      SizedBox(width: 10.w),
+                      Text(
+                        phoneValidationMessage,
+                        style: TextStyle(
+                          color: const Color(0xFFFF3236),
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 12.sp,
+                        ),
+                      ),
+                    ],
+                  ),
                 SizedBox(height: 14.h),
                 Container(
                   padding: EdgeInsetsDirectional.only(start: 16.w),
@@ -426,6 +487,23 @@ class RegisterScreen2 extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 5.5.h),
+                if (passwordValidationMessage.isNotEmpty)
+                  Row(
+                    children: [
+                      SvgPicture.asset('assets/images/error-icon.svg'),
+                      SizedBox(width: 10.w),
+                      Text(
+                        passwordValidationMessage,
+                        style: TextStyle(
+                          color: const Color(0xFFFF3236),
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 12.sp,
+                        ),
+                      ),
+                    ],
+                  ),
                 SizedBox(height: 14.h),
                 Container(
                   padding: EdgeInsetsDirectional.only(start: 16.w),
@@ -515,7 +593,23 @@ class RegisterScreen2 extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Spacer(),
+                SizedBox(height: 5.5.h),
+                if (confirmPasswordValidationMessage.isNotEmpty)
+                  Row(
+                    children: [
+                      SvgPicture.asset('assets/images/error-icon.svg'),
+                      SizedBox(width: 10.w),
+                      Text(
+                        confirmPasswordValidationMessage,
+                        style: TextStyle(
+                          color: const Color(0xFFFF3236),
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 12.sp,
+                        ),
+                      ),
+                    ],
+                  ),
                 DefaultButton(
                   height: 46.h,
                   width: 344.w,

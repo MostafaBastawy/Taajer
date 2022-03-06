@@ -95,9 +95,10 @@ flutter:
          - asset: assets/fonts/Cairo-Regular.ttf
            style: normal
 
-     - family: Gotham
+     - family: Montserrat
        fonts:
-         - asset: assets/fonts/GothamMedium.eot
+         - asset: assets/fonts/Montserrat-Regular.ttf
+           style: normal
 
   #   - family: Trajan Pro
   #     fonts:

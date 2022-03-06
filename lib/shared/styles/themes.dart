@@ -7,7 +7,7 @@ import 'package:taajer/shared/styles/colors.dart';
 ThemeData lightTheme(BuildContext context) => ThemeData(
       scaffoldBackgroundColor: Colors.white,
       fontFamily: EasyLocalization.of(context)!.locale == const Locale('en')
-          ? 'Gotham'
+          ? 'Montserrat'
           : 'Cairo',
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.white,

@@ -38,7 +38,7 @@ class LoginScreen2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Business Name',
+                cubit.preLoginModel!.preLoginCompanyName!,
                 style: TextStyle(
                   color: figmaOurBlack,
                   fontSize: 30.sp,

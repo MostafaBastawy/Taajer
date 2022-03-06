@@ -39,3 +39,12 @@ class AuthenticationUserResendOtpVerificationErrorState
   String error;
   AuthenticationUserResendOtpVerificationErrorState(this.error);
 }
+
+class AuthenticationUserPreLoginLoadingState extends AuthenticationStates {}
+
+class AuthenticationUserPreLoginSuccessState extends AuthenticationStates {}
+
+class AuthenticationUserPreLoginErrorState extends AuthenticationStates {
+  String error;
+  AuthenticationUserPreLoginErrorState(this.error);
+}

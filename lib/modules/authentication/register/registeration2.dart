@@ -180,7 +180,8 @@ class RegisterScreen2 extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 5.5.h),
+                        if (businessNameValidationMessage.isNotEmpty)
+                          SizedBox(height: 5.5.h),
                         if (businessNameValidationMessage.isNotEmpty)
                           Row(
                             children: [
@@ -278,7 +279,8 @@ class RegisterScreen2 extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 5.5.h),
+                        if (emailValidationMessage.isNotEmpty)
+                          SizedBox(height: 5.5.h),
                         if (emailValidationMessage.isNotEmpty)
                           Row(
                             children: [
@@ -476,7 +478,8 @@ class RegisterScreen2 extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 5.5.h),
+                        if (phoneValidationMessage.isNotEmpty)
+                          SizedBox(height: 5.5.h),
                         if (phoneValidationMessage.isNotEmpty)
                           Row(
                             children: [
@@ -581,7 +584,8 @@ class RegisterScreen2 extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 5.5.h),
+                        if (passwordValidationMessage.isNotEmpty)
+                          SizedBox(height: 5.5.h),
                         if (passwordValidationMessage.isNotEmpty)
                           Row(
                             children: [
@@ -693,7 +697,8 @@ class RegisterScreen2 extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 5.5.h),
+                        if (confirmPasswordValidationMessage.isNotEmpty)
+                          SizedBox(height: 5.5.h),
                         if (confirmPasswordValidationMessage.isNotEmpty)
                           Row(
                             children: [

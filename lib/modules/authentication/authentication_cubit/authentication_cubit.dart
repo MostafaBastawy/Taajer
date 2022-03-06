@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:taajer/models/otp_verification.dart';
+import 'package:taajer/models/pre_login_model.dart';
 import 'package:taajer/models/user_registeration.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/shared/end_points.dart';
@@ -94,8 +95,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         '$baseUrl$resendOtpCode',
       ),
       body: {
-        //'user_id': userRegistrationModel!.registerUserId.toString(),
-        'user_id': '109',
+        'user_id': userRegistrationModel!.registerUserId.toString(),
       },
     ).then((value) {
       otpVerificationModel =
@@ -103,6 +103,28 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
       emit(AuthenticationUserResendOtpVerificationSuccessState());
     }).catchError((error) {
       emit(AuthenticationUserResendOtpVerificationErrorState(error.toString()));
+      print(error);
+    });
+  }
+
+  PreLoginModel? preLoginModel;
+  void userPreLogin({
+    required String emailAddress,
+  }) async {
+    emit(AuthenticationUserPreLoginLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$preLogin',
+      ),
+      body: {
+        'email': emailAddress,
+      },
+    ).then((value) {
+      preLoginModel = PreLoginModel.fromJson(jsonDecode(value.body));
+      emit(AuthenticationUserPreLoginSuccessState());
+    }).catchError((error) {
+      emit(AuthenticationUserPreLoginErrorState(error.toString()));
       print(error);
     });
   }

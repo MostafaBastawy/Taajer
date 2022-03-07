@@ -39,19 +39,11 @@ class RegisterScreen3 extends StatelessWidget {
     return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
       listener: (BuildContext context, state) {
         if (state is AuthenticationUserRegisterOtpVerificationSuccessState) {
-          if (cubit.otpVerificationModel!.verificationResult!) {
-            AppCubit.get(context).changeBottomNavBar(0);
-            navigateTo(
-              widget: const HomeLayout(),
-              context: context,
-            );
-          } else {
-            defaultToast(
-              message: cubit.otpVerificationModel!.verificationMessage!,
-              color: figmaErrorColor,
-              context: context,
-            );
-          }
+          AppCubit.get(context).changeBottomNavBar(0);
+          navigateTo(
+            widget: const HomeLayout(),
+            context: context,
+          );
         }
         if (state is AuthenticationUserRegisterOtpVerificationErrorState) {
           defaultToast(
@@ -61,13 +53,11 @@ class RegisterScreen3 extends StatelessWidget {
           );
         }
         if (state is AuthenticationUserResendOtpVerificationSuccessState) {
-          if (cubit.otpVerificationModel!.verificationResult!) {
-            defaultToast(
-              message: cubit.otpVerificationModel!.verificationMessage!,
-              color: figmaSuccessColor,
-              context: context,
-            );
-          }
+          defaultToast(
+            message: cubit.otpVerificationModel!.verificationMessage!,
+            color: figmaSuccessColor,
+            context: context,
+          );
         }
         if (state is AuthenticationUserResendOtpVerificationErrorState) {
           defaultToast(

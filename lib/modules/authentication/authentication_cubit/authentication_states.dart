@@ -48,3 +48,12 @@ class AuthenticationUserPreLoginErrorState extends AuthenticationStates {
   String error;
   AuthenticationUserPreLoginErrorState(this.error);
 }
+
+class AuthenticationUserLoginLoadingState extends AuthenticationStates {}
+
+class AuthenticationUserLoginSuccessState extends AuthenticationStates {}
+
+class AuthenticationUserLoginErrorState extends AuthenticationStates {
+  String error;
+  AuthenticationUserLoginErrorState(this.error);
+}

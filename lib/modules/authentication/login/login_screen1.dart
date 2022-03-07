@@ -31,10 +31,11 @@ class LoginScreen1 extends StatelessWidget {
             context: context,
           );
           navigateTo(
-            widget: LoginScreen2(),
+            widget: LoginScreen2(emailController: emailOrPhoneController.text),
             context: context,
           );
         }
+
         if (state is AuthenticationUserPreLoginErrorState) {
           defaultToast(
             message: state.error,
@@ -113,11 +114,12 @@ class LoginScreen1 extends StatelessWidget {
                             if (value!.isNotEmpty) {
                               emailOrPhoneBorder = figmaPrimaryBlue;
                               emailOrPhoneShadowBorder = borderActiveBoxShadow;
+                              emailOrPhoneValidationMessage = '';
                             } else {
                               emailOrPhoneBorder = figmaErrorColor;
                               emailOrPhoneShadowBorder = borderErrorBoxShadow;
                               emailOrPhoneValidationMessage =
-                                  'Field cant be empty';
+                                  'Email or Phone cant be empty';
                             }
                           },
                           onTap: () {

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:taajer/models/login_model.dart';
 import 'package:taajer/models/otp_verification.dart';
 import 'package:taajer/models/pre_login_model.dart';
 import 'package:taajer/models/user_registeration.dart';
@@ -50,9 +51,17 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'phone_code': phoneCode,
       },
     ).then((value) {
-      userRegistrationModel =
-          UserRegistrationModel.fromJson(jsonDecode(value.body));
-      emit(AuthenticationUserRegisterSuccessState());
+      if (value.statusCode == 200) {
+        if (jsonDecode(value.body)['result']) {
+          userRegistrationModel =
+              UserRegistrationModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationUserRegisterSuccessState());
+        }
+        emit(AuthenticationUserRegisterErrorState(
+            jsonDecode(value.body)['message']));
+      } else {
+        emit(AuthenticationUserRegisterErrorState(value.statusCode.toString()));
+      }
     }).catchError((error) {
       emit(AuthenticationUserRegisterErrorState(error.toString()));
     });
@@ -78,16 +87,25 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
             '$verificationCode1$verificationCode2$verificationCode3$verificationCode4'
       },
     ).then((value) {
-      otpVerificationModel =
-          OtpVerificationModel.fromJson(jsonDecode(value.body));
-      emit(AuthenticationUserRegisterOtpVerificationSuccessState());
+      if (value.statusCode == 200) {
+        if (jsonDecode(value.body)['result']) {
+          otpVerificationModel =
+              OtpVerificationModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationUserRegisterOtpVerificationSuccessState());
+        }
+        emit(AuthenticationUserRegisterOtpVerificationErrorState(
+            jsonDecode(value.body)['message']));
+      } else {
+        emit(AuthenticationUserRegisterOtpVerificationErrorState(
+            value.statusCode.toString()));
+      }
     }).catchError((error) {
       emit(AuthenticationUserRegisterOtpVerificationErrorState(
           error.toString()));
     });
   }
 
-  void userResendOtpVerification() async {
+  void userResendOtpVerification() {
     emit(AuthenticationUserResendOtpVerificationLoadingState());
 
     http.post(
@@ -98,9 +116,18 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'user_id': userRegistrationModel!.registerUserId.toString(),
       },
     ).then((value) {
-      otpVerificationModel =
-          OtpVerificationModel.fromJson(jsonDecode(value.body));
-      emit(AuthenticationUserResendOtpVerificationSuccessState());
+      if (value.statusCode == 200) {
+        if (jsonDecode(value.body)['result']) {
+          otpVerificationModel =
+              OtpVerificationModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationUserResendOtpVerificationSuccessState());
+        }
+        emit(AuthenticationUserResendOtpVerificationErrorState(
+            jsonDecode(value.body)['message']));
+      } else {
+        emit(AuthenticationUserResendOtpVerificationErrorState(
+            value.statusCode.toString()));
+      }
     }).catchError((error) {
       emit(AuthenticationUserResendOtpVerificationErrorState(error.toString()));
       print(error);
@@ -121,11 +148,48 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'email': emailAddress,
       },
     ).then((value) {
-      preLoginModel = PreLoginModel.fromJson(jsonDecode(value.body));
-      emit(AuthenticationUserPreLoginSuccessState());
+      if (value.statusCode == 200) {
+        if (jsonDecode(value.body)['result']) {
+          preLoginModel = PreLoginModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationUserPreLoginSuccessState());
+        }
+      } else {
+        emit(AuthenticationUserPreLoginErrorState(value.statusCode.toString()));
+      }
     }).catchError((error) {
       emit(AuthenticationUserPreLoginErrorState(error.toString()));
-      print(error);
+    });
+  }
+
+  LoginModel? loginModel;
+  void userLogin({
+    required String emailAddress,
+    required String password,
+  }) async {
+    emit(AuthenticationUserLoginLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$login',
+      ),
+      headers: {'Accept': 'application/json'},
+      body: {
+        'email': emailAddress,
+        'password': password,
+      },
+    ).then((value) {
+      if (value.statusCode == 200) {
+        if (jsonDecode(value.body)['result']) {
+          loginModel = LoginModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationUserLoginSuccessState());
+        }
+        emit(AuthenticationUserLoginErrorState(
+            jsonDecode(value.body)['message']));
+      } else {
+        emit(AuthenticationUserLoginErrorState(value.statusCode.toString()));
+      }
+    }).catchError((error) {
+      emit(AuthenticationUserLoginErrorState(error.toString()));
     });
   }
 }

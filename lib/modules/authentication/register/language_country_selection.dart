@@ -21,7 +21,6 @@ class LanguageCountryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
     language = LocaleKeys.languageCountryScreenEnglish.tr();
-    country = LocaleKeys.languageCountryScreenBahrain.tr();
     return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
       builder: (BuildContext context, state) => Scaffold(
         appBar: null,

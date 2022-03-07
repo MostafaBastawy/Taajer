@@ -44,7 +44,7 @@ class OnBoardingItemBuilder extends StatelessWidget {
             fontSize: 15.sp,
             color: figmaShade2,
             letterSpacing: -0.165,
-            height: 1.33,
+            height: 1.20,
             fontStyle: FontStyle.normal,
           ),
         ),

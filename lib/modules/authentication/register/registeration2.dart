@@ -62,19 +62,11 @@ class RegisterScreen2 extends StatelessWidget {
     return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
       listener: (BuildContext context, state) {
         if (state is AuthenticationUserRegisterSuccessState) {
-          if (cubit.userRegistrationModel!.registerResult!) {
-            navigateTo(
-              widget: RegisterScreen3(
-                  phoneNumber: '$countryCode ${phoneNumberController.text}'),
-              context: context,
-            );
-          } else {
-            defaultToast(
-              message: cubit.userRegistrationModel!.registerMessage!,
-              color: figmaErrorColor,
-              context: context,
-            );
-          }
+          navigateTo(
+            widget: RegisterScreen3(
+                phoneNumber: '$countryCode ${phoneNumberController.text}'),
+            context: context,
+          );
         }
         if (state is AuthenticationUserRegisterErrorState) {
           defaultToast(
@@ -142,9 +134,10 @@ class RegisterScreen2 extends StatelessWidget {
                                       businessNameValidationMessage =
                                           'Business Name cant be empty';
                                     } else {
-                                      businessNameBorder = figmaSuccessColor;
-                                      businessNameShadowBorder =
-                                          borderSuccessBoxShadow;
+                                      businessNameBorder =
+                                          const Color(0xFFE2E4E8);
+                                      businessNameShadowBorder = [];
+
                                       businessNameValidationMessage = '';
                                     }
                                   },
@@ -241,9 +234,9 @@ class RegisterScreen2 extends StatelessWidget {
                                       emailValidationMessage =
                                           'Invalid email address format';
                                     } else {
-                                      emailAddressBorder = figmaSuccessColor;
-                                      emailAddressShadowBorder =
-                                          borderSuccessBoxShadow;
+                                      emailAddressBorder =
+                                          const Color(0xFFE2E4E8);
+                                      emailAddressShadowBorder = [];
                                       emailValidationMessage = '';
                                     }
                                   },
@@ -389,12 +382,11 @@ class RegisterScreen2 extends StatelessWidget {
                                               phoneNumberShadowBorder =
                                                   borderErrorBoxShadow;
                                               phoneValidationMessage =
-                                                  'Phone Number should be 8 digits without 0';
+                                                  'Phone Number should be 8 digits';
                                             } else {
                                               phoneNumberBorder =
-                                                  figmaSuccessColor;
-                                              phoneNumberShadowBorder =
-                                                  borderSuccessBoxShadow;
+                                                  const Color(0xFFE2E4E8);
+                                              phoneNumberShadowBorder = [];
                                               phoneValidationMessage = '';
                                             }
                                           } else if (value.isNotEmpty &&
@@ -411,9 +403,8 @@ class RegisterScreen2 extends StatelessWidget {
                                                   'Phone Number should be 9 digits without 0';
                                             } else {
                                               phoneNumberBorder =
-                                                  figmaSuccessColor;
-                                              phoneNumberShadowBorder =
-                                                  borderSuccessBoxShadow;
+                                                  const Color(0xFFE2E4E8);
+                                              phoneNumberShadowBorder = [];
                                               phoneValidationMessage = '';
                                             }
                                           } else if (value.isNotEmpty &&
@@ -430,9 +421,8 @@ class RegisterScreen2 extends StatelessWidget {
                                                   'Phone Number should be 9 digits without 0';
                                             } else {
                                               phoneNumberBorder =
-                                                  figmaSuccessColor;
-                                              phoneNumberShadowBorder =
-                                                  borderSuccessBoxShadow;
+                                                  const Color(0xFFE2E4E8);
+                                              phoneNumberShadowBorder = [];
                                               phoneValidationMessage = '';
                                             }
                                           } else if (value.isEmpty) {
@@ -532,9 +522,8 @@ class RegisterScreen2 extends StatelessWidget {
                                       passwordValidationMessage =
                                           'Password cant be empty';
                                     } else {
-                                      passwordBorder = figmaSuccessColor;
-                                      passwordShadowBorder =
-                                          borderSuccessBoxShadow;
+                                      passwordBorder = const Color(0xFFE2E4E8);
+                                      passwordShadowBorder = [];
                                       passwordValidationMessage = '';
                                     }
                                   },
@@ -645,9 +634,9 @@ class RegisterScreen2 extends StatelessWidget {
                                       confirmPasswordValidationMessage =
                                           'Confirm Password is not match';
                                     } else {
-                                      confirmPasswordBorder = figmaSuccessColor;
-                                      confirmPasswordShadowBorder =
-                                          borderSuccessBoxShadow;
+                                      confirmPasswordBorder =
+                                          const Color(0xFFE2E4E8);
+                                      confirmPasswordShadowBorder = [];
                                       confirmPasswordValidationMessage = '';
                                     }
                                   },

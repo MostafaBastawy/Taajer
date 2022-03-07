@@ -69,6 +69,7 @@ class RegisterScreen2 extends StatelessWidget {
           );
         }
         if (state is AuthenticationUserRegisterErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: state.error.toString(),
             color: figmaErrorColor,

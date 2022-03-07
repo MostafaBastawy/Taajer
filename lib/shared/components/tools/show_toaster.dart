@@ -9,9 +9,9 @@ void defaultToast({
     showToast(
       message,
       context: context,
-      animation: StyledToastAnimation.slideFromTop,
-      reverseAnimation: StyledToastAnimation.slideToTop,
-      position: StyledToastPosition.top,
+      animation: StyledToastAnimation.slideFromBottom,
+      reverseAnimation: StyledToastAnimation.slideToBottom,
+      position: StyledToastPosition.bottom,
       animDuration: const Duration(seconds: 1),
       duration: const Duration(seconds: 4),
       curve: Curves.elasticOut,

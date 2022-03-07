@@ -28,6 +28,7 @@ class RegisterScreen3 extends StatelessWidget {
   List<BoxShadow> otpVerificationNumber3ShadowBorder = [];
   List<BoxShadow> otpVerificationNumber4ShadowBorder = [];
   String? phoneNumber;
+
   RegisterScreen3({
     Key? key,
     required this.phoneNumber,
@@ -46,6 +47,7 @@ class RegisterScreen3 extends StatelessWidget {
           );
         }
         if (state is AuthenticationUserRegisterOtpVerificationErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: state.error.toString(),
             color: figmaErrorColor,
@@ -53,6 +55,7 @@ class RegisterScreen3 extends StatelessWidget {
           );
         }
         if (state is AuthenticationUserResendOtpVerificationSuccessState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: cubit.otpVerificationModel!.verificationMessage!,
             color: figmaSuccessColor,
@@ -60,6 +63,7 @@ class RegisterScreen3 extends StatelessWidget {
           );
         }
         if (state is AuthenticationUserResendOtpVerificationErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: state.error.toString(),
             color: figmaErrorColor,

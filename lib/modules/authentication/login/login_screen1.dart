@@ -25,9 +25,10 @@ class LoginScreen1 extends StatelessWidget {
     return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
       listener: (BuildContext context, state) {
         if (state is AuthenticationUserPreLoginSuccessState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: cubit.preLoginModel!.preLoginMessage!,
-            color: figmaActiveColor,
+            color: figmaSuccessColor,
             context: context,
           );
           navigateTo(
@@ -37,6 +38,7 @@ class LoginScreen1 extends StatelessWidget {
         }
 
         if (state is AuthenticationUserPreLoginErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: state.error,
             color: figmaErrorColor,

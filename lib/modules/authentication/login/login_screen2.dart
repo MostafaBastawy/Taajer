@@ -37,7 +37,6 @@ class LoginScreen2 extends StatelessWidget {
         if (state is AuthenticationUserLoginSuccessState) {
           CacheHelper.setData(
               key: accessTokenKey, value: cubit.loginModel!.loginAccessToken);
-          print(cubit.loginModel!);
           AppCubit.get(context).changeBottomNavBar(0);
           navigateTo(
             widget: const HomeLayout(),
@@ -45,6 +44,7 @@ class LoginScreen2 extends StatelessWidget {
           );
         }
         if (state is AuthenticationUserLoginErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
             message: state.error.toString(),
             color: figmaErrorColor,

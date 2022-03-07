@@ -214,4 +214,42 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
       emit(AuthenticationUserLoginErrorState(error.toString()));
     });
   }
+
+  void passwordForgetRequest({
+    required String phoneNumber,
+    required String countryCode,
+  }) async {
+    emit(AuthenticationForgetPasswordRequestLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$forgetPasswordRequest',
+      ),
+      body: {
+        "email_or_phone": "$countryCode$phoneNumber",
+        "send_code_by": "",
+      },
+    ).then((value) {
+      print(value.statusCode);
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        otpVerificationModel =
+            OtpVerificationModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationForgetPasswordRequestSuccessState());
+      } else if (value.statusCode == 201) {
+        if (jsonDecode(value.body)['result']) {
+          otpVerificationModel =
+              OtpVerificationModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationForgetPasswordRequestSuccessState());
+        } else {
+          emit(AuthenticationForgetPasswordRequestErrorState(
+              jsonDecode(value.body)['message']));
+        }
+      } else {
+        emit(AuthenticationForgetPasswordRequestErrorState(
+            jsonDecode(value.body)['message']));
+      }
+    }).catchError((error) {
+      emit(AuthenticationForgetPasswordRequestErrorState(error.toString()));
+    });
+  }
 }

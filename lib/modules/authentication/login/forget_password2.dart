@@ -1,26 +1,33 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
-import 'package:taajer/modules/authentication/login/forget_password3.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
-import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class ForgetPassword2 extends StatelessWidget {
-  var otpVerificationNumber1Controller = TextEditingController();
-  var otpVerificationNumber2Controller = TextEditingController();
-  var otpVerificationNumber3Controller = TextEditingController();
-  var otpVerificationNumber4Controller = TextEditingController();
-  ForgetPassword2({Key? key}) : super(key: key);
+  String? phoneNumber;
+  String? countryCode;
+  var textEditingController = TextEditingController();
+  StreamController<ErrorAnimationType> errorController =
+      StreamController<ErrorAnimationType>();
+
+  ForgetPassword2({
+    Key? key,
+    required this.phoneNumber,
+    required this.countryCode,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
 
-    return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
+    return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
+      listener: (BuildContext context, state) {},
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -58,7 +65,7 @@ class ForgetPassword2 extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               Text(
-                '+973 5536 7654',
+                '$countryCode$phoneNumber',
                 style: TextStyle(
                   color: figmaOurBlack,
                   fontSize: 15.sp,
@@ -67,141 +74,33 @@ class ForgetPassword2 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    width: 50.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1.0,
-                        color: const Color(0xAFE2E4E8),
-                      ),
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    child: TextFormField(
-                      controller: otpVerificationNumber1Controller,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      maxLines: 1,
-                      obscureText: false,
-                      onChanged: (value) {},
-                      onFieldSubmitted: (value) {},
-                      validator: (value) {},
-                      onTap: () {},
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: '',
-                        hintStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xAFB2B7C2),
-                        ),
-                      ),
-                    ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 49.w),
+                child: PinCodeTextField(
+                  appContext: context,
+                  length: 4,
+                  obscureText: false,
+                  animationType: AnimationType.fade,
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(6),
+                    fieldHeight: 50,
+                    fieldWidth: 50,
+                    activeFillColor: Colors.white,
+                    activeColor: figmaPrimaryBlue,
+                    borderWidth: 1.0,
+                    inactiveColor: const Color(0xFFE2E4E8),
+                    inactiveFillColor: Colors.white,
+                    selectedColor: figmaPrimaryBlue,
+                    selectedFillColor: Colors.white,
                   ),
-                  SizedBox(width: 15.w),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    width: 50.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1.0,
-                        color: const Color(0xAFE2E4E8),
-                      ),
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    child: TextFormField(
-                      controller: otpVerificationNumber2Controller,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      maxLines: 1,
-                      obscureText: false,
-                      onChanged: (value) {},
-                      onFieldSubmitted: (value) {},
-                      validator: (value) {},
-                      onTap: () {},
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: '',
-                        hintStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xAFB2B7C2),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 15.w),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    width: 50.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1.0,
-                        color: const Color(0xAFE2E4E8),
-                      ),
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    child: TextFormField(
-                      controller: otpVerificationNumber3Controller,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      maxLines: 1,
-                      obscureText: false,
-                      onChanged: (value) {},
-                      onFieldSubmitted: (value) {},
-                      validator: (value) {},
-                      onTap: () {},
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: '',
-                        hintStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xAFB2B7C2),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 15.w),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    width: 50.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1.0,
-                        color: const Color(0xAFE2E4E8),
-                      ),
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    child: TextFormField(
-                      controller: otpVerificationNumber4Controller,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      maxLines: 1,
-                      obscureText: false,
-                      onChanged: (value) {},
-                      onFieldSubmitted: (value) {},
-                      validator: (value) {},
-                      onTap: () {},
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: '',
-                        hintStyle: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xAFB2B7C2),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  animationDuration: const Duration(milliseconds: 300),
+                  enableActiveFill: true,
+                  errorAnimationController: errorController,
+                  controller: textEditingController,
+                  onCompleted: (value) {},
+                  onChanged: (v) {},
+                ),
               ),
               SizedBox(height: 20.h),
               Row(
@@ -237,12 +136,7 @@ class ForgetPassword2 extends StatelessWidget {
                 height: 46.h,
                 width: 344.w,
                 label: 'Verify',
-                onPressed: () {
-                  navigateTo(
-                    widget: ForgetPassword3(),
-                    context: context,
-                  );
-                },
+                onPressed: () {},
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w700,
                 backGroundColor: figmaPrimaryBlue,

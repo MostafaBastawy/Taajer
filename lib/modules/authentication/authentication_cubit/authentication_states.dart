@@ -57,3 +57,15 @@ class AuthenticationUserLoginErrorState extends AuthenticationStates {
   String error;
   AuthenticationUserLoginErrorState(this.error);
 }
+
+class AuthenticationForgetPasswordRequestLoadingState
+    extends AuthenticationStates {}
+
+class AuthenticationForgetPasswordRequestSuccessState
+    extends AuthenticationStates {}
+
+class AuthenticationForgetPasswordRequestErrorState
+    extends AuthenticationStates {
+  String error;
+  AuthenticationForgetPasswordRequestErrorState(this.error);
+}

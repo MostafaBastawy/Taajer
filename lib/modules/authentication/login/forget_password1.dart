@@ -5,9 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/login/forget_password2.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
 import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
+import 'package:taajer/shared/components/tools/show_toaster.dart';
 import 'package:taajer/shared/patterns.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
@@ -38,7 +41,31 @@ class ForgetPassword1 extends StatelessWidget {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
 
     return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
-      listener: (BuildContext context, state) {},
+      listener: (BuildContext context, state) {
+        if (state is AuthenticationForgetPasswordRequestSuccessState) {
+          navigateTo(
+            widget: ForgetPassword2(
+              phoneNumber: phoneNumberController.text,
+              countryCode: countryCode,
+            ),
+            context: context,
+          );
+          FocusManager.instance.primaryFocus!.unfocus();
+          defaultToast(
+            message: cubit.otpVerificationModel!.verificationMessage!,
+            color: figmaSuccessColor,
+            context: context,
+          );
+        }
+        if (state is AuthenticationForgetPasswordRequestErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
+          defaultToast(
+            message: state.error.toString(),
+            color: figmaErrorColor,
+            context: context,
+          );
+        }
+      },
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -285,7 +312,12 @@ class ForgetPassword1 extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       cubit.emit(AuthenticationStatesRefreshState());
-                      if (phoneValidationMessage.isEmpty) {}
+                      if (phoneValidationMessage.isEmpty) {
+                        cubit.passwordForgetRequest(
+                          phoneNumber: phoneNumberController.text,
+                          countryCode: countryCode!,
+                        );
+                      }
                     }
                   },
                   labelColor: Colors.white,

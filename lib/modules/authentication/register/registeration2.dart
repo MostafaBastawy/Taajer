@@ -716,12 +716,11 @@ class RegisterScreen2 extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       cubit.emit(AuthenticationStatesRefreshState());
-                      if (businessNameController.text.isNotEmpty &&
-                          emailAddressController.text.isNotEmpty &&
-                          phoneNumberController.text.isNotEmpty &&
-                          passwordController.text.isNotEmpty &&
-                          confirmPasswordController.text
-                              .contains(passwordController.text)) {
+                      if (businessNameValidationMessage.isEmpty &&
+                          emailValidationMessage.isEmpty &&
+                          phoneValidationMessage.isEmpty &&
+                          passwordValidationMessage.isEmpty &&
+                          confirmPasswordValidationMessage.isEmpty) {
                         cubit.userRegister(
                           email: emailAddressController.text,
                           password: confirmPasswordController.text,

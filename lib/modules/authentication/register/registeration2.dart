@@ -11,6 +11,7 @@ import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
 import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
 import 'package:taajer/shared/components/tools/show_toaster.dart';
+import 'package:taajer/shared/patterns.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen2 extends StatelessWidget {
@@ -28,10 +29,6 @@ class RegisterScreen2 extends StatelessWidget {
   String phoneValidationMessage = '';
   String passwordValidationMessage = '';
   String confirmPasswordValidationMessage = '';
-  String emailPattern = r'\w+@\w+\.\w+';
-  String saudiPhonePattern = r'^((?!(0))[0-9]{9})$';
-  String bahrainPhonePattern = r'^((?!(0))[0-9]{8})$';
-  String emiratesPhonePattern = r'^((?!(0))[0-9]{9})$';
 
   Color businessNameBorder = const Color(0xFFE2E4E8);
   Color emailAddressBorder = const Color(0xFFE2E4E8);

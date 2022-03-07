@@ -74,7 +74,6 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   }
 
   OtpVerificationModel? otpVerificationModel;
-
   void userRegisterOtpVerification({
     required String otpVerificationCode,
   }) async {

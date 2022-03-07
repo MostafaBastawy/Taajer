@@ -8,6 +8,7 @@ import 'package:taajer/modules/authentication/login/login_screen2.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/show_toaster.dart';
+import 'package:taajer/shared/patterns.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class LoginScreen1 extends StatelessWidget {
@@ -93,12 +94,12 @@ class LoginScreen1 extends StatelessWidget {
                     color: Colors.white,
                     border: Border.all(
                       width: 1.0,
-                      color: activeTextFormField == 'Email or Phone'
+                      color: activeTextFormField == 'Email Address'
                           ? figmaActiveColor
                           : emailOrPhoneBorder,
                     ),
                     borderRadius: BorderRadius.circular(6.r),
-                    boxShadow: activeTextFormField == 'Email or Phone'
+                    boxShadow: activeTextFormField == 'Email Address'
                         ? borderActiveBoxShadow
                         : emailOrPhoneShadowBorder,
                   ),
@@ -113,24 +114,29 @@ class LoginScreen1 extends StatelessWidget {
                           onChanged: (value) {},
                           onFieldSubmitted: (value) {},
                           validator: (value) {
-                            if (value!.isNotEmpty) {
-                              emailOrPhoneBorder = figmaPrimaryBlue;
-                              emailOrPhoneShadowBorder = borderActiveBoxShadow;
-                              emailOrPhoneValidationMessage = '';
-                            } else {
+                            if (value!.isEmpty) {
                               emailOrPhoneBorder = figmaErrorColor;
                               emailOrPhoneShadowBorder = borderErrorBoxShadow;
                               emailOrPhoneValidationMessage =
-                                  'Email or Phone cant be empty';
+                                  'Email Address cant be empty';
+                            } else if (!RegExp(emailPattern).hasMatch(value)) {
+                              emailOrPhoneBorder = figmaErrorColor;
+                              emailOrPhoneShadowBorder = borderErrorBoxShadow;
+                              emailOrPhoneValidationMessage =
+                                  'Invalid email address format';
+                            } else {
+                              emailOrPhoneBorder = const Color(0xFFE2E4E8);
+                              emailOrPhoneShadowBorder = [];
+                              emailOrPhoneValidationMessage = '';
                             }
                           },
                           onTap: () {
-                            activeTextFormField = 'Email or Phone';
+                            activeTextFormField = 'Email Address';
                             cubit.emit(AuthenticationStatesRefreshState());
                           },
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Email or Phone',
+                            hintText: 'Email Address',
                             hintStyle: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
@@ -141,7 +147,7 @@ class LoginScreen1 extends StatelessWidget {
                           ),
                         ),
                       ),
-                      if (activeTextFormField == 'Email or Phone')
+                      if (activeTextFormField == 'Email Address')
                         GestureDetector(
                           onTap: () {
                             emailOrPhoneController.text = '';
@@ -197,7 +203,7 @@ class LoginScreen1 extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       cubit.emit(AuthenticationStatesRefreshState());
-                      if (emailOrPhoneController.text.isNotEmpty) {
+                      if (emailOrPhoneValidationMessage.isEmpty) {
                         cubit.userPreLogin(
                             emailAddress: emailOrPhoneController.text);
                       }

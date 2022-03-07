@@ -51,16 +51,22 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'phone_code': phoneCode,
       },
     ).then((value) {
-      if (value.statusCode == 200) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        userRegistrationModel =
+            UserRegistrationModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserRegisterSuccessState());
+      } else if (value.statusCode == 201) {
         if (jsonDecode(value.body)['result']) {
           userRegistrationModel =
               UserRegistrationModel.fromJson(jsonDecode(value.body));
           emit(AuthenticationUserRegisterSuccessState());
+        } else {
+          emit(AuthenticationUserRegisterErrorState(
+              jsonDecode(value.body)['message']));
         }
+      } else {
         emit(AuthenticationUserRegisterErrorState(
             jsonDecode(value.body)['message']));
-      } else {
-        emit(AuthenticationUserRegisterErrorState(value.statusCode.toString()));
       }
     }).catchError((error) {
       emit(AuthenticationUserRegisterErrorState(error.toString()));
@@ -87,17 +93,22 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
             '$verificationCode1$verificationCode2$verificationCode3$verificationCode4'
       },
     ).then((value) {
-      if (value.statusCode == 200) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        otpVerificationModel =
+            OtpVerificationModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserRegisterOtpVerificationSuccessState());
+      } else if (value.statusCode == 201) {
         if (jsonDecode(value.body)['result']) {
           otpVerificationModel =
               OtpVerificationModel.fromJson(jsonDecode(value.body));
           emit(AuthenticationUserRegisterOtpVerificationSuccessState());
+        } else {
+          emit(AuthenticationUserRegisterOtpVerificationErrorState(
+              jsonDecode(value.body)['message']));
         }
-        emit(AuthenticationUserRegisterOtpVerificationErrorState(
-            jsonDecode(value.body)['message']));
       } else {
         emit(AuthenticationUserRegisterOtpVerificationErrorState(
-            value.statusCode.toString()));
+            jsonDecode(value.body)['message']));
       }
     }).catchError((error) {
       emit(AuthenticationUserRegisterOtpVerificationErrorState(
@@ -116,21 +127,25 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'user_id': userRegistrationModel!.registerUserId.toString(),
       },
     ).then((value) {
-      if (value.statusCode == 200) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        otpVerificationModel =
+            OtpVerificationModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserResendOtpVerificationSuccessState());
+      } else if (value.statusCode == 201) {
         if (jsonDecode(value.body)['result']) {
           otpVerificationModel =
               OtpVerificationModel.fromJson(jsonDecode(value.body));
           emit(AuthenticationUserResendOtpVerificationSuccessState());
+        } else {
+          emit(AuthenticationUserResendOtpVerificationErrorState(
+              jsonDecode(value.body)['message']));
         }
-        emit(AuthenticationUserResendOtpVerificationErrorState(
-            jsonDecode(value.body)['message']));
       } else {
         emit(AuthenticationUserResendOtpVerificationErrorState(
-            value.statusCode.toString()));
+            jsonDecode(value.body)['message']));
       }
     }).catchError((error) {
       emit(AuthenticationUserResendOtpVerificationErrorState(error.toString()));
-      print(error);
     });
   }
 
@@ -148,13 +163,20 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'email': emailAddress,
       },
     ).then((value) {
-      if (value.statusCode == 200) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        preLoginModel = PreLoginModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserPreLoginSuccessState());
+      } else if (value.statusCode == 201) {
         if (jsonDecode(value.body)['result']) {
           preLoginModel = PreLoginModel.fromJson(jsonDecode(value.body));
           emit(AuthenticationUserPreLoginSuccessState());
+        } else {
+          emit(AuthenticationUserPreLoginErrorState(
+              jsonDecode(value.body)['message']));
         }
       } else {
-        emit(AuthenticationUserPreLoginErrorState(value.statusCode.toString()));
+        emit(AuthenticationUserPreLoginErrorState(
+            jsonDecode(value.body)['message']));
       }
     }).catchError((error) {
       emit(AuthenticationUserPreLoginErrorState(error.toString()));
@@ -178,15 +200,20 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         'password': password,
       },
     ).then((value) {
-      if (value.statusCode == 200) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        loginModel = LoginModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserLoginSuccessState());
+      } else if (value.statusCode == 201) {
         if (jsonDecode(value.body)['result']) {
           loginModel = LoginModel.fromJson(jsonDecode(value.body));
           emit(AuthenticationUserLoginSuccessState());
+        } else {
+          emit(AuthenticationUserLoginErrorState(
+              jsonDecode(value.body)['message']));
         }
+      } else {
         emit(AuthenticationUserLoginErrorState(
             jsonDecode(value.body)['message']));
-      } else {
-        emit(AuthenticationUserLoginErrorState(value.statusCode.toString()));
       }
     }).catchError((error) {
       emit(AuthenticationUserLoginErrorState(error.toString()));

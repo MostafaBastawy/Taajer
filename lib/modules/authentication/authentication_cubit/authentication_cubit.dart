@@ -76,10 +76,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   OtpVerificationModel? otpVerificationModel;
 
   void userRegisterOtpVerification({
-    required String verificationCode1,
-    required String verificationCode2,
-    required String verificationCode3,
-    required String verificationCode4,
+    required String otpVerificationCode,
   }) async {
     emit(AuthenticationUserRegisterOtpVerificationLoadingState());
 
@@ -89,8 +86,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
       ),
       body: {
         'user_id': userRegistrationModel!.registerUserId.toString(),
-        'verification_code':
-            '$verificationCode1$verificationCode2$verificationCode3$verificationCode4'
+        'verification_code': otpVerificationCode
       },
     ).then((value) {
       if (value.statusCode == 200 && jsonDecode(value.body)['result']) {

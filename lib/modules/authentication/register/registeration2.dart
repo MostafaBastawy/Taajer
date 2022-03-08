@@ -721,9 +721,11 @@ class RegisterScreen2 extends StatelessWidget {
                         cubit.userRegister(
                           email: emailAddressController.text,
                           password: confirmPasswordController.text,
-                          phone: phoneNumberController.text,
                           name: businessNameController.text,
-                          phoneCode: countryCode!,
+                          // phone: phoneNumberController.text,
+                          // phoneCode: countryCode!,
+                          phone: '1063136366',
+                          phoneCode: '+20',
                         );
                       }
                     }

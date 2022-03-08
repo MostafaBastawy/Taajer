@@ -7,7 +7,9 @@ import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/complete_registration/complete_register3.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class CompleteRegistration2 extends StatelessWidget {
@@ -33,7 +35,7 @@ class CompleteRegistration2 extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: 25,
+            vertical: 25.h,
           ),
           child: Column(
             children: [
@@ -294,7 +296,12 @@ class CompleteRegistration2 extends StatelessWidget {
                 height: 45.h,
                 width: 343.w,
                 label: 'Submit',
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(
+                    widget: CompleteRegistration3(),
+                    context: context,
+                  );
+                },
                 labelColor: Colors.white,
                 labelWeight: FontWeight.w400,
                 backGroundColor: figmaPrimaryBlue,

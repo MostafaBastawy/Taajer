@@ -52,7 +52,7 @@ class CompleteRegistration2 extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 50.h),
+              SizedBox(height: 68.h),
               SfSliderTheme(
                 data: SfSliderThemeData(
                   tooltipBackgroundColor: figmaPrimaryBlue,
@@ -70,36 +70,48 @@ class CompleteRegistration2 extends StatelessWidget {
                   inactiveTrackHeight: 2.h,
                   inactiveTrackColor: const Color(0xFFCACDD5),
                   trackCornerRadius: 3.r,
-                  overlayRadius: 16.r,
+                  overlayRadius: 0,
                 ),
-                child: SfSlider(
-                  min: 10000,
-                  max: 100000,
-                  value: sliderValue.toInt(),
-                  enableTooltip: true,
-                  activeColor: figmaPrimaryBlue,
-                  inactiveColor: const Color(0xFFCACDD5),
-                  tooltipShape: const SfPaddleTooltipShape(),
-                  shouldAlwaysShowTooltip: true,
-                  onChanged: (value) {
-                    sliderValue = value;
-                    cubit.emit(AuthenticationStatesRefreshState());
-                  },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  child: SfSlider(
+                    min: 10000,
+                    max: 100000,
+                    value: sliderValue,
+                    enableTooltip: true,
+                    activeColor: figmaPrimaryBlue,
+                    inactiveColor: const Color(0xFFCACDD5),
+                    //tooltipShape: const SfPaddleTooltipShape(),
+                    shouldAlwaysShowTooltip: true,
+                    onChanged: (value) {
+                      print(value);
+                      if (value == 10000) {
+                        sliderValue = 10000;
+                      } else if (value > 10000 && value <= 20000) {
+                        sliderValue = 20000;
+                      } else if (value > 20000 && value <= 30000) {
+                        sliderValue = 30000;
+                      } else if (value > 30000 && value <= 40000) {
+                        sliderValue = 40000;
+                      } else if (value > 40000 && value <= 50000) {
+                        sliderValue = 50000;
+                      } else if (value > 50000 && value <= 60000) {
+                        sliderValue = 60000;
+                      } else if (value > 60000 && value <= 70000) {
+                        sliderValue = 70000;
+                      } else if (value > 70000 && value <= 80000) {
+                        sliderValue = 80000;
+                      } else if (value > 80000 && value <= 90000) {
+                        sliderValue = 90000;
+                      } else if (value > 90000) {
+                        sliderValue = 100000;
+                      }
+                      cubit.emit(AuthenticationStatesRefreshState());
+                    },
+                  ),
                 ),
               ),
-              // Slider(
-              //   thumbColor: figmaPrimaryBlue,
-              //   label: sliderValue.toString(),
-              //   value: sliderValue,
-              //   onChanged: (value) {
-              //     sliderValue = value;
-              //     cubit.emit(AuthenticationStatesRefreshState());
-              //   },
-              //   min: 10000,
-              //   max: 100000,
-              //   inactiveColor: const Color(0xFFCACDD5),
-              //   activeColor: figmaPrimaryBlue,
-              // ),
+              SizedBox(height: 18.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Row(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/modules/authentication/complete_registration/thank_you_page.dart';
@@ -30,11 +32,11 @@ class LocationSelection1 extends StatelessWidget {
           ),
           title: const Text('Business Location'),
         ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 25.h, horizontal: 16.w),
-          child: Column(
-            children: [
-              Container(
+        body: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 13.h),
+              child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 width: 343.w,
                 height: 48.h,
@@ -74,23 +76,48 @@ class LocationSelection1 extends StatelessWidget {
                   ],
                 ),
               ),
-              const Spacer(),
-              DefaultButton(
-                height: 45.h,
-                width: 343.w,
-                label: 'Next',
-                onPressed: () {
-                  navigateTo(
-                    widget: ThankYouPage(),
-                    context: context,
-                  );
-                },
-                labelColor: Colors.white,
-                labelWeight: FontWeight.w400,
-                backGroundColor: figmaPrimaryBlue,
+            ),
+            Expanded(
+              child: Stack(
+                alignment: AlignmentDirectional.bottomCenter,
+                children: [
+                  GoogleMap(
+                    mapType: MapType.normal,
+                    myLocationButtonEnabled: true,
+                    zoomControlsEnabled: false,
+                    zoomGesturesEnabled: true,
+                    myLocationEnabled: true,
+                    onMapCreated: (GoogleMapController controller) {},
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(
+                        AppCubit.get(context).currentUserLatLng!.latitude,
+                        AppCubit.get(context).currentUserLatLng!.longitude,
+                      ),
+                      zoom: 14.47460,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 25.h),
+                    child: DefaultButton(
+                      height: 45.h,
+                      width: 343.w,
+                      label: 'Next',
+                      onPressed: () {
+                        navigateTo(
+                          widget: ThankYouPage(),
+                          context: context,
+                        );
+                      },
+                      labelColor: Colors.white,
+                      labelWeight: FontWeight.w400,
+                      backGroundColor: figmaPrimaryBlue,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

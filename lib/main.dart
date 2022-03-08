@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => AppCubit(),
+          create: (BuildContext context) => AppCubit()..getUserCurrentLatLang(),
         ),
         BlocProvider(
           create: (BuildContext context) => AuthenticationCubit(),

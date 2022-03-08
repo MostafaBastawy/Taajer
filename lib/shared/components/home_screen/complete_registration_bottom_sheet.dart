@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/modules/authentication/complete_registration/complete_register2.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class CompleteRegistrationBottomSheet extends StatelessWidget {
@@ -25,7 +27,7 @@ class CompleteRegistrationBottomSheet extends StatelessWidget {
           children: [
             SvgPicture.asset(
               'assets/images/group1208.svg',
-              height: 204.91,
+              height: 204.91.h,
               width: 275.w,
             ),
             SizedBox(height: 38.9.h),
@@ -66,7 +68,12 @@ class CompleteRegistrationBottomSheet extends StatelessWidget {
               height: 46.h,
               width: 341.w,
               label: 'Complete Registration',
-              onPressed: () {},
+              onPressed: () {
+                navigateTo(
+                  widget: const CompleteRegistration2(),
+                  context: context,
+                );
+              },
               labelColor: Colors.white,
               labelWeight: FontWeight.w700,
               backGroundColor: figmaPrimaryBlue,

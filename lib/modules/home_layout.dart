@@ -13,7 +13,6 @@ class HomeLayout extends StatelessWidget {
 
     return BlocBuilder<AppCubit, AppStates>(
       builder: (BuildContext context, state) => Scaffold(
-        appBar: null,
         bottomNavigationBar: BottomNavigationBar(
           items: bottomNavBarItem(context),
           currentIndex: cubit.currentIndex,

@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           home: HomeLayout(),
-          // home: CacheHelper.getData(key: accessTokenKey) == ''
+          // home: CacheHelper.getData(key: accessTokenKey) == null
           //     ? LanguageCountryScreen()
           //     : const HomeLayout(),
         ),

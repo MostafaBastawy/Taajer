@@ -70,7 +70,7 @@ class CompleteRegistrationBottomSheet extends StatelessWidget {
               label: 'Complete Registration',
               onPressed: () {
                 navigateTo(
-                  widget: const CompleteRegistration2(),
+                  widget: CompleteRegistration2(),
                   context: context,
                 );
               },

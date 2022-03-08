@@ -50,6 +50,8 @@ dependencies:
   flutter_carousel_slider: ^1.0.8
   flutter_styled_toast: ^2.0.0
   pin_code_fields: ^7.3.0
+  dotted_border: ^2.0.0+2
+  syncfusion_flutter_sliders: ^19.4.55
 
 dev_dependencies:
   flutter_test:

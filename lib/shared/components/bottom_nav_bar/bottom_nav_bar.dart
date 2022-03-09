@@ -14,7 +14,7 @@ List<BottomNavigationBarItem> bottomNavBarItem(BuildContext context) => [
               ? figmaPrimaryBlue
               : const Color(0xFFB2B7C2),
         ),
-        label: '',
+        label: 'Browse',
       ),
       BottomNavigationBarItem(
         icon: SvgPicture.asset(
@@ -25,7 +25,7 @@ List<BottomNavigationBarItem> bottomNavBarItem(BuildContext context) => [
               ? figmaPrimaryBlue
               : const Color(0xFFB2B7C2),
         ),
-        label: '',
+        label: 'Wishlist',
       ),
       BottomNavigationBarItem(
         icon: SvgPicture.asset(
@@ -36,7 +36,7 @@ List<BottomNavigationBarItem> bottomNavBarItem(BuildContext context) => [
               ? figmaPrimaryBlue
               : const Color(0xFFB2B7C2),
         ),
-        label: '',
+        label: 'Orders',
       ),
       BottomNavigationBarItem(
         icon: SvgPicture.asset(
@@ -47,7 +47,7 @@ List<BottomNavigationBarItem> bottomNavBarItem(BuildContext context) => [
               ? figmaPrimaryBlue
               : const Color(0xFFB2B7C2),
         ),
-        label: '',
+        label: 'Cart',
       ),
       BottomNavigationBarItem(
         icon: SvgPicture.asset(
@@ -58,6 +58,6 @@ List<BottomNavigationBarItem> bottomNavBarItem(BuildContext context) => [
               ? figmaPrimaryBlue
               : const Color(0xFFB2B7C2),
         ),
-        label: '',
+        label: 'Profile',
       ),
     ];

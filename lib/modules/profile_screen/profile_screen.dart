@@ -12,9 +12,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {},
           icon: const Icon(
             Icons.arrow_back_sharp,
           ),
@@ -22,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
         title: const Text('Business Profile'),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 25.h, horizontal: 16.w),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           children: [
             ProfileScreenBuilderItem(

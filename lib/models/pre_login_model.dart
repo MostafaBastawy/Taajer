@@ -2,7 +2,7 @@ class PreLoginModel {
   bool? preLoginResult;
   String? preLoginMessage;
   String? preLoginCompanyName;
-  String? preLoginUserId;
+  int? preLoginUserId;
 
   PreLoginModel({
     this.preLoginResult,

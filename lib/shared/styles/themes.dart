@@ -29,16 +29,28 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           statusBarIconBrightness: Brightness.dark,
         ),
       ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
         elevation: 0.0,
         backgroundColor: Colors.white,
         showUnselectedLabels: true,
         showSelectedLabels: true,
         unselectedItemColor: Colors.black,
         selectedItemColor: Colors.black,
-        selectedIconTheme: IconThemeData(color: figmaPrimaryBlue),
-        unselectedIconTheme: IconThemeData(color: Color(0xFFB2B7C2)),
+        selectedIconTheme: const IconThemeData(color: figmaPrimaryBlue),
+        unselectedIconTheme: const IconThemeData(color: Color(0xFFB2B7C2)),
         type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: TextStyle(
+          fontSize: 10.sp,
+          color: Colors.black,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 10.sp,
+          color: Colors.black,
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+        ),
       ),
     );
 ThemeData darkTheme = ThemeData();

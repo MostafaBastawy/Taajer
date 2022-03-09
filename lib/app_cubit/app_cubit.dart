@@ -4,6 +4,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:taajer/app_cubit/app_states.dart';
 import 'package:taajer/modules/home_screen/home_screen.dart';
+import 'package:taajer/modules/profile_screen/profile_screen.dart';
 
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState());
@@ -16,7 +17,7 @@ class AppCubit extends Cubit<AppStates> {
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const ProfileScreen(),
   ];
   void changeBottomNavBar(int index) {
     currentIndex = index;

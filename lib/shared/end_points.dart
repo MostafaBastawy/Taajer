@@ -5,3 +5,5 @@ const String resendOtpCode = 'auth/resend_code';
 const String preLogin = 'auth/pre-login';
 const String login = 'auth/login';
 const String forgetPasswordRequest = 'auth/password/forget_request';
+const String forgetPasswordResendOtp = 'auth/password/resend_code';
+const String forgetPasswordConfirmReset = 'auth/password/confirm_reset';

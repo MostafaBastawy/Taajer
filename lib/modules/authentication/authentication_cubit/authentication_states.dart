@@ -69,3 +69,27 @@ class AuthenticationForgetPasswordRequestErrorState
   String error;
   AuthenticationForgetPasswordRequestErrorState(this.error);
 }
+
+class AuthenticationUserForgetPasswordResendOtpVerificationLoadingState
+    extends AuthenticationStates {}
+
+class AuthenticationUserForgetPasswordResendOtpVerificationSuccessState
+    extends AuthenticationStates {}
+
+class AuthenticationUserForgetPasswordResendOtpVerificationErrorState
+    extends AuthenticationStates {
+  String error;
+  AuthenticationUserForgetPasswordResendOtpVerificationErrorState(this.error);
+}
+
+class AuthenticationUserForgetPasswordOtpVerificationLoadingState
+    extends AuthenticationStates {}
+
+class AuthenticationUserForgetPasswordOtpVerificationSuccessState
+    extends AuthenticationStates {}
+
+class AuthenticationUserForgetPasswordOtpVerificationErrorState
+    extends AuthenticationStates {
+  String error;
+  AuthenticationUserForgetPasswordOtpVerificationErrorState(this.error);
+}

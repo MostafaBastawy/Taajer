@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:taajer/models/forget_password_otp_verification.dart';
 import 'package:taajer/models/login_model.dart';
 import 'package:taajer/models/otp_verification.dart';
 import 'package:taajer/models/pre_login_model.dart';
@@ -226,8 +227,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         '$baseUrl$forgetPasswordRequest',
       ),
       body: {
-        "email_or_phone": "$countryCode$phoneNumber",
-        "send_code_by": "",
+        "phone": "$countryCode$phoneNumber",
       },
     ).then((value) {
       print(value.statusCode);
@@ -250,6 +250,84 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
       }
     }).catchError((error) {
       emit(AuthenticationForgetPasswordRequestErrorState(error.toString()));
+    });
+  }
+
+  void userForgetPasswordResendOtpVerification({
+    required String phoneNumber,
+    required String countryCode,
+  }) {
+    emit(AuthenticationUserForgetPasswordResendOtpVerificationLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$forgetPasswordResendOtp',
+      ),
+      body: {
+        'phone': '$countryCode$phoneNumber',
+      },
+    ).then((value) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        otpVerificationModel =
+            OtpVerificationModel.fromJson(jsonDecode(value.body));
+        emit(
+            AuthenticationUserForgetPasswordResendOtpVerificationSuccessState());
+      } else if (value.statusCode == 201) {
+        if (jsonDecode(value.body)['result']) {
+          otpVerificationModel =
+              OtpVerificationModel.fromJson(jsonDecode(value.body));
+          emit(
+              AuthenticationUserForgetPasswordResendOtpVerificationSuccessState());
+        } else {
+          emit(AuthenticationUserForgetPasswordResendOtpVerificationErrorState(
+              jsonDecode(value.body)['message']));
+        }
+      } else {
+        emit(AuthenticationUserForgetPasswordResendOtpVerificationErrorState(
+            jsonDecode(value.body)['message']));
+      }
+    }).catchError((error) {
+      emit(AuthenticationUserForgetPasswordResendOtpVerificationErrorState(
+          error.toString()));
+    });
+  }
+
+  ForgetPasswordOtpVerificationModel? forgetPasswordOtpVerificationModel;
+  void userForgetPasswordOtpVerification({
+    required String otpVerificationNumber,
+  }) {
+    emit(AuthenticationUserForgetPasswordOtpVerificationLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$forgetPasswordConfirmReset',
+      ),
+      body: {
+        'verification_code': otpVerificationNumber,
+      },
+    ).then((value) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        forgetPasswordOtpVerificationModel =
+            ForgetPasswordOtpVerificationModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserForgetPasswordOtpVerificationSuccessState());
+      } else if (value.statusCode == 201) {
+        if (jsonDecode(value.body)['result']) {
+          forgetPasswordOtpVerificationModel =
+              ForgetPasswordOtpVerificationModel.fromJson(
+                  jsonDecode(value.body));
+          emit(AuthenticationUserForgetPasswordOtpVerificationSuccessState());
+        } else {
+          emit(AuthenticationUserForgetPasswordOtpVerificationErrorState(
+              jsonDecode(value.body)['message']));
+        }
+      } else {
+        emit(AuthenticationUserForgetPasswordOtpVerificationErrorState(
+            jsonDecode(value.body)['message']));
+      }
+    }).catchError((error) {
+      emit(AuthenticationUserForgetPasswordOtpVerificationErrorState(
+          error.toString()));
+      print(error);
     });
   }
 }

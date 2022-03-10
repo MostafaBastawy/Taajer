@@ -7,7 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/authentication/login/forget_password3.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
+import 'package:taajer/shared/components/tools/show_toaster.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class ForgetPassword2 extends StatelessWidget {
@@ -28,7 +31,24 @@ class ForgetPassword2 extends StatelessWidget {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
 
     return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
-      listener: (BuildContext context, state) {},
+      listener: (BuildContext context, state) {
+        if (state
+            is AuthenticationUserForgetPasswordOtpVerificationSuccessState) {
+          navigateTo(
+            widget: ForgetPassword3(),
+            context: context,
+          );
+        }
+        if (state
+            is AuthenticationUserForgetPasswordOtpVerificationErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
+          defaultToast(
+            message: cubit.otpVerificationModel!.verificationMessage!,
+            color: figmaSuccessColor,
+            context: context,
+          );
+        }
+      },
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -100,7 +120,11 @@ class ForgetPassword2 extends StatelessWidget {
                   enableActiveFill: true,
                   errorAnimationController: errorController,
                   controller: textEditingController,
-                  onCompleted: (value) {},
+                  onCompleted: (value) {
+                    cubit.userForgetPasswordOtpVerification(
+                      otpVerificationNumber: value,
+                    );
+                  },
                   onChanged: (v) {},
                 ),
               ),
@@ -119,7 +143,14 @@ class ForgetPassword2 extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      cubit.userForgetPasswordResendOtpVerification(
+                        // phoneNumber: phoneNumber!,
+                        // countryCode: countryCode!,
+                        phoneNumber: '1063136366',
+                        countryCode: '+20',
+                      );
+                    },
                     child: Text(
                       'Resend',
                       style: TextStyle(

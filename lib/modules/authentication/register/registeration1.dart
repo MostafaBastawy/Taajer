@@ -11,7 +11,7 @@ import 'package:taajer/shared/components/tools/shared_preference/shared_preferen
 import 'package:taajer/shared/styles/colors.dart';
 
 class RegisterScreen1 extends StatelessWidget {
-  String? businessDetails = 'Food Truck';
+  String? businessDetails = '';
   RegisterScreen1({Key? key}) : super(key: key);
 
   @override

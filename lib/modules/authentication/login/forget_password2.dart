@@ -43,7 +43,8 @@ class ForgetPassword2 extends StatelessWidget {
             is AuthenticationUserForgetPasswordOtpVerificationErrorState) {
           FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
-            message: cubit.otpVerificationModel!.verificationMessage!,
+            message:
+                cubit.forgetPasswordOtpVerificationModel!.verificationMessage!,
             color: figmaSuccessColor,
             context: context,
           );

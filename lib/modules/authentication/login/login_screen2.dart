@@ -126,8 +126,6 @@ class LoginScreen2 extends StatelessWidget {
                               passwordValidationMessage =
                                   'Password cant be empty';
                             } else {
-                              passwordBorder = figmaSuccessColor;
-                              passwordShadowBorder = borderSuccessBoxShadow;
                               passwordValidationMessage = '';
                             }
                           },

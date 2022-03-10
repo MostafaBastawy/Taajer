@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/modules/authentication/register/language_country_selection.dart';
 import 'package:taajer/shared/components/profile_screen/profile_screen_item.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
+import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
+import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -93,6 +97,16 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 40.h),
+            TextButton(
+                onPressed: () {
+                  CacheHelper.removeData(key: accessTokenKey);
+                  navigateAndFinish(
+                    widget: LanguageCountryScreen(),
+                    context: context,
+                  );
+                },
+                child: const Text('Sign out')),
           ],
         ),
       ),

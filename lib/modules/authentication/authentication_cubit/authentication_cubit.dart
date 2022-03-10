@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:taajer/models/change_password.dart';
 import 'package:taajer/models/forget_password_otp_verification.dart';
 import 'package:taajer/models/login_model.dart';
 import 'package:taajer/models/otp_verification.dart';
@@ -326,6 +327,45 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
       }
     }).catchError((error) {
       emit(AuthenticationUserForgetPasswordOtpVerificationErrorState(
+          error.toString()));
+      print(error);
+    });
+  }
+
+  ChangePasswordModel? changePasswordModel;
+  void userChangePassword({
+    required String password,
+  }) {
+    emit(AuthenticationUserForgetPasswordChangePasswordLoadingState());
+
+    http.post(
+      Uri.parse(
+        '$baseUrl$forgetPasswordChangePassword',
+      ),
+      body: {
+        'user_id': forgetPasswordOtpVerificationModel!.userId,
+        'password': password,
+      },
+    ).then((value) {
+      if (value.statusCode == 200 && jsonDecode(value.body)['result']) {
+        changePasswordModel =
+            ChangePasswordModel.fromJson(jsonDecode(value.body));
+        emit(AuthenticationUserForgetPasswordChangePasswordSuccessState());
+      } else if (value.statusCode == 201) {
+        if (jsonDecode(value.body)['result']) {
+          changePasswordModel =
+              ChangePasswordModel.fromJson(jsonDecode(value.body));
+          emit(AuthenticationUserForgetPasswordChangePasswordSuccessState());
+        } else {
+          emit(AuthenticationUserForgetPasswordChangePasswordErrorState(
+              jsonDecode(value.body)['message']));
+        }
+      } else {
+        emit(AuthenticationUserForgetPasswordChangePasswordErrorState(
+            jsonDecode(value.body)['message']));
+      }
+    }).catchError((error) {
+      emit(AuthenticationUserForgetPasswordChangePasswordErrorState(
           error.toString()));
       print(error);
     });

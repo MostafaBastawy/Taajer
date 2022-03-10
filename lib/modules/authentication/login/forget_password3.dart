@@ -6,7 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
+import 'package:taajer/modules/home_layout.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
+import 'package:taajer/shared/components/tools/show_toaster.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class ForgetPassword3 extends StatelessWidget {
@@ -26,7 +29,24 @@ class ForgetPassword3 extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthenticationCubit cubit = AuthenticationCubit.get(context);
 
-    return BlocBuilder<AuthenticationCubit, AuthenticationStates>(
+    return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
+      listener: (BuildContext context, state) {
+        if (state
+            is AuthenticationUserForgetPasswordChangePasswordSuccessState) {
+          navigateTo(
+            widget: HomeLayout(),
+            context: context,
+          );
+        }
+        if (state is AuthenticationUserForgetPasswordChangePasswordErrorState) {
+          FocusManager.instance.primaryFocus!.unfocus();
+          defaultToast(
+            message: cubit.changePasswordModel!.changePasswordMessage!,
+            color: figmaSuccessColor,
+            context: context,
+          );
+        }
+      },
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -101,12 +121,6 @@ class ForgetPassword3 extends StatelessWidget {
                               newPasswordShadowBorder = borderErrorBoxShadow;
                               newPasswordValidationMessage =
                                   'Password cant be empty';
-                            } else if (confirmNewPasswordController.text !=
-                                newPasswordController.text) {
-                              newPasswordBorder = figmaErrorColor;
-                              newPasswordShadowBorder = borderErrorBoxShadow;
-                              newPasswordValidationMessage =
-                                  'Confirm Password is not match';
                             } else {
                               newPasswordBorder = const Color(0xFFE2E4E8);
                               newPasswordShadowBorder = [];
@@ -194,6 +208,13 @@ class ForgetPassword3 extends StatelessWidget {
                                   borderErrorBoxShadow;
                               confirmNewPasswordValidationMessage =
                                   'Password cant be empty';
+                            } else if (confirmNewPasswordController.text !=
+                                newPasswordController.text) {
+                              confirmNewPasswordBorder = figmaErrorColor;
+                              confirmNewPasswordShadowBorder =
+                                  borderErrorBoxShadow;
+                              confirmNewPasswordValidationMessage =
+                                  'Confirm Password is not match';
                             } else {
                               confirmNewPasswordBorder =
                                   const Color(0xFFE2E4E8);
@@ -254,6 +275,12 @@ class ForgetPassword3 extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       cubit.emit(AuthenticationStatesRefreshState());
+                      if (newPasswordValidationMessage.isEmpty &&
+                          confirmNewPasswordValidationMessage.isEmpty) {
+                        cubit.userChangePassword(
+                          password: confirmNewPasswordController.text,
+                        );
+                      }
                     }
                   },
                   labelColor: Colors.white,

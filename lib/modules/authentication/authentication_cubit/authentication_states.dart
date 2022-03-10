@@ -93,3 +93,15 @@ class AuthenticationUserForgetPasswordOtpVerificationErrorState
   String error;
   AuthenticationUserForgetPasswordOtpVerificationErrorState(this.error);
 }
+
+class AuthenticationUserForgetPasswordChangePasswordLoadingState
+    extends AuthenticationStates {}
+
+class AuthenticationUserForgetPasswordChangePasswordSuccessState
+    extends AuthenticationStates {}
+
+class AuthenticationUserForgetPasswordChangePasswordErrorState
+    extends AuthenticationStates {
+  String error;
+  AuthenticationUserForgetPasswordChangePasswordErrorState(this.error);
+}

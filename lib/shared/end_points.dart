@@ -7,3 +7,4 @@ const String login = 'auth/login';
 const String forgetPasswordRequest = 'auth/password/forget_request';
 const String forgetPasswordResendOtp = 'auth/password/resend_code';
 const String forgetPasswordConfirmReset = 'auth/password/confirm_reset';
+const String forgetPasswordChangePassword = 'auth/password/new_password';

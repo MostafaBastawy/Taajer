@@ -271,6 +271,8 @@ class ForgetPassword1 extends StatelessWidget {
                               ),
                             ),
                             if (activeTextFormField == 'Phone Number')
+                              SizedBox(width: 10.w),
+                            if (activeTextFormField == 'Phone Number')
                               GestureDetector(
                                 onTap: () {
                                   phoneNumberController.text = '';

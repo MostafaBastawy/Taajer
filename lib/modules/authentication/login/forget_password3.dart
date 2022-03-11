@@ -144,6 +144,21 @@ class ForgetPassword3 extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
+                      if (newPasswordValidationMessage.isNotEmpty)
+                        SizedBox(width: 10.w),
+                      if (newPasswordValidationMessage.isNotEmpty)
+                        GestureDetector(
+                          onTap: () {
+                            newPasswordController.text = '';
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/delete-icon.svg',
+                            width: 16.67.w,
+                            height: 16.67.h,
+                          ),
+                        ),
+                      if (newPasswordValidationMessage.isNotEmpty)
+                        SizedBox(width: 10.w),
                       IconButton(
                         onPressed: () {
                           cubit.changePasswordVisibility();
@@ -239,6 +254,21 @@ class ForgetPassword3 extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
+                      if (confirmNewPasswordValidationMessage.isNotEmpty)
+                        SizedBox(width: 10.w),
+                      if (confirmNewPasswordValidationMessage.isNotEmpty)
+                        GestureDetector(
+                          onTap: () {
+                            confirmNewPasswordController.text = '';
+                          },
+                          child: SvgPicture.asset(
+                            'assets/images/delete-icon.svg',
+                            width: 16.67.w,
+                            height: 16.67.h,
+                          ),
+                        ),
+                      if (confirmNewPasswordValidationMessage.isNotEmpty)
+                        SizedBox(width: 10.w),
                       IconButton(
                         onPressed: () {
                           cubit.changePasswordVisibility();

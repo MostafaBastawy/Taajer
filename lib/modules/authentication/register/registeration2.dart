@@ -158,6 +158,8 @@ class RegisterScreen2 extends StatelessWidget {
                                 ),
                               ),
                               if (activeTextFormField == 'Business Name')
+                                SizedBox(width: 10.w),
+                              if (activeTextFormField == 'Business Name')
                                 GestureDetector(
                                   onTap: () {
                                     businessNameController.text = '';
@@ -256,6 +258,8 @@ class RegisterScreen2 extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              if (activeTextFormField == 'Email Address')
+                                SizedBox(width: 10.w),
                               if (activeTextFormField == 'Email Address')
                                 GestureDetector(
                                   onTap: () {
@@ -449,6 +453,8 @@ class RegisterScreen2 extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    if (activeTextFormField == 'Phone Number')
+                                      SizedBox(width: 10.w),
                                     if (activeTextFormField == 'Phone Number')
                                       GestureDetector(
                                         onTap: () {

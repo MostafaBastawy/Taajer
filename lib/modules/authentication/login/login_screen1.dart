@@ -148,6 +148,8 @@ class LoginScreen1 extends StatelessWidget {
                         ),
                       ),
                       if (activeTextFormField == 'Email Address')
+                        SizedBox(width: 10.w),
+                      if (activeTextFormField == 'Email Address')
                         GestureDetector(
                           onTap: () {
                             emailOrPhoneController.text = '';

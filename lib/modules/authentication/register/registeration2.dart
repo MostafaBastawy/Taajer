@@ -728,10 +728,10 @@ class RegisterScreen2 extends StatelessWidget {
                           email: emailAddressController.text,
                           password: confirmPasswordController.text,
                           name: businessNameController.text,
-                          // phone: phoneNumberController.text,
-                          // phoneCode: countryCode!,
-                          phone: '1063136366',
-                          phoneCode: '+20',
+                          phone: phoneNumberController.text,
+                          phoneCode: countryCode!,
+                          // phone: '1063136366',
+                          // phoneCode: '+20',
                         );
                       }
                     }

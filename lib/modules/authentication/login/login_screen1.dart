@@ -41,7 +41,7 @@ class LoginScreen1 extends StatelessWidget {
         if (state is AuthenticationUserPreLoginErrorState) {
           FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
-            message: state.error,
+            message: state.error.toString(),
             color: figmaErrorColor,
             context: context,
           );

@@ -43,8 +43,7 @@ class ForgetPassword2 extends StatelessWidget {
             is AuthenticationUserForgetPasswordOtpVerificationErrorState) {
           FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
-            message:
-                cubit.forgetPasswordOtpVerificationModel!.verificationMessage!,
+            message: state.error.toString(),
             color: figmaSuccessColor,
             context: context,
           );
@@ -146,10 +145,10 @@ class ForgetPassword2 extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       cubit.userForgetPasswordResendOtpVerification(
-                        // phoneNumber: phoneNumber!,
-                        // countryCode: countryCode!,
-                        phoneNumber: '1063136366',
-                        countryCode: '+20',
+                        phoneNumber: phoneNumber!,
+                        countryCode: countryCode!,
+                        // phoneNumber: '1063136366',
+                        // countryCode: '+20',
                       );
                     },
                     child: Text(

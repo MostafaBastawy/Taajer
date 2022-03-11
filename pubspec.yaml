@@ -53,6 +53,7 @@ dependencies:
   dotted_border: ^2.0.0+2
   syncfusion_flutter_sliders: ^19.4.55
   google_maps_flutter: ^2.1.2
+  permission_handler: ^9.2.0
 
 dev_dependencies:
   flutter_test:

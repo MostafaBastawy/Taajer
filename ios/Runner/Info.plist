@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This identifier will be used to specify the add location to show adds in map according to its location , App Not tracking your location</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This app needs access to location when open</string>
+    <string>This identifier will be used to specify the add location to show adds in map according to its location , App Not tracking your location</string>
     <key>CFBundleLocalizations</key>
     <array>
         <string>en</string>

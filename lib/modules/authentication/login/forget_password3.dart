@@ -34,14 +34,14 @@ class ForgetPassword3 extends StatelessWidget {
         if (state
             is AuthenticationUserForgetPasswordChangePasswordSuccessState) {
           navigateTo(
-            widget: HomeLayout(),
+            widget: const HomeLayout(),
             context: context,
           );
         }
         if (state is AuthenticationUserForgetPasswordChangePasswordErrorState) {
           FocusManager.instance.primaryFocus!.unfocus();
           defaultToast(
-            message: cubit.changePasswordModel!.changePasswordMessage!,
+            message: state.error.toString(),
             color: figmaSuccessColor,
             context: context,
           );
@@ -144,9 +144,9 @@ class ForgetPassword3 extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      if (newPasswordValidationMessage.isNotEmpty)
+                      if (activeTextFormField == 'New Password')
                         SizedBox(width: 10.w),
-                      if (newPasswordValidationMessage.isNotEmpty)
+                      if (activeTextFormField == 'New Password')
                         GestureDetector(
                           onTap: () {
                             newPasswordController.text = '';
@@ -157,15 +157,18 @@ class ForgetPassword3 extends StatelessWidget {
                             height: 16.67.h,
                           ),
                         ),
-                      if (newPasswordValidationMessage.isNotEmpty)
+                      if (activeTextFormField == 'New Password')
                         SizedBox(width: 10.w),
-                      IconButton(
-                        onPressed: () {
+                      GestureDetector(
+                        onTap: () {
                           cubit.changePasswordVisibility();
                         },
-                        icon: Icon(cubit.passwordSuffixIcon),
-                        color: figmaGrey1,
+                        child: Icon(
+                          cubit.passwordSuffixIcon,
+                          color: figmaGrey1,
+                        ),
                       ),
+                      SizedBox(width: 17.12.w),
                     ],
                   ),
                 ),
@@ -254,9 +257,9 @@ class ForgetPassword3 extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      if (confirmNewPasswordValidationMessage.isNotEmpty)
+                      if (activeTextFormField == 'Confirm New Password')
                         SizedBox(width: 10.w),
-                      if (confirmNewPasswordValidationMessage.isNotEmpty)
+                      if (activeTextFormField == 'Confirm New Password')
                         GestureDetector(
                           onTap: () {
                             confirmNewPasswordController.text = '';
@@ -267,15 +270,18 @@ class ForgetPassword3 extends StatelessWidget {
                             height: 16.67.h,
                           ),
                         ),
-                      if (confirmNewPasswordValidationMessage.isNotEmpty)
+                      if (activeTextFormField == 'Confirm New Password')
                         SizedBox(width: 10.w),
-                      IconButton(
-                        onPressed: () {
+                      GestureDetector(
+                        onTap: () {
                           cubit.changePasswordVisibility();
                         },
-                        icon: Icon(cubit.passwordSuffixIcon),
-                        color: figmaGrey1,
+                        child: Icon(
+                          cubit.passwordSuffixIcon,
+                          color: figmaGrey1,
+                        ),
                       ),
+                      SizedBox(width: 17.12.w),
                     ],
                   ),
                 ),

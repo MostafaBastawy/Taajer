@@ -343,7 +343,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         '$baseUrl$forgetPasswordChangePassword',
       ),
       body: {
-        'user_id': forgetPasswordOtpVerificationModel!.userId,
+        'user_id': forgetPasswordOtpVerificationModel!.userId.toString(),
         'password': password,
       },
     ).then((value) {

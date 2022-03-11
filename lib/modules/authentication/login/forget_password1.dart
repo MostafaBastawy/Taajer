@@ -316,10 +316,10 @@ class ForgetPassword1 extends StatelessWidget {
                       cubit.emit(AuthenticationStatesRefreshState());
                       if (phoneValidationMessage.isEmpty) {
                         cubit.passwordForgetRequest(
-                          phoneNumber: '1063136366',
-                          countryCode: '+20',
-                          // phoneNumber: phoneNumberController.text,
-                          // countryCode: countryCode!,
+                          // phoneNumber: '1063136366',
+                          // countryCode: '+20',
+                          phoneNumber: phoneNumberController.text,
+                          countryCode: countryCode!,
                         );
                       }
                     }

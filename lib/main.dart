@@ -7,6 +7,8 @@ import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/app_cubit/bloc_observer.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/register/language_country_selection.dart';
+import 'package:taajer/modules/home_layout.dart';
+import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
 import 'package:taajer/shared/components/tools/shared_preference/shared_preference.dart';
 import 'package:taajer/shared/styles/themes.dart';
 import 'package:taajer/translations/codegen_loader.g.dart';
@@ -76,10 +78,10 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          home: LanguageCountryScreen(),
-          // home: CacheHelper.getData(key: accessTokenKey) == null
-          //     ? LanguageCountryScreen()
-          //     : const HomeLayout(),
+          // home: LanguageCountryScreen(),
+          home: CacheHelper.getData(key: accessTokenKey) == null
+              ? LanguageCountryScreen()
+              : const HomeLayout(),
         ),
       ),
     );

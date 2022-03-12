@@ -24,7 +24,7 @@ class CategoryBuilder extends StatelessWidget {
               fontStyle: FontStyle.normal,
               letterSpacing: -0.165,
               color: figmaOurBlack,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
             ),
           ),
           Image(

@@ -44,12 +44,14 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           color: Colors.black,
           fontWeight: FontWeight.w400,
           fontStyle: FontStyle.normal,
+          height: 2.5,
         ),
         unselectedLabelStyle: TextStyle(
           fontSize: 10.sp,
           color: Colors.black,
           fontWeight: FontWeight.w400,
           fontStyle: FontStyle.normal,
+          height: 2.5,
         ),
       ),
     );

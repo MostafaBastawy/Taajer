@@ -53,8 +53,10 @@ class LoginScreen1 extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_back_sharp,
+            icon: SvgPicture.asset(
+              'assets/images/arrow-left-icon.svg',
+              height: 32.h,
+              width: 32.w,
             ),
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/modules/authentication/register/registeration2.dart';
@@ -24,8 +25,10 @@ class RegisterScreen1 extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_back_sharp,
+            icon: SvgPicture.asset(
+              'assets/images/arrow-left-icon.svg',
+              height: 32.h,
+              width: 32.w,
             ),
           ),
           title: const Text('Business Details'),

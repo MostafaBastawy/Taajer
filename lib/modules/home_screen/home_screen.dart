@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   SvgPicture.asset(
-                    'assets/images/arrow-left-icon.svg',
+                    'assets/images/arrow-right-icon.svg',
                     width: 24.w,
                     height: 24.h,
                     color: figmaPrimaryBlue,
@@ -157,7 +157,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   SvgPicture.asset(
-                    'assets/images/arrow-left-icon.svg',
+                    'assets/images/arrow-right-icon.svg',
                     width: 24.w,
                     height: 24.h,
                     color: figmaPrimaryBlue,
@@ -211,7 +211,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   SvgPicture.asset(
-                    'assets/images/arrow-left-icon.svg',
+                    'assets/images/arrow-right-icon.svg',
                     width: 24.w,
                     height: 24.h,
                     color: figmaPrimaryBlue,
@@ -265,7 +265,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   SvgPicture.asset(
-                    'assets/images/arrow-left-icon.svg',
+                    'assets/images/arrow-right-icon.svg',
                     width: 24.w,
                     height: 24.h,
                     color: figmaPrimaryBlue,

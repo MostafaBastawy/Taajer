@@ -17,8 +17,10 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_sharp,
+          icon: SvgPicture.asset(
+            'assets/images/arrow-left-icon.svg',
+            height: 32.h,
+            width: 32.w,
           ),
         ),
         title: const Text('Business Profile'),

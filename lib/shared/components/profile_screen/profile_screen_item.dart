@@ -31,7 +31,7 @@ class ProfileScreenBuilderItem extends StatelessWidget {
             itemTitle!,
             style: TextStyle(
               color: const Color(0xFF525C76),
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontStyle: FontStyle.normal,
               fontSize: 14.sp,
             ),
@@ -41,7 +41,7 @@ class ProfileScreenBuilderItem extends StatelessWidget {
             itemValue!,
             style: TextStyle(
               color: const Color(0xFFB2B7C2),
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontStyle: FontStyle.normal,
               fontSize: 14.sp,
             ),

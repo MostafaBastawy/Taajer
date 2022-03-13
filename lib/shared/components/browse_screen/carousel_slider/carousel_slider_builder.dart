@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taajer/shared/components/carousel_slider/carousel_slider_list.dart';
+import 'package:taajer/shared/components/browse_screen/carousel_slider/carousel_slider_list.dart';
 
 class CarouselSliderBuilder extends StatelessWidget {
   const CarouselSliderBuilder({Key? key}) : super(key: key);
@@ -15,10 +15,6 @@ class CarouselSliderBuilder extends StatelessWidget {
       child: Container(
         width: 343.w,
         height: 160.h,
-        // decoration: BoxDecoration(
-        //   borderRadius: BorderRadius.circular(6.r),
-        //   color: Colors.white,
-        // ),
         child: CarouselSlider.builder(
           unlimitedMode: true,
           controller: sliderController,
@@ -30,7 +26,6 @@ class CarouselSliderBuilder extends StatelessWidget {
           },
           slideIndicator: CircularSlideIndicator(
             padding: const EdgeInsets.only(bottom: 5),
-            //indicatorBorderColor: Colors.white,
             indicatorBackgroundColor: Colors.white.withOpacity(0.5),
             indicatorRadius: 3.r,
             currentIndicatorColor: Colors.white,

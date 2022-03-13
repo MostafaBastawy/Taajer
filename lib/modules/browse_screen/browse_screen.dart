@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taajer/shared/components/carousel_slider/carousel_slider_builder.dart';
-import 'package:taajer/shared/components/home_screen/complete_registration_bottom_sheet.dart';
+import 'package:taajer/shared/components/browse_screen/carousel_slider/carousel_slider_builder.dart';
+import 'package:taajer/shared/components/browse_screen/complete_registration_bottom_sheet.dart';
+import 'package:taajer/shared/components/browse_screen/product_details_screen.dart';
 import 'package:taajer/shared/components/tools/brand_builder.dart';
 import 'package:taajer/shared/components/tools/category_builder.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/product_builder.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class BrowseScreen extends StatelessWidget {
+  const BrowseScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -176,11 +178,9 @@ class HomeScreen extends StatelessWidget {
                     if (index == 0) SizedBox(width: 16.w),
                     GestureDetector(
                       onTap: () {
-                        showBottomSheet(
-                          backgroundColor: Colors.white.withOpacity(0.0),
+                        navigateTo(
+                          widget: ProductDetailsScreen(),
                           context: context,
-                          builder: (BuildContext context) =>
-                              const CompleteRegistrationBottomSheet(),
                         );
                       },
                       child: const ProductBuilder(),

@@ -84,6 +84,8 @@ flutter:
     - assets/images/bottom_nav_bar/
     - assets/images/profile_screen/
     - assets/images/orders_screen/
+    - assets/images/cart_screen/
+    - assets/images/browse_screen/
     - assets/translations/
   #   - images/a_dot_ham.jpeg
 

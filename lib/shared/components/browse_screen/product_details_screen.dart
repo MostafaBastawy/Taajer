@@ -21,7 +21,9 @@ class ProductDetailsScreen extends StatelessWidget {
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: SvgPicture.asset(
               'assets/images/arrow-left-icon.svg',
               height: 32.h,
@@ -129,7 +131,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                 onTap: () {
                                   description = true;
                                   specifications = false;
-                                  cubit.emit(BrowseStatesRefreshState());
+                                  cubit.emit(BrowseStateRefreshState());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -157,7 +159,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                 onTap: () {
                                   description = false;
                                   specifications = true;
-                                  cubit.emit(BrowseStatesRefreshState());
+                                  cubit.emit(BrowseStateRefreshState());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -185,7 +187,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 20.h),
                       if (description)
-                        Container(
+                        SizedBox(
                           width: 309.w,
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan... Sed dignissim, metus nec fringilla accumsan',

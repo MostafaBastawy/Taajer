@@ -99,16 +99,28 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 40.h),
-            TextButton(
-                onPressed: () {
-                  CacheHelper.removeData(key: accessTokenKey);
-                  navigateAndFinish(
-                    widget: LanguageCountryScreen(),
-                    context: context,
-                  );
-                },
-                child: const Text('Sign out')),
+            SizedBox(height: 37.h),
+            GestureDetector(
+              onTap: () {
+                CacheHelper.removeData(key: accessTokenKey);
+                navigateAndFinish(
+                  widget: LanguageCountryScreen(),
+                  context: context,
+                );
+              },
+              child: SizedBox(
+                width: 66.w,
+                child: Text(
+                  'Sign out',
+                  style: TextStyle(
+                    color: const Color(0xFFA4A5A9),
+                    fontWeight: FontWeight.w600,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 15.sp,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

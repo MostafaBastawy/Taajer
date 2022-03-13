@@ -13,14 +13,13 @@ class ProductDetailsCarouselSliderBuilder extends StatelessWidget {
     CarouselSliderController sliderController = CarouselSliderController();
     return Container(
       width: 341.w,
-      height: 320.h,
+      height: 298.h,
       child: CarouselSlider.builder(
         unlimitedMode: true,
         controller: sliderController,
         slideBuilder: (index) {
           return Image(
             image: AssetImage(productDetailsCarouselSliderItems[index]),
-            fit: BoxFit.cover,
           );
         },
         slideIndicator: CircularSlideIndicator(

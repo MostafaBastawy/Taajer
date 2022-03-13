@@ -1,5 +1,5 @@
 abstract class BrowseStates {}
 
-class BrowseStatesInitialState extends BrowseStates {}
+class BrowseInitialState extends BrowseStates {}
 
-class BrowseStatesRefreshState extends BrowseStates {}
+class BrowseStateRefreshState extends BrowseStates {}

@@ -8,6 +8,7 @@ import 'package:taajer/app_cubit/bloc_observer.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/register/language_country_selection.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_cubit.dart';
+import 'package:taajer/modules/cart_screen/cart_cubit/cart_cubit.dart';
 import 'package:taajer/modules/home_layout.dart';
 import 'package:taajer/modules/orders_screen/orders_cubit/orders_cubit.dart';
 import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
@@ -65,6 +66,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (BuildContext context) => OrdersCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => CartCubit(),
         ),
       ],
       child: ScreenUtilInit(

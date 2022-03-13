@@ -10,6 +10,8 @@ class DefaultButton extends StatelessWidget {
   Color? backGroundColor;
   Color? labelColor;
   FontWeight? labelWeight;
+  double? labelFontSize = 15.sp;
+  double? labelFontHeight = 1.33;
   DefaultButton({
     Key? key,
     required this.height,
@@ -19,6 +21,8 @@ class DefaultButton extends StatelessWidget {
     this.backGroundColor,
     required this.labelColor,
     required this.labelWeight,
+    this.labelFontSize,
+    this.labelFontHeight,
   }) : super(key: key);
 
   @override
@@ -42,9 +46,9 @@ class DefaultButton extends StatelessWidget {
           label.toString(),
           style: TextStyle(
             fontWeight: labelWeight,
-            fontSize: 15.sp,
+            fontSize: labelFontSize,
             color: labelColor,
-            height: 1.33,
+            height: labelFontHeight,
             fontStyle: FontStyle.normal,
           ),
         ),

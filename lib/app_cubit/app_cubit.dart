@@ -4,6 +4,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:taajer/app_cubit/app_states.dart';
 import 'package:taajer/modules/browse_screen/browse_screen.dart';
+import 'package:taajer/modules/cart_screen/cart_screen.dart';
 import 'package:taajer/modules/orders_screen/orders_screen.dart';
 import 'package:taajer/modules/profile_screen/profile_screen.dart';
 
@@ -17,7 +18,7 @@ class AppCubit extends Cubit<AppStates> {
     const BrowseScreen(),
     const BrowseScreen(),
     OrdersScreen(),
-    const BrowseScreen(),
+    const CartScreen(),
     const ProfileScreen(),
   ];
   void changeBottomNavBar(int index) {

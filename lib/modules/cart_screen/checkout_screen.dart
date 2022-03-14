@@ -7,7 +7,9 @@ import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/modules/cart_screen/cart_cubit/cart_cubit.dart';
 import 'package:taajer/modules/cart_screen/cart_cubit/cart_states.dart';
 import 'package:taajer/modules/cart_screen/select_address.dart';
+import 'package:taajer/shared/components/cart_screen/choose_delivery_day_bottom_sheet.dart';
 import 'package:taajer/shared/components/cart_screen/delivery_builder_item.dart';
+import 'package:taajer/shared/components/cart_screen/paymen_method_bottom_sheet.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
@@ -160,7 +162,16 @@ class CheckoutScreen extends StatelessWidget {
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (BuildContext context, int index) =>
-                            const DeliveryBuilderItem(),
+                            GestureDetector(
+                          onTap: () {
+                            showModalBottomSheet(
+                                context: context,
+                                backgroundColor: Colors.white.withOpacity(0.0),
+                                builder: (BuildContext context) =>
+                                    const ChooseDeliveryDayBottomSheet());
+                          },
+                          child: const DeliveryBuilderItem(),
+                        ),
                         separatorBuilder: (BuildContext context, int index) =>
                             SizedBox(height: 28.h),
                         itemCount: 3,
@@ -176,44 +187,53 @@ class CheckoutScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 12.h),
-                      Container(
-                        width: 343.w,
-                        height: 48.h,
-                        padding: EdgeInsets.symmetric(horizontal: 18.w),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(6.r),
-                          border: Border.all(
-                              color: const Color(0xFFE2E4E8), width: 1.0),
-                        ),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/images/cart_screen/payment-icon.svg',
-                              width: 19.53.w,
-                              height: 28.h,
-                            ),
-                            SizedBox(width: 23.47.w),
-                            Text(
-                              'Debit Card',
-                              style: TextStyle(
-                                color: const Color(0xFF494A53),
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14.sp,
+                      GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              backgroundColor: Colors.white.withOpacity(0.0),
+                              builder: (BuildContext context) =>
+                                  const PaymentMethodBottomSheet());
+                        },
+                        child: Container(
+                          width: 343.w,
+                          height: 48.h,
+                          padding: EdgeInsets.symmetric(horizontal: 18.w),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(6.r),
+                            border: Border.all(
+                                color: const Color(0xFFE2E4E8), width: 1.0),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/images/cart_screen/payment-debit-icon.svg',
+                                width: 19.53.w,
+                                height: 28.h,
                               ),
-                            ),
-                            const Spacer(),
-                            Text(
-                              'Change',
-                              style: TextStyle(
-                                color: figmaPrimaryBlue,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12.sp,
+                              SizedBox(width: 23.47.w),
+                              Text(
+                                'Debit Card',
+                                style: TextStyle(
+                                  color: const Color(0xFF494A53),
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14.sp,
+                                ),
                               ),
-                            ),
-                          ],
+                              const Spacer(),
+                              Text(
+                                'Change',
+                                style: TextStyle(
+                                  color: figmaPrimaryBlue,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 37.h),

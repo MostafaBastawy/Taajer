@@ -4,22 +4,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:taajer/app_cubit/app_cubit.dart';
-import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
-import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
-import 'package:taajer/modules/authentication/complete_registration/thank_you_page.dart';
+import 'package:taajer/modules/cart_screen/cart_cubit/cart_cubit.dart';
+import 'package:taajer/modules/cart_screen/cart_cubit/cart_states.dart';
+import 'package:taajer/modules/cart_screen/save_location.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
-class LocationSelection1 extends StatelessWidget {
+class DeliveryLocation extends StatelessWidget {
   var searchLocationController = TextEditingController();
 
-  LocationSelection1({Key? key}) : super(key: key);
+  DeliveryLocation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AuthenticationCubit cubit = AuthenticationCubit.get(context);
-    return BlocConsumer<AuthenticationCubit, AuthenticationStates>(
+    CartCubit cubit = CartCubit.get(context);
+    return BlocConsumer<CartCubit, CartStates>(
       listener: (BuildContext context, state) {},
       builder: (BuildContext context, Object? state) => Scaffold(
         appBar: AppBar(
@@ -31,7 +31,7 @@ class LocationSelection1 extends StatelessWidget {
               Icons.arrow_back_sharp,
             ),
           ),
-          title: const Text('Business Location'),
+          title: const Text('Delivery Location'),
         ),
         body: Column(
           children: [
@@ -107,18 +107,20 @@ class LocationSelection1 extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: 16.w, vertical: 25.h),
                     child: DefaultButton(
-                      height: 45.h,
-                      width: 343.w,
-                      label: 'Next',
+                      height: 48.h,
+                      width: 344.w,
+                      label: 'Confirm',
                       onPressed: () {
                         navigateTo(
-                          widget: ThankYouPage(),
+                          widget: SaveLocation(),
                           context: context,
                         );
                       },
                       labelColor: Colors.white,
                       labelWeight: FontWeight.w600,
                       backGroundColor: figmaPrimaryBlue,
+                      labelFontHeight: 1.25,
+                      labelFontSize: 18.sp,
                     ),
                   ),
                 ],

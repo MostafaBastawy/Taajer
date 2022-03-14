@@ -60,7 +60,7 @@ class BusinessItemBuilder extends StatelessWidget {
               Text(
                 businessDescription!,
                 style: TextStyle(
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w600,
                   fontSize: 12.sp,
                   color: figmaOurBlack,
                   letterSpacing: -0.165,

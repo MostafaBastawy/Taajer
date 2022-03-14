@@ -4,13 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_cubit.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_states.dart';
-import 'package:taajer/shared/components/browse_screen/product_details_carousel_slider/product_details_carouse_slider_builder.dart';
+import 'package:taajer/shared/components/browse_screen/product_details_carousel_slider/testtest.dart';
 import 'package:taajer/shared/components/browse_screen/specification_builder_item.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   bool description = true;
   bool specifications = false;
+
   ProductDetailsScreen({Key? key}) : super(key: key);
 
   @override
@@ -56,7 +57,8 @@ class ProductDetailsScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      const ProductDetailsCarouselSliderBuilder(),
+                      //ProductDetailsCarouselSliderBuilder(),
+                      TestTest(),
                       SizedBox(height: 26.h),
                       Row(
                         children: [

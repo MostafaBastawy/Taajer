@@ -151,7 +151,7 @@ class RegisterScreen2 extends StatelessWidget {
                                     hintText: 'Business Name',
                                     hintStyle: TextStyle(
                                       fontSize: 16.sp,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -186,7 +186,7 @@ class RegisterScreen2 extends StatelessWidget {
                                 businessNameValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -252,7 +252,7 @@ class RegisterScreen2 extends StatelessWidget {
                                     hintText: 'Email Address',
                                     hintStyle: TextStyle(
                                       fontSize: 16.sp,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -287,7 +287,7 @@ class RegisterScreen2 extends StatelessWidget {
                                 emailValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -326,7 +326,7 @@ class RegisterScreen2 extends StatelessWidget {
                                       style: TextStyle(
                                         color: const Color(0xFFCACDD5),
                                         fontSize: 16.sp,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w600,
                                         fontStyle: FontStyle.normal,
                                         height: 1.6,
                                       ),
@@ -447,7 +447,7 @@ class RegisterScreen2 extends StatelessWidget {
                                           hintText: 'Phone Number',
                                           hintStyle: TextStyle(
                                             fontSize: 16.sp,
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                             color: const Color(0xFFB2B7C2),
                                             fontStyle: FontStyle.normal,
                                             height: 1.6,
@@ -485,7 +485,7 @@ class RegisterScreen2 extends StatelessWidget {
                                 phoneValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -543,7 +543,7 @@ class RegisterScreen2 extends StatelessWidget {
                                     hintText: 'Password',
                                     hintStyle: TextStyle(
                                       fontSize: 16.sp,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -590,7 +590,7 @@ class RegisterScreen2 extends StatelessWidget {
                                 passwordValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -656,7 +656,7 @@ class RegisterScreen2 extends StatelessWidget {
                                     hintText: 'Confirm Password',
                                     hintStyle: TextStyle(
                                       fontSize: 16.sp,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -703,7 +703,7 @@ class RegisterScreen2 extends StatelessWidget {
                                 confirmPasswordValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),

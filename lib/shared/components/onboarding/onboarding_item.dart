@@ -40,7 +40,7 @@ class OnBoardingItemBuilder extends StatelessWidget {
         Text(
           onBoardingModel!.onBoardingText!,
           style: TextStyle(
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w600,
             fontSize: 15.sp,
             color: figmaShade2,
             letterSpacing: -0.165,

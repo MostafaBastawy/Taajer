@@ -45,7 +45,7 @@ class LanguageCountryItemBuilder extends StatelessWidget {
             text!,
             style: TextStyle(
               fontSize: 18.sp,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
               color: figmaOurBlack,
               fontFamily: fontFamily,
               fontStyle: FontStyle.normal,

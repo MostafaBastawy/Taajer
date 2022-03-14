@@ -83,7 +83,7 @@ class ForgetPassword2 extends StatelessWidget {
                 style: TextStyle(
                   color: figmaOurBlack,
                   fontSize: 15.sp,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w600,
                   letterSpacing: -0.165,
                 ),
               ),
@@ -139,7 +139,7 @@ class ForgetPassword2 extends StatelessWidget {
                     'Didn’t receive OTP?',
                     style: TextStyle(
                       color: const Color(0xFFA4A5A9),
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       fontSize: 15.sp,
                       letterSpacing: -0.165,
                       fontStyle: FontStyle.normal,

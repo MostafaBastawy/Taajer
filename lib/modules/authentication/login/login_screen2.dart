@@ -88,7 +88,7 @@ class LoginScreen2 extends StatelessWidget {
                   style: TextStyle(
                     color: const Color(0xFF76777E),
                     fontSize: 15.sp,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w600,
                     letterSpacing: -0.165,
                     fontStyle: FontStyle.normal,
                   ),
@@ -140,7 +140,7 @@ class LoginScreen2 extends StatelessWidget {
                             hintText: 'Password',
                             hintStyle: TextStyle(
                               fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                               color: const Color(0xFFB2B7C2),
                               fontStyle: FontStyle.normal,
                               height: 1.6,
@@ -187,7 +187,7 @@ class LoginScreen2 extends StatelessWidget {
                         passwordValidationMessage,
                         style: TextStyle(
                           color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w600,
                           fontStyle: FontStyle.normal,
                           fontSize: 12.sp,
                         ),
@@ -210,7 +210,7 @@ class LoginScreen2 extends StatelessWidget {
                         style: TextStyle(
                           color: figmaPrimaryBlue,
                           fontSize: 13.sp,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                           letterSpacing: -0.165,
                         ),
                       ),

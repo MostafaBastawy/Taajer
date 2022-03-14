@@ -54,7 +54,7 @@ class OrdersScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: const Color(0xFF525C76),
                                 fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w600,
                                 fontStyle: FontStyle.normal,
                               ),
                             ),
@@ -83,7 +83,7 @@ class OrdersScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: const Color(0xFF525C76),
                                 fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w600,
                                 fontStyle: FontStyle.normal,
                               ),
                             ),
@@ -112,7 +112,7 @@ class OrdersScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: const Color(0xFF525C76),
                                 fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w600,
                                 fontStyle: FontStyle.normal,
                               ),
                             ),

@@ -49,7 +49,7 @@ class ThankYouPage extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 15.sp,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal,
                   color: figmaShade1,
                   height: 1.3,
@@ -68,7 +68,7 @@ class ThankYouPage extends StatelessWidget {
                 );
               },
               labelColor: Colors.white,
-              labelWeight: FontWeight.w400,
+              labelWeight: FontWeight.w600,
               backGroundColor: figmaPrimaryBlue,
             ),
           ],

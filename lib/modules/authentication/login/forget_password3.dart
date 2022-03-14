@@ -83,7 +83,7 @@ class ForgetPassword3 extends StatelessWidget {
                   style: TextStyle(
                     color: const Color(0xFF76777E),
                     fontSize: 15.sp,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w600,
                     letterSpacing: -0.165,
                     fontStyle: FontStyle.normal,
                   ),
@@ -138,7 +138,7 @@ class ForgetPassword3 extends StatelessWidget {
                             hintText: 'New Password',
                             hintStyle: TextStyle(
                               fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                               color: const Color(0xFFB2B7C2),
                               height: 1.6,
                             ),
@@ -185,7 +185,7 @@ class ForgetPassword3 extends StatelessWidget {
                         newPasswordValidationMessage,
                         style: TextStyle(
                           color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w600,
                           fontStyle: FontStyle.normal,
                           fontSize: 12.sp,
                         ),
@@ -251,7 +251,7 @@ class ForgetPassword3 extends StatelessWidget {
                             hintText: 'Confirm New Password',
                             hintStyle: TextStyle(
                               fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                               color: const Color(0xFFB2B7C2),
                               height: 1.6,
                             ),
@@ -298,7 +298,7 @@ class ForgetPassword3 extends StatelessWidget {
                         confirmNewPasswordValidationMessage,
                         style: TextStyle(
                           color: const Color(0xFFFF3236),
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w600,
                           fontStyle: FontStyle.normal,
                           fontSize: 12.sp,
                         ),

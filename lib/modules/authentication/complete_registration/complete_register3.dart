@@ -110,7 +110,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                     hintText: 'Business Name',
                                     hintStyle: TextStyle(
                                       fontSize: 15.sp,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -143,7 +143,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                 businessNameValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -190,7 +190,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                     hintText: 'Certificate Number',
                                     hintStyle: TextStyle(
                                       fontSize: 15.sp,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -223,7 +223,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                 certificateNumberValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -269,7 +269,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                     hintText: 'City',
                                     hintStyle: TextStyle(
                                       fontSize: 15.sp,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w600,
                                       color: const Color(0xFFB2B7C2),
                                       fontStyle: FontStyle.normal,
                                       height: 1.6,
@@ -302,7 +302,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                 cityValidationMessage,
                                 style: TextStyle(
                                   color: const Color(0xFFFF3236),
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w600,
                                   fontStyle: FontStyle.normal,
                                   fontSize: 12.sp,
                                 ),
@@ -353,7 +353,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                               hintText: 'Block',
                                               hintStyle: TextStyle(
                                                 fontSize: 15.sp,
-                                                fontWeight: FontWeight.w400,
+                                                fontWeight: FontWeight.w600,
                                                 color: const Color(0xFFB2B7C2),
                                                 fontStyle: FontStyle.normal,
                                                 height: 1.6,
@@ -387,7 +387,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                           blockValidationMessage,
                                           style: TextStyle(
                                             color: const Color(0xFFFF3236),
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w600,
                                             fontStyle: FontStyle.normal,
                                             fontSize: 12.sp,
                                           ),
@@ -439,7 +439,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                               hintText: 'Road',
                                               hintStyle: TextStyle(
                                                 fontSize: 15.sp,
-                                                fontWeight: FontWeight.w400,
+                                                fontWeight: FontWeight.w600,
                                                 color: const Color(0xFFB2B7C2),
                                                 fontStyle: FontStyle.normal,
                                                 height: 1.6,
@@ -473,7 +473,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                           roadValidationMessage,
                                           style: TextStyle(
                                             color: const Color(0xFFFF3236),
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w600,
                                             fontStyle: FontStyle.normal,
                                             fontSize: 12.sp,
                                           ),
@@ -530,7 +530,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                               hintText: 'Building',
                                               hintStyle: TextStyle(
                                                 fontSize: 15.sp,
-                                                fontWeight: FontWeight.w400,
+                                                fontWeight: FontWeight.w600,
                                                 color: const Color(0xFFB2B7C2),
                                                 fontStyle: FontStyle.normal,
                                                 height: 1.6,
@@ -564,7 +564,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                           buildingValidationMessage,
                                           style: TextStyle(
                                             color: const Color(0xFFFF3236),
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w600,
                                             fontStyle: FontStyle.normal,
                                             fontSize: 12.sp,
                                           ),
@@ -619,7 +619,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                               hintText: 'Shop/Office',
                                               hintStyle: TextStyle(
                                                 fontSize: 15.sp,
-                                                fontWeight: FontWeight.w400,
+                                                fontWeight: FontWeight.w600,
                                                 color: const Color(0xFFB2B7C2),
                                                 fontStyle: FontStyle.normal,
                                                 height: 1.6,
@@ -654,7 +654,7 @@ class CompleteRegistration3 extends StatelessWidget {
                                           shopOrOfficeValidationMessage,
                                           style: TextStyle(
                                             color: const Color(0xFFFF3236),
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w600,
                                             fontStyle: FontStyle.normal,
                                             fontSize: 12.sp,
                                           ),
@@ -680,7 +680,7 @@ class CompleteRegistration3 extends StatelessWidget {
                     }
                   },
                   labelColor: Colors.white,
-                  labelWeight: FontWeight.w400,
+                  labelWeight: FontWeight.w600,
                   backGroundColor: figmaPrimaryBlue,
                 ),
               ],

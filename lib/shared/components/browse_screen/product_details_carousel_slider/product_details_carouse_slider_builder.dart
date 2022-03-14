@@ -6,11 +6,12 @@ import 'package:taajer/shared/components/browse_screen/product_details_carousel_
 import 'package:taajer/shared/styles/colors.dart';
 
 class ProductDetailsCarouselSliderBuilder extends StatelessWidget {
-  const ProductDetailsCarouselSliderBuilder({Key? key}) : super(key: key);
+  ProductDetailsCarouselSliderBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     CarouselSliderController sliderController = CarouselSliderController();
+
     return Container(
       width: 341.w,
       height: 298.h,

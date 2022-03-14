@@ -109,7 +109,7 @@ class RegisterScreen3 extends StatelessWidget {
                         'Please enter the 4 digit code sent to',
                         style: TextStyle(
                           color: figmaOurBlack,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w600,
                           fontSize: 15.sp,
                           letterSpacing: -0.165,
                           fontStyle: FontStyle.normal,
@@ -170,7 +170,7 @@ class RegisterScreen3 extends StatelessWidget {
                             'Didn’t receive OTP?',
                             style: TextStyle(
                               color: const Color(0xFFA4A5A9),
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w600,
                               fontSize: 15.sp,
                               letterSpacing: -0.165,
                               fontStyle: FontStyle.normal,

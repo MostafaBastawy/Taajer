@@ -122,7 +122,7 @@ class CompleteRegistration2 extends StatelessWidget {
                       'BHD 10,000',
                       style: TextStyle(
                         color: figmaOurBlack,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                         fontSize: 14.sp,
                         fontStyle: FontStyle.normal,
                       ),
@@ -132,7 +132,7 @@ class CompleteRegistration2 extends StatelessWidget {
                       'BHD 100,000+',
                       style: TextStyle(
                         color: figmaOurBlack,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                         fontSize: 14.sp,
                         fontStyle: FontStyle.normal,
                       ),
@@ -186,7 +186,7 @@ class CompleteRegistration2 extends StatelessWidget {
                         'Commercial Certificate',
                         style: TextStyle(
                           color: figmaPrimaryBlue,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w600,
                           fontSize: 14.sp,
                           fontStyle: FontStyle.normal,
                         ),
@@ -195,7 +195,7 @@ class CompleteRegistration2 extends StatelessWidget {
                         'PDF format only',
                         style: TextStyle(
                           color: figmaGrey1,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w600,
                           fontSize: 13.sp,
                           fontStyle: FontStyle.normal,
                         ),
@@ -227,7 +227,7 @@ class CompleteRegistration2 extends StatelessWidget {
                               'Browse Files',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 12.sp,
                                 fontStyle: FontStyle.normal,
                               ),
@@ -244,7 +244,7 @@ class CompleteRegistration2 extends StatelessWidget {
                 'By clicking “Submit” you agree to our',
                 style: TextStyle(
                   color: figmaOurBlack,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w600,
                   fontSize: 15.sp,
                   fontStyle: FontStyle.normal,
                 ),
@@ -257,7 +257,7 @@ class CompleteRegistration2 extends StatelessWidget {
                     'Terms and Conditions',
                     style: TextStyle(
                       color: figmaPrimaryBlue,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       fontSize: 15.sp,
                       fontStyle: FontStyle.normal,
                     ),
@@ -266,7 +266,7 @@ class CompleteRegistration2 extends StatelessWidget {
                     ' and ',
                     style: TextStyle(
                       color: figmaOurBlack,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       fontSize: 15.sp,
                       fontStyle: FontStyle.normal,
                     ),
@@ -275,7 +275,7 @@ class CompleteRegistration2 extends StatelessWidget {
                     'Privacy Policy',
                     style: TextStyle(
                       color: figmaPrimaryBlue,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       fontSize: 15.sp,
                       fontStyle: FontStyle.normal,
                     ),
@@ -284,7 +284,7 @@ class CompleteRegistration2 extends StatelessWidget {
                     '.',
                     style: TextStyle(
                       color: figmaOurBlack,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                       fontSize: 15.sp,
                       fontStyle: FontStyle.normal,
                     ),
@@ -303,7 +303,7 @@ class CompleteRegistration2 extends StatelessWidget {
                   );
                 },
                 labelColor: Colors.white,
-                labelWeight: FontWeight.w400,
+                labelWeight: FontWeight.w600,
                 backGroundColor: figmaPrimaryBlue,
               ),
             ],

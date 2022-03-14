@@ -44,7 +44,7 @@ class ProductBuilder extends StatelessWidget {
               'Delicio',
               style: TextStyle(
                 color: const Color(0xFF76777E),
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w600,
                 fontSize: 10.sp,
                 fontStyle: FontStyle.normal,
                 letterSpacing: -0.165,
@@ -81,7 +81,7 @@ class ProductBuilder extends StatelessWidget {
                   '4.5',
                   style: TextStyle(
                     color: figmaOurBlack,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w600,
                     fontSize: 10.sp,
                     fontStyle: FontStyle.normal,
                     letterSpacing: -0.165,

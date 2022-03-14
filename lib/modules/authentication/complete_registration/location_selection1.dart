@@ -65,7 +65,7 @@ class LocationSelection1 extends StatelessWidget {
                           hintText: 'Search Location',
                           hintStyle: TextStyle(
                             fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             color: const Color(0xFFB2B7C2),
                             fontStyle: FontStyle.normal,
                             height: 1.6,
@@ -110,7 +110,7 @@ class LocationSelection1 extends StatelessWidget {
                         );
                       },
                       labelColor: Colors.white,
-                      labelWeight: FontWeight.w400,
+                      labelWeight: FontWeight.w600,
                       backGroundColor: figmaPrimaryBlue,
                     ),
                   ),

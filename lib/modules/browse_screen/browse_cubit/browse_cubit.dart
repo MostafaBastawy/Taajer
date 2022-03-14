@@ -5,4 +5,5 @@ class BrowseCubit extends Cubit<BrowseStates> {
   BrowseCubit() : super(BrowseInitialState());
 
   static BrowseCubit get(context) => BlocProvider.of(context);
+  double? currentIndex;
 }

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_cubit.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_states.dart';
 import 'package:taajer/shared/components/browse_screen/clicked_topbrand_builder_item.dart';
+import 'package:taajer/shared/components/tools/product_builder.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
 class TopBrandScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class TopBrandScreen extends StatelessWidget {
   String? activeTextFormField;
   Color searchBorder = const Color(0xFFE2E4E8);
   List<BoxShadow> searchShadowBorder = [];
+  String viewType = 'Grid';
   TopBrandScreen({Key? key}) : super(key: key);
 
   @override
@@ -129,11 +131,14 @@ class TopBrandScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 9.w),
-                      SvgPicture.asset(
-                        'assets/images/browse_screen/sort-icon.svg',
-                        width: 24.w,
-                        height: 24.h,
-                        color: const Color(0xFF3A4662),
+                      GestureDetector(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          'assets/images/browse_screen/sort-icon.svg',
+                          width: 24.w,
+                          height: 24.h,
+                          color: const Color(0xFF3A4662),
+                        ),
                       ),
                       SizedBox(width: 9.w),
                       Text(
@@ -146,11 +151,14 @@ class TopBrandScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 9.w),
-                      SvgPicture.asset(
-                        'assets/images/browse_screen/filter-icon.svg',
-                        width: 24.w,
-                        height: 24.h,
-                        color: const Color(0xFF3A4662),
+                      GestureDetector(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          'assets/images/browse_screen/filter-icon.svg',
+                          width: 24.w,
+                          height: 24.h,
+                          color: const Color(0xFF3A4662),
+                        ),
                       ),
                       SizedBox(width: 9.w),
                       Text(
@@ -163,18 +171,34 @@ class TopBrandScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 9.w),
-                      SvgPicture.asset(
-                        'assets/images/browse_screen/grid-view-icon.svg',
-                        width: 24.w,
-                        height: 24.h,
-                        color: const Color(0xFF3A4662),
+                      GestureDetector(
+                        onTap: () {
+                          viewType = 'Grid';
+                          cubit.emit(BrowseStateRefreshState());
+                        },
+                        child: SvgPicture.asset(
+                          'assets/images/browse_screen/grid-view-icon.svg',
+                          width: 24.w,
+                          height: 24.h,
+                          color: viewType == 'Grid'
+                              ? figmaPrimaryBlue
+                              : const Color(0xFF3A4662),
+                        ),
                       ),
                       SizedBox(width: 9.w),
-                      SvgPicture.asset(
-                        'assets/images/browse_screen/list-view-icon.svg',
-                        width: 24.w,
-                        height: 24.h,
-                        color: const Color(0xFF3A4662),
+                      GestureDetector(
+                        onTap: () {
+                          viewType = 'List';
+                          cubit.emit(BrowseStateRefreshState());
+                        },
+                        child: SvgPicture.asset(
+                          'assets/images/browse_screen/list-view-icon.svg',
+                          width: 24.w,
+                          height: 24.h,
+                          color: viewType == 'List'
+                              ? figmaPrimaryBlue
+                              : const Color(0xFF3A4662),
+                        ),
                       ),
                       SizedBox(width: 5.w),
                     ],
@@ -190,15 +214,32 @@ class TopBrandScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.h),
-                  ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) =>
-                        const ClickedTopBrandBuilderItem(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(height: 17.h),
-                    itemCount: 10,
-                  ),
+                  if (viewType == 'Grid')
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 27.w),
+                      child: GridView.count(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 12.0,
+                        crossAxisSpacing: 21.0,
+                        childAspectRatio: 1 / 1.08,
+                        children: List.generate(
+                          10,
+                          (index) => const ProductBuilder(),
+                        ),
+                      ),
+                    ),
+                  if (viewType == 'List')
+                    ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (BuildContext context, int index) =>
+                          const ClickedTopBrandBuilderItem(),
+                      separatorBuilder: (BuildContext context, int index) =>
+                          SizedBox(height: 17.h),
+                      itemCount: 10,
+                    ),
                   SizedBox(height: 10.h),
                 ],
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/modules/browse_screen/categories_screen.dart';
 import 'package:taajer/modules/browse_screen/clicked_top_brand_screen.dart';
 import 'package:taajer/shared/components/browse_screen/carousel_slider/carousel_slider_builder.dart';
 import 'package:taajer/shared/components/browse_screen/complete_registration_bottom_sheet.dart';
@@ -146,11 +147,19 @@ class BrowseScreen extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  SvgPicture.asset(
-                    'assets/images/arrow-right-icon.svg',
-                    width: 24.w,
-                    height: 24.h,
-                    color: figmaPrimaryBlue,
+                  GestureDetector(
+                    onTap: () {
+                      navigateTo(
+                        widget: CategoriesScreen(),
+                        context: context,
+                      );
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/arrow-right-icon.svg',
+                      width: 24.w,
+                      height: 24.h,
+                      color: figmaPrimaryBlue,
+                    ),
                   ),
                 ],
               ),

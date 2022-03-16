@@ -35,7 +35,7 @@ class ProductBuilder extends StatelessWidget {
                   width: 129.w,
                   height: 11.h,
                   child: Text(
-                    'Pure Cocoa Powderr',
+                    'Pure Cocoa Powder',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(

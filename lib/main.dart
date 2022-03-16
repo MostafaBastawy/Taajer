@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => AppCubit()..getUserCurrentLatLang(),
+          create: (BuildContext context) => AppCubit(),
         ),
         BlocProvider(
           create: (BuildContext context) => AuthenticationCubit(),
@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          // home: LanguageCountryScreen(),
+          // home: HomeLayout(),
           home: CacheHelper.getData(key: accessTokenKey) == null
               ? LanguageCountryScreen()
               : const HomeLayout(),

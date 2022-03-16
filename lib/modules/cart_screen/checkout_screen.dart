@@ -214,7 +214,7 @@ class CheckoutScreen extends StatelessWidget {
                               ),
                               SizedBox(width: 23.47.w),
                               Text(
-                                'Debit Card',
+                                'Benefit',
                                 style: TextStyle(
                                   color: const Color(0xFF494A53),
                                   fontStyle: FontStyle.normal,

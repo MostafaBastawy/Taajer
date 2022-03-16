@@ -32,30 +32,19 @@ class AppCubit extends Cubit<AppStates> {
   LocationPermission? permission;
   void getUserCurrentLatLang() async {
     emit(AppGetUserCurrentLatLangLoadingState());
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled!) {
-      return Future.error('Location services are disabled.');
-    }
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
     }
     if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
+      permission = await Geolocator.requestPermission();
     }
-    if (permission == LocationPermission.always ||
-        permission == LocationPermission.whileInUse) {
-      currentUserLatLng = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-      );
 
-      getUserFormattedAddress();
-      emit(AppGetUserCurrentLatLangSuccessState());
-    }
+    currentUserLatLng = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    getUserFormattedAddress();
+
+    emit(AppGetUserCurrentLatLangSuccessState());
   }
 
   List<Placemark> userFormattedAddress = [];

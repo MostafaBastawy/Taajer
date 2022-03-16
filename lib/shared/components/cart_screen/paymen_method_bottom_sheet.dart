@@ -49,7 +49,7 @@ class PaymentMethodBottomSheet extends StatelessWidget {
                   'assets/images/cart_screen/payment-debit-icon.svg',
               paymentMethodIconWidth: 13.95.w,
               paymentMethodIconHeight: 20.h,
-              paymentMethodName: 'Debit Card',
+              paymentMethodName: 'Benefit',
             ),
             SizedBox(height: 26.h),
             Container(
@@ -63,7 +63,7 @@ class PaymentMethodBottomSheet extends StatelessWidget {
                   'assets/images/cart_screen/payment-credit-icon.svg',
               paymentMethodIconWidth: 20.w,
               paymentMethodIconHeight: 20.h,
-              paymentMethodName: 'Credit Card',
+              paymentMethodName: 'Debit & Credit Card',
             ),
             SizedBox(height: 26.h),
             Container(

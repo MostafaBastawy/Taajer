@@ -215,19 +215,17 @@ class TopBrandScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10.h),
                   if (viewType == 'Grid')
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 27.w),
-                      child: GridView.count(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 12.0,
-                        crossAxisSpacing: 21.0,
-                        childAspectRatio: 1 / 1.08,
-                        children: List.generate(
-                          10,
-                          (index) => const ProductBuilder(),
-                        ),
+                    GridView.count(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 12.0,
+                      crossAxisSpacing: 21.0,
+                      childAspectRatio: 1 / 1.08,
+                      children: List.generate(
+                        10,
+                        (index) => const ProductBuilder(),
                       ),
                     ),
                   if (viewType == 'List')

@@ -275,7 +275,7 @@ class BrowseScreen extends StatelessWidget {
             ),
             SizedBox(height: 14.h),
             SizedBox(
-              height: 107.h,
+              height: 128.h,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -292,6 +292,7 @@ class BrowseScreen extends StatelessWidget {
                 itemCount: 10,
               ),
             ),
+            SizedBox(height: 34.h),
           ],
         ),
       ),

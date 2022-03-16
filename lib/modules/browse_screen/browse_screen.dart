@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/modules/browse_screen/clicked_top_brand_screen.dart';
 import 'package:taajer/shared/components/browse_screen/carousel_slider/carousel_slider_builder.dart';
 import 'package:taajer/shared/components/browse_screen/complete_registration_bottom_sheet.dart';
 import 'package:taajer/shared/components/browse_screen/product_details_screen.dart';
+import 'package:taajer/shared/components/browse_screen/shortcut_builder_item.dart';
 import 'package:taajer/shared/components/tools/brand_builder.dart';
 import 'package:taajer/shared/components/tools/category_builder.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
@@ -20,37 +22,40 @@ class BrowseScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 4.h),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              width: 343.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1.0,
-                  color: const Color(0xFFE2E4E8),
-                  style: BorderStyle.solid,
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                width: 343.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 1.0,
+                    color: const Color(0xFFE2E4E8),
+                    style: BorderStyle.solid,
+                  ),
+                  borderRadius: BorderRadius.circular(6.r),
                 ),
-                borderRadius: BorderRadius.circular(6.r),
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    'What are you looking for?',
-                    style: TextStyle(
-                      color: const Color(0xFFB2B7C2),
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
+                child: Row(
+                  children: [
+                    Text(
+                      'What are you looking for?',
+                      style: TextStyle(
+                        color: const Color(0xFFB2B7C2),
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  const Spacer(),
-                  SvgPicture.asset(
-                    'assets/images/search-icon.svg',
-                    height: 15.h,
-                    width: 15.w,
-                    color: figmaOurBlack,
-                  ),
-                ],
+                    const Spacer(),
+                    SvgPicture.asset(
+                      'assets/images/search-icon.svg',
+                      height: 15.h,
+                      width: 15.w,
+                      color: figmaOurBlack,
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 12.h),
@@ -98,7 +103,34 @@ class BrowseScreen extends StatelessWidget {
             ),
             SizedBox(height: 12.h),
             const CarouselSliderBuilder(),
-            SizedBox(height: 21.h),
+            SizedBox(height: 25.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ShortcutBuilderItem(
+                  shortcutImage:
+                      'assets/images/browse_screen/discount-icon.svg',
+                  shortcutName: 'Offers',
+                ),
+                SizedBox(width: 30.w),
+                ShortcutBuilderItem(
+                  shortcutImage: 'assets/images/browse_screen/new-icon.svg',
+                  shortcutName: 'New',
+                ),
+                SizedBox(width: 30.w),
+                ShortcutBuilderItem(
+                  shortcutImage:
+                      'assets/images/browse_screen/best-seller-icon.svg',
+                  shortcutName: 'Bestsellers',
+                ),
+                SizedBox(width: 30.w),
+                ShortcutBuilderItem(
+                  shortcutImage: 'assets/images/browse_screen/reorder-icon.svg',
+                  shortcutName: 'Reorder',
+                ),
+              ],
+            ),
+            SizedBox(height: 39.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Row(
@@ -282,7 +314,14 @@ class BrowseScreen extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) => Row(
                   children: [
                     if (index == 0) SizedBox(width: 16.w),
-                    const BrandBuilder(),
+                    GestureDetector(
+                        onTap: () {
+                          navigateTo(
+                            widget: TopBrandScreen(),
+                            context: context,
+                          );
+                        },
+                        child: const BrandBuilder()),
                     if (index == 9) SizedBox(width: 16.w),
                   ],
                 ),

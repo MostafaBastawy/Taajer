@@ -37,13 +37,23 @@ class ProfileScreenBuilderItem extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Text(
-            itemValue!,
-            style: TextStyle(
-              color: const Color(0xFFB2B7C2),
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.normal,
-              fontSize: 14.sp,
+          SizedBox(
+            width: 107.w,
+            height: 22.h,
+            child: Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: Text(
+                itemValue!,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: const Color(0xFFB2B7C2),
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 14.sp,
+                  height: 1.60,
+                ),
+              ),
             ),
           ),
         ],

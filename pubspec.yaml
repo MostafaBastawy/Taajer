@@ -53,11 +53,9 @@ dependencies:
   dotted_border: ^2.0.0+2
   syncfusion_flutter_sliders: ^19.4.55
   google_maps_flutter: ^2.1.2
-  permission_handler: ^9.2.0
   carousel_slider: ^4.0.0
   dots_indicator: ^2.1.0
   flutter_native_splash: ^2.1.1
-  multi_select_flutter: ^4.1.2
 
 dev_dependencies:
   flutter_test:

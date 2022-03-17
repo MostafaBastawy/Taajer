@@ -162,7 +162,8 @@ class TopBrandScreen extends StatelessWidget {
                       SizedBox(width: 9.w),
                       GestureDetector(
                         onTap: () {
-                          showBottomSheet(
+                          showModalBottomSheet(
+                            isScrollControlled: true,
                             backgroundColor: Colors.white.withOpacity(0.0),
                             context: context,
                             builder: (BuildContext context) =>

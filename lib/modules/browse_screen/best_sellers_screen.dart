@@ -2,25 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taajer/modules/wishlist_screen/wishlist_cubit/wishlist_cubit.dart';
-import 'package:taajer/modules/wishlist_screen/wishlist_cubit/wishlist_states.dart';
+import 'package:taajer/modules/browse_screen/browse_cubit/browse_cubit.dart';
+import 'package:taajer/modules/browse_screen/browse_cubit/browse_states.dart';
 import 'package:taajer/shared/components/browse_screen/clicked_topbrand_builder_item.dart';
 import 'package:taajer/shared/components/browse_screen/filter_bottom_sheet.dart';
 import 'package:taajer/shared/components/browse_screen/sort_bottom_sheet.dart';
 import 'package:taajer/shared/components/tools/product_builder.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
-class WishlistScreen extends StatelessWidget {
+class BestSellersScreen extends StatelessWidget {
   String viewType = 'Grid';
-  WishlistScreen({Key? key}) : super(key: key);
+  BestSellersScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    WishlistCubit cubit = WishlistCubit.get(context);
-    return BlocBuilder<WishlistCubit, WishlistStates>(
+    BrowseCubit cubit = BrowseCubit.get(context);
+    return BlocBuilder<BrowseCubit, BrowseStates>(
       builder: (BuildContext context, state) => Scaffold(
         appBar: AppBar(
-          title: const Text('Wishlist'),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: SvgPicture.asset(
+              'assets/images/arrow-left-icon.svg',
+              height: 32.h,
+              width: 32.w,
+            ),
+          ),
+          title: const Text('Bestsellers'),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
@@ -99,7 +109,7 @@ class WishlistScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         viewType = 'Grid';
-                        cubit.emit(WishlistStatesRefreshState());
+                        cubit.emit(BrowseStateRefreshState());
                       },
                       child: SvgPicture.asset(
                         'assets/images/browse_screen/grid-view-icon.svg',
@@ -114,7 +124,7 @@ class WishlistScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         viewType = 'List';
-                        cubit.emit(WishlistStatesRefreshState());
+                        cubit.emit(BrowseStateRefreshState());
                       },
                       child: SvgPicture.asset(
                         'assets/images/browse_screen/list-view-icon.svg',

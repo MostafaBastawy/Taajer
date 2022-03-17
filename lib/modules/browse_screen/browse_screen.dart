@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taajer/modules/browse_screen/best_sellers_screen.dart';
 import 'package:taajer/modules/browse_screen/categories_screen.dart';
 import 'package:taajer/modules/browse_screen/clicked_top_brand_screen.dart';
+import 'package:taajer/modules/browse_screen/new_products_screen.dart';
+import 'package:taajer/modules/browse_screen/offers_screen.dart';
 import 'package:taajer/shared/components/browse_screen/carousel_slider/carousel_slider_builder.dart';
 import 'package:taajer/shared/components/browse_screen/complete_registration_bottom_sheet.dart';
 import 'package:taajer/shared/components/browse_screen/product_details_screen.dart';
@@ -108,26 +111,45 @@ class BrowseScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ShortcutBuilderItem(
-                  shortcutImage:
-                      'assets/images/browse_screen/discount-icon.svg',
-                  shortcutName: 'Offers',
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(widget: OffersScreen(), context: context);
+                  },
+                  child: ShortcutBuilderItem(
+                    shortcutImage:
+                        'assets/images/browse_screen/discount-icon.svg',
+                    shortcutName: 'Offers',
+                  ),
                 ),
                 SizedBox(width: 30.w),
-                ShortcutBuilderItem(
-                  shortcutImage: 'assets/images/browse_screen/new-icon.svg',
-                  shortcutName: 'New',
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(widget: NewProductsScreen(), context: context);
+                  },
+                  child: ShortcutBuilderItem(
+                    shortcutImage: 'assets/images/browse_screen/new-icon.svg',
+                    shortcutName: 'New',
+                  ),
                 ),
                 SizedBox(width: 30.w),
-                ShortcutBuilderItem(
-                  shortcutImage:
-                      'assets/images/browse_screen/best-seller-icon.svg',
-                  shortcutName: 'Bestsellers',
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(widget: BestSellersScreen(), context: context);
+                  },
+                  child: ShortcutBuilderItem(
+                    shortcutImage:
+                        'assets/images/browse_screen/best-seller-icon.svg',
+                    shortcutName: 'Bestsellers',
+                  ),
                 ),
                 SizedBox(width: 30.w),
-                ShortcutBuilderItem(
-                  shortcutImage: 'assets/images/browse_screen/reorder-icon.svg',
-                  shortcutName: 'Reorder',
+                GestureDetector(
+                  onTap: () {},
+                  child: ShortcutBuilderItem(
+                    shortcutImage:
+                        'assets/images/browse_screen/reorder-icon.svg',
+                    shortcutName: 'Reorder',
+                  ),
                 ),
               ],
             ),

@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/app_cubit/bloc_observer.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
@@ -22,12 +21,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await CacheHelper.init();
-  await [
-    Permission.location,
-    Permission.locationAlways,
-    Permission.locationWhenInUse,
-    Permission.notification,
-  ].request();
+
   BlocOverrides.runZoned(
     () {
       runApp(

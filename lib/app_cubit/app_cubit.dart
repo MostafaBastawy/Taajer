@@ -7,6 +7,7 @@ import 'package:taajer/modules/browse_screen/browse_screen.dart';
 import 'package:taajer/modules/cart_screen/cart_screen.dart';
 import 'package:taajer/modules/orders_screen/orders_screen.dart';
 import 'package:taajer/modules/profile_screen/profile_screen.dart';
+import 'package:taajer/modules/wishlist_screen/wishlist_screen.dart';
 
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState());
@@ -16,7 +17,7 @@ class AppCubit extends Cubit<AppStates> {
 
   List<Widget> screens = [
     const BrowseScreen(),
-    const BrowseScreen(),
+    WishlistScreen(),
     OrdersScreen(),
     const CartScreen(),
     const ProfileScreen(),

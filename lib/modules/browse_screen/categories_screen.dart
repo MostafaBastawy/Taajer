@@ -102,6 +102,7 @@ class CategoriesScreen extends StatelessWidget {
                       showModalBottomSheet(
                         backgroundColor: Colors.white.withOpacity(0.0),
                         context: context,
+                        isScrollControlled: true,
                         builder: (BuildContext context) => FilterBottomSheet(),
                       );
                     },
@@ -196,3 +197,16 @@ class CategoriesScreen extends StatelessWidget {
     );
   }
 }
+// appBar: AppBar(
+// leading: IconButton(
+// onPressed: () {
+// Navigator.pop(context);
+// },
+// icon: SvgPicture.asset(
+// 'assets/images/arrow-left-icon.svg',
+// height: 32.h,
+// width: 32.w,
+// ),
+// ),
+// title: const Text('Categories'),
+// ),

@@ -294,7 +294,7 @@ class BrowseScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         showBottomSheet(
-                          backgroundColor: Colors.white.withOpacity(0.0),
+                          backgroundColor: Colors.black.withOpacity(0.7),
                           context: context,
                           builder: (BuildContext context) =>
                               const CompleteRegistrationBottomSheet(),

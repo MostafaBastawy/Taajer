@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:taajer/app_cubit/app_cubit.dart';
 import 'package:taajer/modules/cart_screen/cart_cubit/cart_cubit.dart';
 import 'package:taajer/modules/cart_screen/cart_cubit/cart_states.dart';
 import 'package:taajer/modules/cart_screen/select_address.dart';
@@ -75,15 +74,9 @@ class CheckoutScreen extends StatelessWidget {
                                 myLocationEnabled: false,
                                 onMapCreated:
                                     (GoogleMapController controller) {},
-                                initialCameraPosition: CameraPosition(
+                                initialCameraPosition: const CameraPosition(
                                   target: LatLng(
-                                    AppCubit.get(context)
-                                        .currentUserLatLng!
-                                        .latitude,
-                                    AppCubit.get(context)
-                                        .currentUserLatLng!
-                                        .longitude,
-                                  ),
+                                      30.04581406602633, 31.235976228319483),
                                   zoom: 14.47460,
                                 ),
                               ),

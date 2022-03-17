@@ -240,56 +240,70 @@ class CompleteRegistration2 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 32.h),
-              Text(
-                'By clicking “Submit” you agree to our',
-                style: TextStyle(
-                  color: figmaOurBlack,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.sp,
-                  fontStyle: FontStyle.normal,
+              Align(
+                alignment: AlignmentDirectional.topStart,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Wrap(
+                    runSpacing: 5,
+                    children: [
+                      Text(
+                        'By clicking “Submit” you agree to our',
+                        style: TextStyle(
+                          color: figmaOurBlack,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Text(
+                        ' Terms ',
+                        style: TextStyle(
+                          color: figmaPrimaryBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Text(
+                        'and Conditions',
+                        style: TextStyle(
+                          color: figmaPrimaryBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Text(
+                        ' and ',
+                        style: TextStyle(
+                          color: figmaOurBlack,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Text(
+                        'Privacy Policy',
+                        style: TextStyle(
+                          color: figmaPrimaryBlue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Text(
+                        '.',
+                        style: TextStyle(
+                          color: figmaOurBlack,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 3.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Terms and Conditions',
-                    style: TextStyle(
-                      color: figmaPrimaryBlue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.sp,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Text(
-                    ' and ',
-                    style: TextStyle(
-                      color: figmaOurBlack,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.sp,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Text(
-                    'Privacy Policy',
-                    style: TextStyle(
-                      color: figmaPrimaryBlue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.sp,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Text(
-                    '.',
-                    style: TextStyle(
-                      color: figmaOurBlack,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.sp,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                ],
               ),
               const Spacer(),
               DefaultButton(

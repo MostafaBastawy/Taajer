@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/register/language_country_selection.dart';
+import 'package:taajer/modules/profile_screen/my_addresses_screen.dart';
+import 'package:taajer/modules/profile_screen/profile_change_password_screen.dart';
+import 'package:taajer/shared/components/profile_screen/change_country_bottom_sheet.dart';
+import 'package:taajer/shared/components/profile_screen/change_language_bottom_sheet.dart';
 import 'package:taajer/shared/components/profile_screen/profile_screen_item.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/components/tools/shared_preference/keys.dart';
@@ -36,34 +40,68 @@ class ProfileScreen extends StatelessWidget {
               itemValue: 'Business Name',
             ),
             SizedBox(height: 10.h),
-            ProfileScreenBuilderItem(
-              itemIcon: 'assets/images/profile_screen/saved-address-icon.svg',
-              itemTitle: 'Saved Addresses',
-              itemValue: '4',
+            GestureDetector(
+              onTap: () {
+                navigateTo(widget: MyAddressesScreen(), context: context);
+              },
+              child: ProfileScreenBuilderItem(
+                itemIcon: 'assets/images/profile_screen/saved-address-icon.svg',
+                itemTitle: 'Saved Addresses',
+                itemValue: '4',
+              ),
             ),
             SizedBox(height: 10.h),
-            ProfileScreenBuilderItem(
-              itemIcon: 'assets/images/profile_screen/wallet-icon.svg',
-              itemTitle: 'Wallet',
-              itemValue: 'BHD 0.000',
+            GestureDetector(
+              onTap: () {},
+              child: ProfileScreenBuilderItem(
+                itemIcon: 'assets/images/profile_screen/wallet-icon.svg',
+                itemTitle: 'Wallet',
+                itemValue: 'BHD 0.000',
+              ),
             ),
             SizedBox(height: 10.h),
-            ProfileScreenBuilderItem(
-              itemIcon: 'assets/images/profile_screen/change-password-icon.svg',
-              itemTitle: 'Change Password',
-              itemValue: '********',
+            GestureDetector(
+              onTap: () {
+                navigateTo(
+                    widget: ProfileChangePasswordScreen(), context: context);
+              },
+              child: ProfileScreenBuilderItem(
+                itemIcon:
+                    'assets/images/profile_screen/change-password-icon.svg',
+                itemTitle: 'Change Password',
+                itemValue: '********',
+              ),
             ),
             SizedBox(height: 10.h),
-            ProfileScreenBuilderItem(
-              itemIcon: 'assets/images/profile_screen/language-icon.svg',
-              itemTitle: 'Language',
-              itemValue: 'English',
+            GestureDetector(
+              onTap: () {
+                showBottomSheet(
+                    elevation: 0.0,
+                    backgroundColor: Colors.white.withOpacity(0.0),
+                    context: context,
+                    builder: (BuildContext context) =>
+                        ChangeLanguageBottomSheet());
+              },
+              child: ProfileScreenBuilderItem(
+                itemIcon: 'assets/images/profile_screen/language-icon.svg',
+                itemTitle: 'Language',
+                itemValue: 'English',
+              ),
             ),
             SizedBox(height: 10.h),
-            ProfileScreenBuilderItem(
-              itemIcon: 'assets/images/profile_screen/country-icon.svg',
-              itemTitle: 'Country',
-              itemValue: 'Bahrain',
+            GestureDetector(
+              onTap: () {
+                showBottomSheet(
+                  backgroundColor: Colors.white.withOpacity(0.0),
+                  context: context,
+                  builder: (BuildContext context) => ChangeCountryBottomSheet(),
+                );
+              },
+              child: ProfileScreenBuilderItem(
+                itemIcon: 'assets/images/profile_screen/country-icon.svg',
+                itemTitle: 'Country',
+                itemValue: 'Bahrain',
+              ),
             ),
             SizedBox(height: 20.h),
             Container(

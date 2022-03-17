@@ -119,7 +119,7 @@ class CompleteRegistration2 extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'BHD 10,000',
+                      'BHD 10.000',
                       style: TextStyle(
                         color: figmaOurBlack,
                         fontWeight: FontWeight.w600,
@@ -129,7 +129,7 @@ class CompleteRegistration2 extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      'BHD 100,000+',
+                      'BHD 100.000+',
                       style: TextStyle(
                         color: figmaOurBlack,
                         fontWeight: FontWeight.w600,

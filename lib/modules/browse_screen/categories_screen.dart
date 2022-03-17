@@ -5,7 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_cubit.dart';
 import 'package:taajer/modules/browse_screen/browse_cubit/browse_states.dart';
 import 'package:taajer/shared/components/browse_screen/clicked_topbrand_builder_item.dart';
+import 'package:taajer/shared/components/browse_screen/filter_bottom_sheet.dart';
 import 'package:taajer/shared/components/browse_screen/row_category_builder_item.dart';
+import 'package:taajer/shared/components/browse_screen/sort_bottom_sheet.dart';
 import 'package:taajer/shared/components/tools/product_builder.dart';
 import 'package:taajer/shared/styles/colors.dart';
 
@@ -69,7 +71,14 @@ class CategoriesScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 9.w),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        backgroundColor: Colors.white.withOpacity(0.0),
+                        context: context,
+                        builder: (BuildContext context) =>
+                            const SortBottomSheet(),
+                      );
+                    },
                     child: SvgPicture.asset(
                       'assets/images/browse_screen/sort-icon.svg',
                       width: 24.w,
@@ -89,7 +98,13 @@ class CategoriesScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 9.w),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        backgroundColor: Colors.white.withOpacity(0.0),
+                        context: context,
+                        builder: (BuildContext context) => FilterBottomSheet(),
+                      );
+                    },
                     child: SvgPicture.asset(
                       'assets/images/browse_screen/filter-icon.svg',
                       width: 24.w,

@@ -77,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
               onTap: () {
                 showBottomSheet(
                     elevation: 0.0,
-                    backgroundColor: Colors.white.withOpacity(0.0),
+                    backgroundColor: Colors.black.withOpacity(0.7),
                     context: context,
                     builder: (BuildContext context) =>
                         ChangeLanguageBottomSheet());
@@ -92,7 +92,8 @@ class ProfileScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 showBottomSheet(
-                  backgroundColor: Colors.white.withOpacity(0.0),
+                  elevation: 0.0,
+                  backgroundColor: Colors.black.withOpacity(0.7),
                   context: context,
                   builder: (BuildContext context) => ChangeCountryBottomSheet(),
                 );

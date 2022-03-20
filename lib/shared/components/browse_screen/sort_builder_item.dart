@@ -15,7 +15,7 @@ class SortBuilderItem extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'Price (lowest first)',
+          sortName!,
           style: TextStyle(
             color: figmaOurBlack,
             fontStyle: FontStyle.normal,

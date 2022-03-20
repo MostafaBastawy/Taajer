@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taajer/modules/orders_screen/order_details_screen.dart';
 import 'package:taajer/modules/orders_screen/orders_cubit/orders_cubit.dart';
 import 'package:taajer/modules/orders_screen/orders_cubit/orders_states.dart';
 import 'package:taajer/shared/components/orders_screen/my_orders_item.dart';
+import 'package:taajer/shared/components/tools/navigator.dart';
 
 class OrdersScreen extends StatelessWidget {
   bool delivered = true;
@@ -124,7 +126,12 @@ class OrdersScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.h),
-              MyOrdersBuilderItem(),
+              GestureDetector(
+                onTap: () {
+                  navigateTo(widget: OrderDetailsScreen(), context: context);
+                },
+                child: MyOrdersBuilderItem(),
+              ),
             ],
           ),
         ),

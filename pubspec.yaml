@@ -88,6 +88,7 @@ flutter:
     - assets/images/orders_screen/
     - assets/images/cart_screen/
     - assets/images/browse_screen/
+    - assets/images/policies_screen/
     - assets/translations/
   #   - images/a_dot_ham.jpeg
 

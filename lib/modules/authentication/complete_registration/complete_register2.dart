@@ -8,6 +8,8 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_cubit.dart';
 import 'package:taajer/modules/authentication/authentication_cubit/authentication_states.dart';
 import 'package:taajer/modules/authentication/complete_registration/complete_register3.dart';
+import 'package:taajer/modules/policies/privacy_policy_screen.dart';
+import 'package:taajer/modules/policies/terms_and_conditions_screen.dart';
 import 'package:taajer/shared/components/tools/default_button.dart';
 import 'package:taajer/shared/components/tools/navigator.dart';
 import 'package:taajer/shared/styles/colors.dart';
@@ -256,22 +258,36 @@ class CompleteRegistration2 extends StatelessWidget {
                           fontStyle: FontStyle.normal,
                         ),
                       ),
-                      Text(
-                        ' Terms ',
-                        style: TextStyle(
-                          color: figmaPrimaryBlue,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15.sp,
-                          fontStyle: FontStyle.normal,
+                      GestureDetector(
+                        onTap: () {
+                          navigateTo(
+                              widget: TermsAndConditionsScreen(),
+                              context: context);
+                        },
+                        child: Text(
+                          ' Terms ',
+                          style: TextStyle(
+                            color: figmaPrimaryBlue,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15.sp,
+                            fontStyle: FontStyle.normal,
+                          ),
                         ),
                       ),
-                      Text(
-                        'and Conditions',
-                        style: TextStyle(
-                          color: figmaPrimaryBlue,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15.sp,
-                          fontStyle: FontStyle.normal,
+                      GestureDetector(
+                        onTap: () {
+                          navigateTo(
+                              widget: TermsAndConditionsScreen(),
+                              context: context);
+                        },
+                        child: Text(
+                          'and Conditions',
+                          style: TextStyle(
+                            color: figmaPrimaryBlue,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15.sp,
+                            fontStyle: FontStyle.normal,
+                          ),
                         ),
                       ),
                       Text(
@@ -283,13 +299,19 @@ class CompleteRegistration2 extends StatelessWidget {
                           fontStyle: FontStyle.normal,
                         ),
                       ),
-                      Text(
-                        'Privacy Policy',
-                        style: TextStyle(
-                          color: figmaPrimaryBlue,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15.sp,
-                          fontStyle: FontStyle.normal,
+                      GestureDetector(
+                        onTap: () {
+                          navigateTo(
+                              widget: PrivacyPolicyScreen(), context: context);
+                        },
+                        child: Text(
+                          'Privacy Policy',
+                          style: TextStyle(
+                            color: figmaPrimaryBlue,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15.sp,
+                            fontStyle: FontStyle.normal,
+                          ),
                         ),
                       ),
                       Text(

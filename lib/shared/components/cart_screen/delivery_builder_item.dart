@@ -45,7 +45,7 @@ class DeliveryBuilderItem extends StatelessWidget {
                   Text(
                     'Tomorrow',
                     style: TextStyle(
-                      color: const Color(0xFF494A53),
+                      color: figmaShade1,
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w600,
                       fontSize: 14.sp,

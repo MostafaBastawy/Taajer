@@ -169,7 +169,7 @@ class CartBuilderItem extends StatelessWidget {
                                   '20',
                                   style: TextStyle(
                                     fontStyle: FontStyle.normal,
-                                    color: const Color(0xFF494A53),
+                                    color: figmaShade1,
                                     fontSize: 12.sp,
                                     fontWeight: FontWeight.w600,
                                   ),

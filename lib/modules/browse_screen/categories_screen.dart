@@ -63,7 +63,7 @@ class CategoriesScreen extends StatelessWidget {
                   Text(
                     'Sort',
                     style: TextStyle(
-                      color: const Color(0xFF494A53),
+                      color: figmaShade1,
                       fontStyle: FontStyle.normal,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
@@ -90,7 +90,7 @@ class CategoriesScreen extends StatelessWidget {
                   Text(
                     'Filter',
                     style: TextStyle(
-                      color: const Color(0xFF494A53),
+                      color: figmaShade1,
                       fontStyle: FontStyle.normal,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
@@ -117,7 +117,7 @@ class CategoriesScreen extends StatelessWidget {
                   Text(
                     'View',
                     style: TextStyle(
-                      color: const Color(0xFF494A53),
+                      color: figmaShade1,
                       fontStyle: FontStyle.normal,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w600,

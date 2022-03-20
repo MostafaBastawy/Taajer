@@ -35,7 +35,7 @@ class BrandBuilder extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                color: const Color(0xFF494A53),
+                color: figmaShade1,
                 fontSize: 11.sp,
                 height: 1.11,
                 letterSpacing: -0.165,

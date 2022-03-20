@@ -16,12 +16,12 @@ class PaymentMethodBottomSheet extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 18.w),
         width: 375.w,
-        //height: 500.h,
+        height: 400.h,
         color: Colors.white,
         child: Column(
           children: [
             Text(
-              'Payment Method',
+              'Choose Payment Method',
               style: TextStyle(
                 color: figmaOurBlack,
                 fontStyle: FontStyle.normal,
@@ -37,13 +37,13 @@ class PaymentMethodBottomSheet extends StatelessWidget {
               paymentMethodIconHeight: 12.8.h,
               paymentMethodName: 'Apple Pay',
             ),
-            SizedBox(height: 27.h),
+            SizedBox(height: 20.h),
             Container(
               width: 343.w,
               height: 1.h,
               color: const Color(0xFFE2E4E8),
             ),
-            SizedBox(height: 28.h),
+            SizedBox(height: 20.h),
             PaymentMethodBuilderItem(
               paymentMethodIcon:
                   'assets/images/cart_screen/payment-debit-icon.svg',
@@ -51,13 +51,13 @@ class PaymentMethodBottomSheet extends StatelessWidget {
               paymentMethodIconHeight: 20.h,
               paymentMethodName: 'Benefit',
             ),
-            SizedBox(height: 26.h),
+            SizedBox(height: 20.h),
             Container(
               width: 343.w,
               height: 1.h,
               color: const Color(0xFFE2E4E8),
             ),
-            SizedBox(height: 28.h),
+            SizedBox(height: 20.h),
             PaymentMethodBuilderItem(
               paymentMethodIcon:
                   'assets/images/cart_screen/payment-credit-icon.svg',
@@ -65,13 +65,13 @@ class PaymentMethodBottomSheet extends StatelessWidget {
               paymentMethodIconHeight: 20.h,
               paymentMethodName: 'Debit & Credit Card',
             ),
-            SizedBox(height: 26.h),
+            SizedBox(height: 20.h),
             Container(
               width: 343.w,
               height: 1.h,
               color: const Color(0xFFE2E4E8),
             ),
-            SizedBox(height: 28.h),
+            SizedBox(height: 20.h),
             PaymentMethodBuilderItem(
               paymentMethodIcon:
                   'assets/images/cart_screen/payment-wallet-icon.svg',

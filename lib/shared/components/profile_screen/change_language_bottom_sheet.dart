@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taajer/shared/components/authentication/register/language_country_item.dart';
+import 'package:taajer/shared/components/profile_screen/profile_language_country_item.dart';
 import 'package:taajer/shared/styles/colors.dart';
 import 'package:taajer/translations/locale_keys.g.dart';
 
@@ -39,13 +39,13 @@ class ChangeLanguageBottomSheet extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 38.h),
-                LanguageCountryItemBuilder(
+                ProfileLanguageCountryItemBuilder(
                   image: 'assets/images/us-english.png',
                   text: 'English',
                   borderColor: figmaGrey1,
                 ),
                 SizedBox(height: 10.h),
-                LanguageCountryItemBuilder(
+                ProfileLanguageCountryItemBuilder(
                   image: 'assets/images/ksa-arabic.png',
                   text: LocaleKeys.languageCountryScreenArabic.tr(),
                   fontFamily: 'Cairo',

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taajer/modules/authentication/register/language_country_selection.dart';
 import 'package:taajer/modules/profile_screen/my_addresses_screen.dart';
 import 'package:taajer/modules/profile_screen/profile_change_password_screen.dart';
+import 'package:taajer/modules/profile_screen/wallet_screen.dart';
 import 'package:taajer/shared/components/profile_screen/change_country_bottom_sheet.dart';
 import 'package:taajer/shared/components/profile_screen/change_language_bottom_sheet.dart';
 import 'package:taajer/shared/components/profile_screen/profile_screen_item.dart';
@@ -52,7 +53,9 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                navigateTo(widget: WalletScreen(), context: context);
+              },
               child: ProfileScreenBuilderItem(
                 itemIcon: 'assets/images/profile_screen/wallet-icon.svg',
                 itemTitle: 'Wallet',

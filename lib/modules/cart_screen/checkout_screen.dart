@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:taajer/modules/cart_screen/cart_cubit/cart_cubit.dart';
 import 'package:taajer/modules/cart_screen/cart_cubit/cart_states.dart';
 import 'package:taajer/modules/cart_screen/select_address.dart';
+import 'package:taajer/shared/components/cart_screen/change_payment_method_builder.dart';
 import 'package:taajer/shared/components/cart_screen/choose_delivery_day_bottom_sheet.dart';
 import 'package:taajer/shared/components/cart_screen/delivery_builder_item.dart';
 import 'package:taajer/shared/components/cart_screen/paymen_method_bottom_sheet.dart';
@@ -101,7 +102,7 @@ class CheckoutScreen extends StatelessWidget {
                                         Text(
                                           'Starbucks (Adliya)',
                                           style: TextStyle(
-                                            color: const Color(0xFF494A53),
+                                            color: figmaShade1,
                                             fontStyle: FontStyle.normal,
                                             fontWeight: FontWeight.w600,
                                             fontSize: 14.sp,
@@ -188,46 +189,7 @@ class CheckoutScreen extends StatelessWidget {
                               builder: (BuildContext context) =>
                                   const PaymentMethodBottomSheet());
                         },
-                        child: Container(
-                          width: 343.w,
-                          height: 48.h,
-                          padding: EdgeInsets.symmetric(horizontal: 18.w),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(6.r),
-                            border: Border.all(
-                                color: const Color(0xFFE2E4E8), width: 1.0),
-                          ),
-                          child: Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/images/cart_screen/payment-debit-icon.svg',
-                                width: 19.53.w,
-                                height: 28.h,
-                              ),
-                              SizedBox(width: 23.47.w),
-                              Text(
-                                'Benefit',
-                                style: TextStyle(
-                                  color: const Color(0xFF494A53),
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14.sp,
-                                ),
-                              ),
-                              const Spacer(),
-                              Text(
-                                'Change',
-                                style: TextStyle(
-                                  color: figmaPrimaryBlue,
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12.sp,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        child: ChangePaymentMethodBuilder(),
                       ),
                       SizedBox(height: 37.h),
                       Text(

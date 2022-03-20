@@ -6,6 +6,7 @@ import 'package:taajer/shared/styles/colors.dart';
 class ContactUsBuilderItem extends StatelessWidget {
   String? icon;
   String? value;
+
   ContactUsBuilderItem({
     Key? key,
     required this.icon,
@@ -15,6 +16,7 @@ class ContactUsBuilderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SvgPicture.asset(
           icon!,
